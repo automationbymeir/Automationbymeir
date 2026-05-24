@@ -1,1658 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business Analytics System — Automations by Meir</title>
   <link rel="icon" type="image/svg+xml" href="/logos/favicon.svg">
-    <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "sxaf839npz");
-    </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Business Analytics System - Enterprise Automation Showcase</title>
-    <style>
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;300;400;500;600;700&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Macan:wght@300;400;500;600;700;800;900&display=swap');
-        
-        :root {
-            --primary: #00e676;
-            --primary-dark: #00c853;
-            --secondary: #448aff;
-            --dark: #0a0a0a;
-            --dark-secondary: #1a1a1a;
-            --dark-tertiary: #2a2a2a;
-            --light: #ffffff;
-            --text-primary: #e0e0e0;
-            --text-secondary: #9e9e9e;
-            --border-color: #333;
-            --accent: #fbbc04;
-            --danger: #ea4335;
-            --success: #00e676;
-            --fiverr-green: #1DBF73;
-            --fiverr-dark: #222325;
-            --fiverr-gray: #62646A;
-            --fiverr-light-gray: #DADBDD;
-            --fiverr-bg: #f7f7f7;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-secondary) 100%);
-            color: var(--text-primary);
-            min-height: 100vh;
-            padding: 2rem;
-        }
-
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(10, 10, 10, 0.8);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(51, 51, 51, 0.5);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            text-decoration: none;
-            color: var(--light);
-            font-size: 1.25rem;
-            font-weight: 600;
-            font-family: 'IBM Plex Sans', sans-serif;
-        }
-
-        .logo img {
-            height:40px; width:auto;
-            border-radius: 8px;
-            padding: 8px;
-        }
-
-        .logo .by-meir {
-            color: var(--text-secondary);
-            font-weight: 400;
-            font-size: 0.8em;
-        }
-
-        .nav-toggle {
-            display: none;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
-            align-items: center;
-        }
-
-        .nav-links li {
-            position: relative;
-        }
-
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: var(--light);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .dropdown {
-            display: none;
-            flex-direction: column;
-            position: absolute;
-            top: calc(100% + 0.5rem);
-            left: 0;
-            background: var(--dark-secondary);
-            border: 1px solid var(--border-color);
-            padding: 0.5rem 0;
-            border-radius: 8px;
-            min-width: 200px;
-            z-index: 10;
-        }
-
-        .dropdown a {
-            padding: 0.5rem 1.5rem;
-            white-space: nowrap;
-        }
-
-        .dropdown a:hover {
-            background: var(--dark-tertiary);
-        }
-
-        .dropdown.show {
-            display: flex;
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                right: 0;
-                background: var(--dark);
-                flex-direction: column;
-                padding: 1rem 2rem;
-                border: 1px solid var(--border-color);
-            }
-
-            .nav-links.show {
-                display: flex;
-            }
-
-            .nav-links .dropdown {
-                position: static;
-                background: transparent;
-                border: none;
-                padding: 0;
-            }
-
-            .dropdown a {
-                padding: 0.5rem 0;
-            }
-
-            .nav-toggle {
-                display: block;
-                background: none;
-                border: none;
-                color: var(--light);
-                font-size: 1.5rem;
-                cursor: pointer;
-            }
-        }
-
-        .showcase-container {
-            max-width: 1800px;
-            margin: 0 auto;
-        }
-
-        /* Header Section */
-        .header {
-            text-align: center;
-            margin-bottom: 4rem;
-            position: relative;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: rgba(29, 191, 115, 0.1);
-            border: 1px solid var(--fiverr-green);
-            border-radius: 50px;
-            color: var(--fiverr-green);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-
-        h1 {
-            font-size: 3rem;
-            font-weight: 200;
-            background: linear-gradient(135deg, var(--fiverr-green) 0%, var(--primary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-        }
-
-        .subtitle {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-        }
-
-        /* System Architecture Section */
-        .system-architecture {
-            background: var(--dark-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 3rem;
-            margin-bottom: 3rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .system-architecture::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--fiverr-green) 0%, var(--primary) 100%);
-        }
-
-        .architecture-title {
-            font-size: 2rem;
-            color: var(--light);
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        /* Process Flow */
-        .process-flow {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .process-step {
-            background: var(--dark);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 1.5rem;
-            position: relative;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .process-step:hover {
-            transform: translateY(-5px);
-            border-color: var(--fiverr-green);
-            box-shadow: 0 10px 30px rgba(29, 191, 115, 0.2);
-        }
-
-        .step-number {
-            position: absolute;
-            top: -15px;
-            left: 20px;
-            background: var(--fiverr-green);
-            color: var(--dark);
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-        }
-
-        .step-icon {
-            width: 48px;
-            height: 48px;
-            margin-bottom: 1rem;
-        }
-
-        .step-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--light);
-            margin-bottom: 0.5rem;
-        }
-
-        .step-description {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        /* Central Processing Engine */
-        .central-processor {
-            background: var(--dark);
-            border: 2px solid var(--fiverr-green);
-            border-radius: 16px;
-            padding: 2rem;
-            margin: 3rem 0;
-            position: relative;
-            box-shadow: 0 0 40px rgba(29, 191, 115, 0.3);
-        }
-
-        .processor-title {
-            text-align: center;
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--fiverr-green);
-            margin-bottom: 1.5rem;
-        }
-
-        .processor-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-        }
-
-        .feature-chip {
-            background: var(--dark-secondary);
-            border: 1px solid var(--border-color);
-            padding: 0.75rem;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            text-align: center;
-            transition: all 0.2s ease;
-        }
-
-        .feature-chip:hover {
-            border-color: var(--fiverr-green);
-            background: rgba(29, 191, 115, 0.1);
-        }
-
-        /* Workflow Section */
-        .workflow-section {
-            margin: 4rem 0;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            color: var(--light);
-            margin-bottom: 0.5rem;
-        }
-
-        .section-subtitle {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-        }
-
-        .workflow-step {
-            background: var(--dark-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 2rem;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .workflow-step-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .workflow-number {
-            background: linear-gradient(135deg, var(--fiverr-green) 0%, var(--primary) 100%);
-            color: var(--dark);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .workflow-title {
-            font-size: 1.5rem;
-            color: var(--light);
-            font-weight: 600;
-        }
-
-        /* Dashboard Mock */
-        .dashboard-mock {
-            background: var(--fiverr-bg);
-            border-radius: 8px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-            overflow: hidden;
-        }
-
-        .dashboard-header {
-            background: white;
-            padding: 1.5rem 2rem;
-            border-bottom: 1px solid var(--fiverr-light-gray);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .fiverr-logo {
-            height: 30px;
-        }
-
-        .dashboard-actions {
-            display: flex;
-            gap: 0.75rem;
-            align-items: center;
-        }
-
-        .dash-btn {
-            padding: 8px 16px;
-            border: 1px solid var(--fiverr-dark);
-            border-radius: 8px;
-            background: transparent;
-            color: var(--fiverr-dark);
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .dash-btn:hover {
-            background: var(--fiverr-bg);
-        }
-
-        .dash-btn.primary {
-            background: var(--fiverr-dark);
-            color: white;
-        }
-
-        .dash-btn.primary:hover {
-            background: #404145;
-        }
-
-        .dashboard-content {
-            display: grid;
-            grid-template-columns: 250px 1fr;
-            gap: 1.5rem;
-            padding: 1.5rem;
-        }
-
-        /* Sidebar Stats */
-        .sidebar-stats {
-            background: white;
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-
-        .sidebar-title {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: var(--fiverr-dark);
-        }
-
-        .stat-card {
-            padding: 1rem;
-            background: var(--fiverr-bg);
-            border-radius: 8px;
-            margin-bottom: 1rem;
-        }
-
-        .stat-value {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--fiverr-dark);
-        }
-
-        .stat-label {
-            font-size: 14px;
-            color: var(--fiverr-gray);
-        }
-
-        /* Users Table */
-        .table-container {
-            background: white;
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-
-        .table-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .table-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--fiverr-dark);
-        }
-
-        .filter-controls {
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .filter-btn {
-            padding: 6px 12px;
-            border: 1px solid var(--fiverr-light-gray);
-            border-radius: 20px;
-            background: white;
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--fiverr-gray);
-            cursor: pointer;
-        }
-
-        .filter-btn.active {
-            background: var(--fiverr-dark);
-            color: white;
-            border-color: var(--fiverr-dark);
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th {
-            background: var(--fiverr-bg);
-            padding: 12px;
-            text-align: left;
-            font-weight: 600;
-            color: var(--fiverr-gray);
-            font-size: 14px;
-            border-bottom: 1px solid var(--fiverr-light-gray);
-        }
-
-        td {
-            padding: 12px;
-            border-bottom: 1px solid var(--fiverr-light-gray);
-            font-size: 14px;
-            color: var(--fiverr-dark);
-        }
-
-        .tier-badge {
-            display: inline-block;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        .tier-diamond {
-            background: #E3F2FD;
-            color: #1976D2;
-        }
-
-        .tier-platinum {
-            background: #F3E5F5;
-            color: #7B1FA2;
-        }
-
-        /* Report Preview */
-        .report-preview {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-            overflow: hidden;
-            margin-top: 2rem;
-        }
-
-        .report-header {
-            background: white;
-            padding: 1.5rem 2rem;
-            border-bottom: 1px solid var(--fiverr-light-gray);
-        }
-
-        .report-title {
-            font-size: 32px;
-            font-weight: 700;
-            color: var(--fiverr-dark);
-            margin-bottom: 1rem;
-        }
-
-        .report-content {
-            padding: 2rem;
-        }
-
-        .kpi-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .kpi-card {
-            background: white;
-            border: 1px solid var(--fiverr-light-gray);
-            border-radius: 12px;
-            padding: 1.5rem;
-        }
-
-        .kpi-label {
-            color: var(--fiverr-gray);
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .kpi-value {
-            font-size: 28px;
-            font-weight: 700;
-            color: #404145;
-        }
-
-        /* Features Grid */
-        .features-showcase {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .feature-card {
-            background: var(--dark);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 1.5rem;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .feature-card:hover {
-            border-color: var(--fiverr-green);
-            background: rgba(29, 191, 115, 0.05);
-            transform: translateY(-5px);
-        }
-
-        .feature-icon {
-            width: 40px;
-            height: 40px;
-            margin: 0 auto 1rem;
-        }
-
-        .feature-name {
-            font-weight: 600;
-            color: var(--light);
-            margin-bottom: 0.5rem;
-        }
-
-        .feature-detail {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-
-        /* Stats Bar */
-        .stats-bar {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 2rem;
-            margin-top: 3rem;
-            padding: 2rem;
-            background: var(--dark);
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .big-stat-value {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--fiverr-green);
-            margin-bottom: 0.25rem;
-        }
-
-        .big-stat-label {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-
-        /* Chart Mock */
-        .chart-mock {
-            background: white;
-            border: 1px solid var(--fiverr-light-gray);
-            border-radius: 12px;
-            padding: 2rem;
-            margin: 1.5rem 0;
-        }
-
-        .chart-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--fiverr-dark);
-            margin-bottom: 1rem;
-        }
-
-        .chart-placeholder {
-            height: 300px;
-            background: linear-gradient(135deg, rgba(73,162,165,0.1) 0%, rgba(114,131,200,0.1) 100%);
-            border-radius: 8px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .chart-bars {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: space-around;
-            align-items: flex-end;
-            padding: 20px 20px 40px;
-            height: 100%;
-        }
-
-        .chart-bar {
-            width: 40px;
-            background: linear-gradient(to top, #49A2A5, #7283C8);
-            border-radius: 4px 4px 0 0;
-            animation: growBar 2s ease-out infinite;
-            position: relative;
-        }
-
-        .bar-label {
-            position: absolute;
-            top: -24px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--fiverr-dark);
-        }
-
-        .bar-month {
-            position: absolute;
-            bottom: -24px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 14px;
-            color: var(--fiverr-gray);
-        }
-
-        @keyframes growBar {
-            0%, 100% { height: 50%; }
-            50% { height: 80%; }
-        }
-
-        /* Info Cards */
-        .info-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .info-card {
-            background: var(--dark);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 1.5rem;
-        }
-
-        .info-title {
-            color: var(--fiverr-green);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        .info-text {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-
-        /* Responsive */
-        @media (max-width: 1200px) {
-            .dashboard-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .kpi-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 2rem; }
-            .process-flow { grid-template-columns: 1fr; }
-            .features-showcase { grid-template-columns: 1fr; }
-            .dashboard-header { flex-direction: column; }
-            .dashboard-actions { width: 100%; justify-content: space-between; }
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .workflow-step {
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        /* Glow Effect */
-        .glow {
-            animation: glow 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes glow {
-            from { box-shadow: 0 0 20px rgba(29, 191, 115, 0.5); }
-            to { box-shadow: 0 0 30px rgba(29, 191, 115, 0.8), 0 0 40px rgba(29, 191, 115, 0.4); }
-        }
-
-        /* Subscribe Button */
-        .subscribe-btn {
-            padding: 10px 16px;
-            border: none;
-            border-radius: 8px;
-            background: var(--fiverr-dark);
-            color: white;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.2s;
-        }
-
-        .subscribe-btn:hover {
-            background: #404145;
-            transform: translateY(-2px);
-        }
-        #header {
-            position: fixed;
-            width: 100%;
-            z-index: 100;
-            padding: 40px;
-            padding-top: 40px;
-            display: flex;
-            justify-content: space-between;
-            box-sizing: border-box;
-            align-items: flex-start;
-            top: 0;
-            left: 0;
-            height: 0;
-        }
-        #header img{
-            height:40px; width:auto;
-            backdrop-filter: blur(20px);
-            padding: 8px 8px;
-            border-radius: 8px;
-        }
-        nav {
-            display:flex;
-            flex-direction:row;
-            align-items:flex-start;
-            padding:24px;
-            gap:40px;
-            right:32px;
-            top:32px;
-            background:rgba(13,13,14,0.6);
-            backdrop-filter:blur(16px);
-            border-radius:8px;
-            z-index:100;
-            width:25%;
-            min-width:min-content;
-            flex-wrap:wrap;
-            align-content:flex-start;
-            justify-content:flex-start;
-            box-sizing:border-box;
-        }
-        nav ul{
-            list-style:none;
-            padding:0;
-            margin:0;
-            display:flex;
-            flex-direction:column;
-            gap:8px;
-            width:40%;
-            flex-grow:1;
-        }
-        a{
-            color:white;
-            text-decoration:none;
-        }
-        nav a{
-            font-size:20px;
-            position:relative;
-            display:inline-block;
-            font-weight:300;
-            white-space:nowrap;
-        }
-        nav a:after{
-            content:'';
-            display:block;
-            width:100%;
-            height:1px;
-            background:#fff;
-            transform:scaleX(0);
-            transition:transform 0.2s ease-in-out;
-            transform-origin:100% 0 ;
-        }
-        nav a:hover:after{
-            transform:scaleX(1);
-            transform-origin:0 0 ;
-        }
-        nav ul li { position: relative; }
-        nav ul li .dropdown-menu {
-            display:none;
-            background:rgba(13,13,14,0.9);
-            border-radius:8px;
-            padding:8px 0;
-            list-style:none;
-            margin:0;
-            min-width:220px;
-        }
-        nav ul li:hover .dropdown-menu { display:block; }
-        nav ul li .dropdown-menu a {
-            padding:8px 16px;
-            display:block;
-            font-size:16px;
-            white-space:nowrap;
-        }
-        nav ul li .dropdown-menu a:hover { background:none; }
-
-#hero {
-  margin-top: 40px !important; 
-  padding-top: 80px !important; 
-}
-
-
-#about .horizontal {
-  display: flex;
-  gap: 40px;
-  align-items: flex-start;
-}
-
-#about .horizontal > div:first-child {
-  flex: 1;
-}
-
-#about .stats {
-  width: auto;
-  max-width: 300px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin-top: 8px !important;
-  flex-shrink: 0;
-}
-
-#about .stats div {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 12px 20px;
-  background: #333333;
-  border-radius: 8px;
-  font-size: clamp(1.5rem, 4vw, 2rem);
-  white-space: nowrap;
-  gap: 8px;
-  flex: 1;
-  min-width: 120px;
-  margin-top: 0;
-  box-sizing: border-box;
-}
-
-#about .stats div p {
-  margin: 0;
-  font-size: clamp(0.875rem, 2vw, 1rem);
-  color: #C4C4C4;
-}
-
-
-.service-card, .project-card, .stat-card, .service-item, .dropped-service {
-  overflow: hidden;
-  word-wrap: break-word;
-  box-sizing: border-box;
-}
-
-.service-card *, .project-card *, .stat-card *, .service-item *, .dropped-service * {
-  max-width: 100%;
-  overflow-wrap: break-word;
-}
-
-
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 30px;
-  height: 21px;
-  cursor: pointer;
-  background: rgba(13, 13, 14, 0.6);
-  backdrop-filter: blur(16px);
-  padding: 12px;
-  border-radius: 8px;
-  gap: 3px;
-  position: fixed;
-  top: 40px;
-  right: 40px;
-  z-index: 101;
-}
-
-.menu-toggle span {
-  display: block;
-  height: 2px;
-  background: #fff;
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
-
-.menu-toggle.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.menu-toggle.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.menu-toggle.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
-
-
-@media (max-width: 768px) {
-  #header {
-    padding: 16px !important;
-    background: rgba(30, 30, 33, 0.95);
-    backdrop-filter: blur(10px);
-  }
-
-  #header img {
-    height: 32px !important;
-    padding: 6px !important;
-  }
-
-  .menu-toggle {
-    display: flex !important;
-    top: 16px;
-    right: 16px;
-  }
-
-  nav {
-    display: none !important;
-    position: fixed !important;
-    top: 70px !important;
-    left: 16px !important;
-    right: 16px !important;
-    width: auto !important;
-    max-height: calc(100vh - 100px) !important;
-    background: rgba(13, 13, 14, 0.95) !important;
-    padding: 24px !important;
-    flex-direction: column !important;
-    overflow-y: auto !important;
-    z-index: 99 !important;
-  }
-
-  nav.open {
-    display: flex !important;
-  }
-
-  #hero {
-    min-height: 80vh;
-    padding: 40px 20px 40px;
-    margin-top: 60px !important;
-  }
-
-  #about .horizontal {
-    flex-direction: column !important;
-  }
-
-  #about .stats {
-    width: 100% !important;
-    max-width: none !important;
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 12px !important;
-    margin-top: 24px !important;
-  }
-
-  #about .stats div {
-    width: 100% !important;
-    min-width: auto !important;
-    padding: 10px 16px !important;
-  }
-
-  #profile_image {
-    width: 100% !important;
-    max-width: none !important;
-  }
-}
-
-
-#header {
-  z-index: 100;
-}
-
-nav {
-  z-index: 100;
-}
-
-.menu-toggle {
-  z-index: 101;
-}
-</style>
-
-
+  <link rel="stylesheet" href="showcase-base.css">
+  <script src="nav.js" defer></script>
 </head>
 <body>
-    <div id="header">
-      <a href="index.html"><img src="ma_logo.svg" alt="Automations by Meir" width="196" height="64" /></a>
-      <nav>
-        <ul>
-          <li><a href="index.html#services">Services</a></li>
-          <li><a href="index.html#projects">Projects</a></li>
-          <li class="dropdown"><a href="#">Showcases</a>
-            <ul class="dropdown-menu">
-              <li><a href="showcase1.html">Crypto Wallet Tracker</a></li>
-              <li><a href="showcase2.html">Business Analytics System</a></li>
-              <li><a href="showcase-job-post-pro.html">Job Post Pro</a></li>
-            </ul>
-          </li>
-          <li><a href="why-automation.html">Why Automate</a></li>
-          <li><a href="index.html#contact">Contact Us</a></li>
-        </ul>
-        <ul>
-          <li><a href="automation-playground.html">Try live</a></li>
-          <li><a href="payment.html">Payments</a></li>
-        </ul>
+
+<main>
+  <!-- ── Hero ── -->
+  <section class="sc-hero">
+    <div class="sc-page">
+      <span class="sc-badge">Enterprise Analytics Platform</span>
+      <h1>Business Analytics<br>System</h1>
+      <p class="sc-subtitle">
+        An automated business intelligence and reporting platform that collects data from multiple sources,
+        processes it in real time, and delivers dynamic dashboards and reports to enterprise teams — zero manual work.
+      </p>
+
+      <div class="sc-pills">
+        <span class="sc-pill">
+          <img src="logos/sheets.svg" alt="" onerror="this.style.display='none'">
+          Google Sheets
+        </span>
+        <span class="sc-pill">
+          <img src="logos/apps-script.svg" alt="" onerror="this.style.display='none'">
+          Apps Script
+        </span>
+        <span class="sc-pill">
+          <img src="logos/bigquery.svg" alt="" onerror="this.style.display='none'">
+          BigQuery
+        </span>
+        <span class="sc-pill">
+          <img src="logos/looker.svg" alt="" onerror="this.style.display='none'">
+          Looker Studio
+        </span>
+      </div>
+
+      <div class="sc-stats">
+        <div class="sc-stat">
+          <div class="sc-stat-val">50+</div>
+          <div class="sc-stat-label">Reports Generated</div>
+        </div>
+        <div class="sc-stat">
+          <div class="sc-stat-val">Real-time</div>
+          <div class="sc-stat-label">Data Processing</div>
+        </div>
+        <div class="sc-stat">
+          <div class="sc-stat-val">0</div>
+          <div class="sc-stat-label">Manual Steps</div>
+        </div>
+        <div class="sc-stat">
+          <div class="sc-stat-val">100%</div>
+          <div class="sc-stat-label">Automated</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Challenge ── -->
+  <section class="sc-section">
+    <div class="sc-page">
+      <p class="sc-label">The Problem</p>
+      <h2>Business reporting shouldn't require manual work</h2>
+      <p class="sc-intro">
+        Enterprise teams spend hours every week pulling data from spreadsheets, formatting reports,
+        and chasing numbers. This platform eliminates that entirely — data flows automatically
+        from source to dashboard, always up to date, always accurate.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── How It Works ── -->
+  <section class="sc-section">
+    <div class="sc-page">
+      <p class="sc-label">How It Works</p>
+      <h2>Four steps from raw data to insights</h2>
+      <p class="sc-intro">The pipeline runs automatically on a schedule or on demand, with no intervention needed.</p>
+
+      <div class="sc-steps">
+        <div class="sc-step">
+          <div class="sc-step-num">1</div>
+          <div>
+            <h3>Data Ingestion</h3>
+            <p>The system pulls data from multiple sources — Google Sheets, CRM exports, and third-party APIs —
+              and consolidates it into a central processing layer.</p>
+          </div>
+        </div>
+        <div class="sc-step">
+          <div class="sc-step-num">2</div>
+          <div>
+            <h3>Processing &amp; Transformation</h3>
+            <p>Apps Script processes the raw data: validating entries, calculating KPIs, applying business logic
+              (tier thresholds, date ranges, eligibility rules), and enriching records.</p>
+          </div>
+        </div>
+        <div class="sc-step">
+          <div class="sc-step-num">3</div>
+          <div>
+            <h3>Storage &amp; Warehousing</h3>
+            <p>Processed data is written to BigQuery for scalable storage and historical tracking,
+              enabling trend analysis and year-over-year comparison.</p>
+          </div>
+        </div>
+        <div class="sc-step">
+          <div class="sc-step-num">4</div>
+          <div>
+            <h3>Dashboard &amp; Report Distribution</h3>
+            <p>Looker Studio dashboards update automatically. HTML reports with Chart.js visualizations
+              are generated and distributed to stakeholders via Google Drive or email.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Features ── -->
+  <section class="sc-section">
+    <div class="sc-page">
+      <p class="sc-label">Features</p>
+      <h2>Everything your team needs in one platform</h2>
+      <p class="sc-intro">Designed to replace hours of manual reporting with a single automated system.</p>
+
+      <div class="sc-features">
+        <div class="sc-feature">
+          <span class="sc-feature-icon">📈</span>
+          <h3>Dynamic KPI Dashboards</h3>
+          <p>Live dashboards in Looker Studio that update as soon as new data arrives.</p>
+        </div>
+        <div class="sc-feature">
+          <span class="sc-feature-icon">📄</span>
+          <h3>Automated Report Generation</h3>
+          <p>HTML reports with Chart.js visualizations generated and distributed on schedule.</p>
+        </div>
+        <div class="sc-feature">
+          <span class="sc-feature-icon">🎯</span>
+          <h3>Custom Business Logic</h3>
+          <p>Tier thresholds, date range analysis, eligibility rules — configured exactly for your business.</p>
+        </div>
+        <div class="sc-feature">
+          <span class="sc-feature-icon">📦</span>
+          <h3>Bulk Operations</h3>
+          <p>Process 50+ reports simultaneously with a single trigger — no waiting, no batching.</p>
+        </div>
+        <div class="sc-feature">
+          <span class="sc-feature-icon">🗄️</span>
+          <h3>Historical Data Warehouse</h3>
+          <p>BigQuery stores all processed data for trend analysis and long-term reporting.</p>
+        </div>
+        <div class="sc-feature">
+          <span class="sc-feature-icon">📁</span>
+          <h3>Automated Distribution</h3>
+          <p>Reports are organized in Google Drive and emailed to the right people automatically.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Results ── -->
+  <section class="sc-section">
+    <div class="sc-page">
+      <p class="sc-label">Results</p>
+      <h2>Measurable impact from day one</h2>
+
+      <div class="sc-results">
+        <div class="sc-result">
+          <div class="sc-result-val">50+</div>
+          <p>Reports generated automatically each cycle</p>
+        </div>
+        <div class="sc-result">
+          <div class="sc-result-val">0h</div>
+          <p>Manual reporting work per week</p>
+        </div>
+        <div class="sc-result">
+          <div class="sc-result-val">100%</div>
+          <p>Data accuracy with automated validation</p>
+        </div>
+        <div class="sc-result">
+          <div class="sc-result-val">Live</div>
+          <p>Dashboard updates in real time</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Tech Stack ── -->
+  <section class="sc-section">
+    <div class="sc-page">
+      <p class="sc-label">Tech Stack</p>
+      <h2>Built on Google's data ecosystem</h2>
+
+      <div class="sc-tech-grid">
+        <div class="sc-tech-item">
+          <img src="logos/sheets.svg" alt="Google Sheets" onerror="this.style.display='none'">
+          <div>
+            <strong>Google Sheets</strong>
+            <span>Data source &amp; configuration hub</span>
+          </div>
+        </div>
+        <div class="sc-tech-item">
+          <img src="logos/apps-script.svg" alt="Apps Script" onerror="this.style.display='none'">
+          <div>
+            <strong>Google Apps Script</strong>
+            <span>Processing engine &amp; automation</span>
+          </div>
+        </div>
+        <div class="sc-tech-item">
+          <img src="logos/bigquery.svg" alt="BigQuery" onerror="this.style.display='none'">
+          <div>
+            <strong>BigQuery</strong>
+            <span>Scalable data warehouse</span>
+          </div>
+        </div>
+        <div class="sc-tech-item">
+          <img src="logos/looker.svg" alt="Looker Studio" onerror="this.style.display='none'">
+          <div>
+            <strong>Looker Studio</strong>
+            <span>Live dashboards &amp; visualizations</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="sc-cta">
+    <div class="sc-page">
+      <h2>Want automated reporting for your team?</h2>
+      <p>Let's build a BI system that works while you sleep.</p>
+      <a href="index.html#contact" class="sc-btn">Get in Touch</a>
+      <a href="index.html" class="sc-btn sc-btn-ghost">← Back to Home</a>
+    </div>
+  </section>
+</main>
+
+<footer class="sc-footer">
+  <div class="sc-page">
+    <div class="sc-footer-inner">
+      <span class="sc-footer-brand">&lt;&gt; Automations by Meir</span>
+      <nav class="sc-footer-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="/he/">עברית</a>
       </nav>
     </div>
-    <div class="showcase-container">
-        <!-- Header -->
-        <div class="header">
-            <span class="badge">ENTERPRISE ANALYTICS PLATFORM</span>
-            <h1>Business Analytics System</h1>
-            <p class="subtitle">Automated Business Intelligence & Reporting Platform for Enterprise Teams</p>
-        </div>
+  </div>
+</footer>
 
-        <!-- System Architecture Overview -->
-        <div class="system-architecture">
-            <h2 class="architecture-title">System Architecture & Capabilities</h2>
-            
-            <!-- Process Flow Steps -->
-            <div class="process-flow">
-                <div class="process-step">
-                    <span class="step-number">1</span>
-                    <svg class="step-icon" viewBox="0 0 24 24" fill="none">
-                        <path d="M20 6H4C2.9 6 2 6.9 2 8V16C2 17.1 2.9 18 4 18H20C21.1 18 22 17.1 22 16V8C22 6.9 21.1 6 20 6Z" stroke="#1DBF73" stroke-width="2"/>
-                        <path d="M8 12H16M12 8V16" stroke="#1DBF73" stroke-width="2"/>
-                    </svg>
-                    <h3 class="step-title">Data Collection</h3>
-                    <p class="step-description">Automated import from Google Sheets with multi-tier data aggregation (Diamond, Platinum, Advanced)</p>
-                </div>
-
-                <div class="process-step">
-                    <span class="step-number">2</span>
-                    <svg class="step-icon" viewBox="0 0 24 24" fill="none">
-                        <circle cx="12" cy="12" r="10" stroke="#00e676" stroke-width="2"/>
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c1.19 0 2.34-.21 3.41-.6l3.59 3.6 1.41-1.41-3.6-3.59c.39-1.07.6-2.22.6-3.41 0-5.52-4.48-10-10-10z" fill="#00e676" opacity="0.3"/>
-                    </svg>
-                    <h3 class="step-title">Intelligent Processing</h3>
-                    <p class="step-description">Real-time eligibility checking with threshold validation and custom date range analysis</p>
-                </div>
-
-                <div class="process-step">
-                    <span class="step-number">3</span>
-                    <svg class="step-icon" viewBox="0 0 24 24" fill="none">
-                        <rect x="3" y="3" width="18" height="18" rx="2" stroke="#fbbc04" stroke-width="2"/>
-                        <path d="M7 7H17M7 12H17M7 17H12" stroke="#fbbc04" stroke-width="2"/>
-                    </svg>
-                    <h3 class="step-title">Report Generation</h3>
-                    <p class="step-description">Dynamic HTML reports with Chart.js visualizations and responsive design</p>
-                </div>
-
-                <div class="process-step">
-                    <span class="step-number">4</span>
-                    <svg class="step-icon" viewBox="0 0 24 24" fill="none">
-                        <path d="M19 3H5C3.89 3 3 3.89 3 5V19C3 20.1 3.89 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.89 20.1 3 19 3Z" stroke="#ea4335" stroke-width="2"/>
-                        <path d="M9 11L11 13L15 9" stroke="#ea4335" stroke-width="2"/>
-                    </svg>
-                    <h3 class="step-title">Distribution & Storage</h3>
-                    <p class="step-description">Automated Google Drive organization with folder hierarchy and subscription management</p>
-                </div>
-            </div>
-
-            <!-- Central Processing Engine -->
-            <div class="central-processor glow">
-                <h3 class="processor-title">Analytics Processing Engine</h3>
-                <div class="processor-features">
-                    <div class="feature-chip">Multi-Sheet Aggregation</div>
-                    <div class="feature-chip">Threshold Validation</div>
-                    <div class="feature-chip">Custom Date Ranges</div>
-                    <div class="feature-chip">Batch Processing</div>
-                    <div class="feature-chip">Report Indexing</div>
-                    <div class="feature-chip">Tier Detection</div>
-                    <div class="feature-chip">Points Calculation</div>
-                    <div class="feature-chip">Chart Generation</div>
-                    <div class="feature-chip">Export Controls</div>
-                    <div class="feature-chip">User Registration</div>
-                </div>
-            </div>
-
-            <!-- Key Features -->
-            <div class="features-showcase">
-                <div class="feature-card">
-                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none">
-                        <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z" fill="#1DBF73"/>
-                    </svg>
-                    <div class="feature-name">Admin Dashboard</div>
-                    <div class="feature-detail">Centralized control panel</div>
-                </div>
-
-                <div class="feature-card">
-                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none">
-                        <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" fill="#00e676"/>
-                    </svg>
-                    <div class="feature-name">Bulk Operations</div>
-                    <div class="feature-detail">Process 50+ reports at once</div>
-                </div>
-
-                <div class="feature-card">
-                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="#fbbc04"/>
-                    </svg>
-                    <div class="feature-name">Smart Eligibility</div>
-                    <div class="feature-detail">Automated threshold checks</div>
-                </div>
-
-                <div class="feature-card">
-                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none">
-                        <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2z" fill="#ea4335"/>
-                    </svg>
-                    <div class="feature-name">Date Flexibility</div>
-                    <div class="feature-detail">Custom reporting periods</div>
-                </div>
-
-                <div class="feature-card">
-                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none">
-                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" fill="#1DBF73"/>
-                    </svg>
-                    <div class="feature-name">Rich Analytics</div>
-                    <div class="feature-detail">Multi-dimensional insights</div>
-                </div>
-
-                <div class="feature-card">
-                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none">
-                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#00e676"/>
-                    </svg>
-                    <div class="feature-name">Tier Support</div>
-                    <div class="feature-detail">Diamond & Platinum tiers</div>
-                </div>
-            </div>
-
-            <!-- Performance Stats -->
-            <div class="stats-bar">
-                <div class="stat">
-                    <div class="big-stat-value">1000+</div>
-                    <div class="big-stat-label">Users Managed</div>
-                </div>
-                <div class="stat">
-                    <div class="big-stat-value">50/batch</div>
-                    <div class="big-stat-label">Processing Speed</div>
-                </div>
-                <div class="stat">
-                    <div class="big-stat-value">100%</div>
-                    <div class="big-stat-label">Automated</div>
-                </div>
-                <div class="stat">
-                    <div class="big-stat-value">Real-time</div>
-                    <div class="big-stat-label">Data Updates</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Workflow Section -->
-        <div class="workflow-section">
-            <div class="section-header">
-                <h2 class="section-title">Live System Interface</h2>
-                <p class="section-subtitle">Experience the complete analytics workflow from dashboard to reports</p>
-            </div>
-
-            <!-- Step 1: Admin Dashboard -->
-            <div class="workflow-step">
-                <div class="workflow-step-header">
-                    <div class="workflow-number">1</div>
-                    <h3 class="workflow-title">Admin Dashboard & Control Center</h3>
-                </div>
-                
-                <div class="dashboard-mock">
-                    <div class="dashboard-header">
-                        <div style="font-size: 24px; font-weight: 700; color: #222325;">Analytics Dashboard</div>
-                        <div class="dashboard-actions">
-                            <button class="dash-btn">📅 Set Date Range</button>
-                            <button class="dash-btn">🔄 Refresh Data</button>
-                            <button class="dash-btn">📊 Generate Selected</button>
-                            <button class="dash-btn primary">⚡ Generate All Reports</button>
-                        </div>
-                    </div>
-                    
-                    <div class="dashboard-content">
-                        <div class="sidebar-stats">
-                            <h3 class="sidebar-title">Dashboard Stats</h3>
-                            <div class="stat-card">
-                                <div class="stat-value">156</div>
-                                <div class="stat-label">Total Users</div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-value">47</div>
-                                <div class="stat-label">Eligible for Reports</div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-value">12</div>
-                                <div class="stat-label">Reports Generated</div>
-                            </div>
-                        </div>
-                        
-                        <div class="table-container">
-                            <div class="table-header">
-                                <h3 class="table-title">Users</h3>
-                                <div class="filter-controls">
-                                    <button class="filter-btn active">All</button>
-                                    <button class="filter-btn">Eligible</button>
-                                    <button class="filter-btn">Not Eligible</button>
-                                </div>
-                            </div>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>☐</th>
-                                        <th>User ID</th>
-                                        <th>Name</th>
-                                        <th>Tier</th>
-                                        <th>Package</th>
-                                        <th>Points</th>
-                                        <th>Eligible</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>☑</td>
-                                        <td>TEAM_001</td>
-                                        <td>Creative Agency Pro</td>
-                                        <td><span class="tier-badge tier-diamond">Diamond</span></td>
-                                        <td>pro_advanced</td>
-                                        <td>12,450</td>
-                                        <td style="color: #1DBF73; font-weight: bold;">✓</td>
-                                        <td>
-                                            <button class="dash-btn" style="padding: 4px 8px; font-size: 12px;">Generate</button>
-                                            <button class="dash-btn" style="padding: 4px 8px; font-size: 12px;">Preview</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>☑</td>
-                                        <td>TEAM_002</td>
-                                        <td>Tech Innovations Ltd</td>
-                                        <td><span class="tier-badge tier-platinum">Platinum</span></td>
-                                        <td>pro_standard</td>
-                                        <td>8,320</td>
-                                        <td style="color: #1DBF73; font-weight: bold;">✓</td>
-                                        <td>
-                                            <button class="dash-btn" style="padding: 4px 8px; font-size: 12px;">Generate</button>
-                                            <button class="dash-btn" style="padding: 4px 8px; font-size: 12px;">Preview</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>☐</td>
-                                        <td>TEAM_003</td>
-                                        <td>StartUp Ventures</td>
-                                        <td><span class="tier-badge tier-platinum">Platinum</span></td>
-                                        <td>pro_standard</td>
-                                        <td>1,250</td>
-                                        <td style="color: #C53041;">✗</td>
-                                        <td>
-                                            <button class="dash-btn" style="padding: 4px 8px; font-size: 12px;" disabled>Generate</button>
-                                            <button class="dash-btn" style="padding: 4px 8px; font-size: 12px;" disabled>Preview</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="info-cards">
-                    <div class="info-card">
-                        <div class="info-title">🎯 Smart Filtering</div>
-                        <div class="info-text">Multi-dimensional filtering by tier, package type, eligibility status, and custom search</div>
-                    </div>
-                    <div class="info-card">
-                        <div class="info-title">⚡ Batch Processing</div>
-                        <div class="info-text">Optimized report generation with intelligent indexing to skip existing reports</div>
-                    </div>
-                    <div class="info-card">
-                        <div class="info-title">📊 Real-time Stats</div>
-                        <div class="info-text">Live dashboard updates showing progress, eligibility, and generation status</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Step 2: Report Generation -->
-            <div class="workflow-step">
-                <div class="workflow-step-header">
-                    <div class="workflow-number">2</div>
-                    <h3 class="workflow-title">Automated Report Generation & Distribution</h3>
-                </div>
-                
-                <div class="report-preview">
-                    <div class="report-header">
-                        <div style="font-size: 24px; font-weight: 700; color: #222325; margin-bottom: 1rem;">Business Analytics Platform</div>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <h2 class="report-title">Business analytics report</h2>
-                            <button class="subscribe-btn">Subscribe to report →</button>
-                        </div>
-                    </div>
-                    
-                    <div class="report-content">
-                        <div style="margin-bottom: 2rem;">
-                            <div style="font-size: 20px; font-weight: 700; color: #222325; margin-bottom: 0.5rem;">
-                                Hello Creative Agency,
-                            </div>
-                            <div style="color: #62646A;">
-                                Your customized report shows your account's activity on the platform, including how many orders you've made, 
-                                how much you've spent, and most importantly, how much you've saved.
-                            </div>
-                        </div>
-
-                        <div class="kpi-grid">
-                            <div class="kpi-card">
-                                <div class="kpi-label">Total order value</div>
-                                <div class="kpi-value">$45,320</div>
-                            </div>
-                            <div class="kpi-card">
-                                <div class="kpi-label">Potential savings</div>
-                                <div class="kpi-value">$2,266</div>
-                            </div>
-                            <div class="kpi-card">
-                                <div class="kpi-label">Total orders</div>
-                                <div class="kpi-value">127</div>
-                            </div>
-                            <div class="kpi-card">
-                                <div class="kpi-label">Points balance</div>
-                                <div class="kpi-value" style="display: flex; align-items: center; gap: 0.5rem;">
-                                    12,450
-                                    <svg width="56" height="28" viewBox="0 0 56 28" fill="none">
-                                        <path d="M41.8052 1.2002C48.8743 1.20027 54.605 6.93081 54.605 14C54.605 21.0692 48.8743 26.7997 41.8052 26.7998C34.736 26.7998 29.0054 21.0692 29.0054 14C29.0054 6.93076 34.736 1.2002 41.8052 1.2002Z" fill="url(#paint0_linear)" stroke="white" stroke-width="1.6"/>
-                                        <defs>
-                                            <linearGradient id="paint0_linear" x1="41.708" y1="5.96766" x2="41.805" y2="26">
-                                                <stop stop-color="#5E83BC"/>
-                                                <stop offset="1" stop-color="#B2CDFA"/>
-                                            </linearGradient>
-                                        </defs>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="chart-mock">
-                            <h3 class="chart-title">Monthly trends</h3>
-                            <div class="chart-placeholder">
-                                <div class="chart-bars">
-                                    <div class="chart-bar" style="height: 60%; animation-delay: 0s;">
-                                        <span class="bar-label">$12k</span>
-                                        <span class="bar-month">Jan</span>
-                                    </div>
-                                    <div class="chart-bar" style="height: 75%; animation-delay: 0.2s;">
-                                        <span class="bar-label">$15k</span>
-                                        <span class="bar-month">Feb</span>
-                                    </div>
-                                    <div class="chart-bar" style="height: 45%; animation-delay: 0.4s;">
-                                        <span class="bar-label">$9k</span>
-                                        <span class="bar-month">Mar</span>
-                                    </div>
-                                    <div class="chart-bar" style="height: 85%; animation-delay: 0.6s;">
-                                        <span class="bar-label">$17k</span>
-                                        <span class="bar-month">Apr</span>
-                                    </div>
-                                    <div class="chart-bar" style="height: 65%; animation-delay: 0.8s;">
-                                        <span class="bar-label">$13k</span>
-                                        <span class="bar-month">May</span>
-                                    </div>
-                                    <div class="chart-bar" style="height: 70%; animation-delay: 1s;">
-                                        <span class="bar-label">$14k</span>
-                                        <span class="bar-month">Jun</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="kpi-grid" style="margin-top: 2rem;">
-                            <div class="kpi-card">
-                                <div class="kpi-label">Orders by category</div>
-                                <div style="margin-top: 1rem;">
-                                    <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #DADBDD;">
-                                        <span>Design</span>
-                                        <span style="font-weight: 700;">$18,450</span>
-                                    </div>
-                                    <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #DADBDD;">
-                                        <span>Video & Animation</span>
-                                        <span style="font-weight: 700;">$12,320</span>
-                                    </div>
-                                    <div style="display: flex; justify-content: space-between; padding: 8px 0;">
-                                        <span>Writing</span>
-                                        <span style="font-weight: 700;">$8,550</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="kpi-card">
-                                <div class="kpi-label">Top vendors</div>
-                                <div style="margin-top: 1rem;">
-                                    <div style="padding: 8px 0; border-bottom: 1px solid #DADBDD;">
-                                        <div style="font-weight: 600;">Sarah Designer</div>
-                                        <div style="font-size: 14px; color: #62646A;">$8,320 • 24 orders</div>
-                                    </div>
-                                    <div style="padding: 8px 0; border-bottom: 1px solid #DADBDD;">
-                                        <div style="font-weight: 600;">Mike Animator</div>
-                                        <div style="font-size: 14px; color: #62646A;">$6,450 • 18 orders</div>
-                                    </div>
-                                    <div style="padding: 8px 0;">
-                                        <div style="font-weight: 600;">Lisa Writer</div>
-                                        <div style="font-size: 14px; color: #62646A;">$4,280 • 15 orders</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="info-cards">
-                    <div class="info-card">
-                        <div class="info-title">📈 Dynamic Visualizations</div>
-                        <div class="info-text">Chart.js powered interactive graphs for trends, categories, and seller analytics</div>
-                    </div>
-                    <div class="info-card">
-                        <div class="info-title">🎨 Responsive Design</div>
-                        <div class="info-text">Beautiful, mobile-friendly reports with Fiverr Pro branding and tier badges</div>
-                    </div>
-                    <div class="info-card">
-                        <div class="info-title">🔔 Smart Subscriptions</div>
-                        <div class="info-text">One-click subscription system with automatic registration tracking</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Add interactive effects
-        document.querySelectorAll('.process-step, .feature-card').forEach(element => {
-            element.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-5px) scale(1.02)';
-            });
-            
-            element.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // Animate stats on scroll
-        const observerOptions = {
-            threshold: 0.5,
-            rootMargin: '0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'fadeIn 1s ease-out';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.stat, .workflow-step').forEach(stat => {
-            observer.observe(stat);
-        });
-
-        // Simulate dashboard interactions
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
-
-        // Animate subscribe button
-        document.querySelector('.subscribe-btn').addEventListener('click', function() {
-            this.innerHTML = 'Subscribed ✓';
-            this.style.background = 'white';
-            this.style.color = '#62646A';
-            this.style.border = '1px solid #DADBDD';
-            this.style.cursor = 'default';
-        });
-    </script>
-    
-<script src="nav.js" defer></script>
+<script src="footer-consent.js"></script>
 </body>
 </html>

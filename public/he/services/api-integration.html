@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <link rel="icon" type="image/svg+xml" href="/logos/favicon.svg">
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "sxaf839npz");
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>אינטגרציית API | Automation by Meir</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@200;300;400;500;600;700&display=swap');
+    body { font-family: 'IBM Plex Sans Hebrew', 'IBM Plex Sans', sans-serif; background: #1E1E21; color: #fff; margin: 0; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+    h1 { font-weight: 300; font-size: clamp(3rem, 5vw, 4rem); margin-top: 120px; margin-bottom: 40px; color: #fff; }
+    h2 { font-weight: 300; font-size: 32px; color: #fff; margin-bottom: 20px; }
+    p { font-weight: 300; font-size: 18px; line-height: 1.6; color: #C4C4C4; margin-bottom: 1.5rem; }
+    a { color: #00e676; text-decoration: none; }
+    #header { position: fixed; width: 100%; z-index: 100; padding: 40px; top: 0; left: 0; display: flex; justify-content: space-between; box-sizing: border-box; align-items: flex-start; transition: padding 0.3s ease; pointer-events: none; }
+    #header > * { pointer-events: auto; }
+    #header img { backdrop-filter: blur(20px); padding: 8px; border-radius: 8px; }
+    nav { display: flex; padding: 24px; gap: 40px; background: rgba(13,13,14,0.6); backdrop-filter: blur(16px); border-radius: 8px; z-index: 100; min-width: min-content; }
+    nav ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+    nav a { color: white; font-size: 20px; font-weight: 300; white-space: nowrap; position: relative; text-decoration: none; }
+    nav a:after { content: ''; display: block; width: 100%; height: 1px; background: #fff; transform: scaleX(0); transition: transform 0.2s ease-in-out; transform-origin: 0% 0; }
+    nav a:hover:after { transform: scaleX(1); transform-origin: 100% 0; }
+    .menu-toggle { display: none; flex-direction: column; justify-content: space-between; width: 30px; height: 21px; cursor: pointer; background: rgba(13,13,14,0.6); backdrop-filter: blur(16px); padding: 12px; border-radius: 8px; position: fixed; top: 40px; left: 40px; right: auto; z-index: 101; pointer-events: auto; }
+    .menu-toggle span { display: block; height: 2px; background: #fff; border-radius: 2px; transition: all 0.3s ease; }
+    .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .menu-toggle.active span:nth-child(2) { opacity: 0; }
+    .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+    .content-container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+    .section-block { margin: 60px 0; }
+    .highlight-box { background: rgba(68, 138, 255, 0.06); border-right: 4px solid #448aff; border-left: none; padding: 24px 28px; border-radius: 0 8px 8px 0; margin: 40px 0; }
+    .highlight-box p { color: #e0e0e0; margin: 0; font-size: 17px; }
+    #start_promo { background: #333333; border-radius: 8px; padding: 80px 24px; margin-top: 80px; margin-bottom: 40px; }
+    #start_promo .horizontal { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; gap: 40px; flex-wrap: wrap; }
+    #start_promo p { width: 50%; margin: 0; min-width: 300px; color: #fff; font-size: 24px; }
+    .button { display: flex; align-items: center; padding: 12px 27px; gap: 8px; color: #fff; border: 1px solid #FFFFFF; border-radius: 12px; font-size: 20px; font-weight: 300; background: transparent; transition: background 0.2s; white-space: nowrap; text-decoration: none; }
+    .button:hover { background: rgba(255,255,255,0.1); }
+    @media (max-width: 1000px) {
+      #header { padding: 16px; background: rgba(30,30,33,0.95); backdrop-filter: blur(10px); }
+      .menu-toggle { display: flex; top: 16px; left: 16px; right: auto; }
+      nav { display: none; position: fixed; top: 70px; right: 16px; left: 16px; width: auto; background: rgba(13,13,14,0.95); flex-direction: column; padding: 24px; }
+      nav.open { display: flex; }
+      h1 { margin-top: 100px; font-size: 2.5rem; }
+      #start_promo .horizontal { flex-direction: column; align-items: flex-start; }
+      #start_promo p { width: 100%; margin-bottom: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <a href="/he/index.html"><img src="/ma_logo.svg" alt="Automation by Meir" /></a>
+    <nav>
+      <ul>
+        <li><a href="/he/index.html#services">שירותים</a></li>
+        <li><a href="/he/index.html#projects">פרויקטים</a></li>
+        <li><a href="/he/why-automation.html">למה אוטומציה</a></li>
+        <li><a href="/he/index.html#contact">צרו קשר</a></li>
+      </ul>
+      <ul>
+        <li><a href="/automation-playground.html">נסו בלייב</a></li>
+        <li><a href="/he/payment.html">חבילות</a></li>
+        <li><a href="/">EN</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="content-container">
+    <h1>אינטגרציית API</h1>
+
+    <p>עסקים מודרניים נשענים על מערכת אקולוגית של כלים ייעודיים: CRMs, פלטפורמות שיווקיות, מעבדי תשלום ושירותי AI. שירות אינטגרציית ה-API שלנו מחבר בין המערכות הנפרדות הללו כדי שהנתונים יזרמו בחופשיות ותהליכים יתנהלו ללא התערבות ידנית — במקום להעתיק ולהדביק בין אפליקציות.</p>
+
+    <div class="section-block">
+      <h2>אבחון ותכנון</h2>
+      <p>הצעד הראשון בכל פרויקט אינטגרציה הוא הבנת ה"שפה" של כל פלטפורמה. APIs מדברים ניבים שונים — סכמות אימות ייחודיות, הגבלות קצב ומבני נתונים שונים. אנחנו בודקים את התיעוד, מזהים קונפליקטים פוטנציאליים ומעצבים ארכיטקטורה שממזערת זמן תגובה תוך מיצוי אמינות. בכל מקום שאפשר, אנחנו משתמשים בפרוטוקולים סטנדרטיים כמו REST, GraphQL או gRPC.</p>
+    </div>
+
+    <div class="section-block">
+      <h2>פיתוח קונקטורים</h2>
+      <p>לאחר שהתכנית מוכנה, אנחנו מפתחים קונקטורים שמעבירים ומנתבים נתונים בין שירותים. הקונקטורים יכולים לרוץ על פונקציות serverless, שרתים ייעודיים או Google Apps Script בהתאם לסדר הגודל ולתקציב. טיפול בשגיאות ולוגיקת ניסיון חוזר בנויים מהיסוד — הפסקות זמניות לא ישחיתו תהליכים נגזרים.</p>
+    </div>
+
+    <div class="highlight-box">
+      <p>אבטחה היא ראשונה במעלה: זרימות OAuth, מפתחות API ואסימוני גישה מאוחסנים בצורה מאובטחת. אנחנו אוכפים עקרון הרשאות מינימליות — כל קונקטור מקבל רק את ההרשאות שהוא באמת צריך.</p>
+    </div>
+
+    <div class="section-block">
+      <h2>לוגיקה עסקית מתוחכמת</h2>
+      <p>מעבר לסינכרון נתונים פשוט, האינטגרציות שלנו מתזמרות לוגיקה עסקית מורכבת. לדוגמה, ליד חדש שנתפס באתר שלכם יכול אוטומטית ליצור איש קשר ב-CRM, לשלוח אימייל מותאם אישית, ליצור משימה לצוות המכירות ולרשום את האינטראקציה בפלטפורמת אנליטיקס — הכל תוך שניות ספורות, ללא מגע יד אדם.</p>
+    </div>
+
+    <div class="section-block">
+      <h2>תחזוקה שוטפת</h2>
+      <p>אנחנו מכירים בכך ש-APIs מתפתחים. שינויי גרסה, הוצאות משימוש ותכונות חדשות עלולות לשבור אינטגרציות קיימות אם לא מנהלים אותן באופן יזום. תוכניות התחזוקה שלנו כוללות בדיקות תקופתיות של מפות דרכים של ספקים ובדיקות אוטומטיות המדמות שימוש אמיתי — כך שתמיד תהיו מוגנים.</p>
+    </div>
+
+    <p>התוצאה הסופית היא תשתית דיגיטלית שבה מערכות משתפות פעולה בצורה חלקה. עובדים מבלים פחות זמן במטלות אדמיניסטרטיביות, לקוחות נהנים משירות מהיר יותר ומנהלים מקבלים מערכת נתונים מאוחדת שתומכת בדיווח מדויק וניתוח חזאי.</p>
+  </div>
+
+  <div id="start_promo">
+    <div class="horizontal">
+      <p>צריכים לחבר בין מערכות שונות בעסק שלכם? נבנה לכם אינטגרציה חלקה</p>
+      <a href="/he/index.html#contact" class="button">התחילו פרויקט <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.1667 17.5L18.6667 14M18.6667 14L15.1667 10.5M18.6667 14H9.33333M24.5 14C24.5 19.799 19.799 24.5 14 24.5C8.20101 24.5 3.5 19.799 3.5 14C3.5 8.20101 8.20101 3.5 14 3.5C19.799 3.5 24.5 8.20101 24.5 14Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </div>
+
+  <script src="/nav.js" defer></script>
+</body>
+</html>

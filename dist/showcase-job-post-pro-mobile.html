@@ -22,7 +22,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap"
         rel="stylesheet">
-    <title>Crypto Wallet Tracker - Mobile Showcase</title>
+    <title>Job Post Pro - Mobile Showcase</title>
     <style>
         /* Base Mobile Styles */
         * {
@@ -172,10 +172,10 @@
         .badge {
             display: inline-block;
             padding: 6px 12px;
-            background: rgba(98, 126, 234, 0.1);
-            border: 1px solid #627eea;
+            background: rgba(0, 230, 118, 0.1);
+            border: 1px solid #00e676;
             border-radius: 50px;
-            color: #627eea;
+            color: #00e676;
             font-size: 12px;
             margin-bottom: 16px;
         }
@@ -184,7 +184,7 @@
             font-size: 32px;
             margin-bottom: 16px;
             text-align: center;
-            background: linear-gradient(135deg, #627eea 0%, #f7931a 100%);
+            background: linear-gradient(135deg, #00e676 0%, #448aff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -213,7 +213,7 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, #627eea 0%, #f7931a 100%);
+            background: linear-gradient(90deg, #00e676 0%, #448aff 100%);
         }
 
         .architecture-title {
@@ -242,7 +242,8 @@
             left: 16px;
             width: 24px;
             height: 24px;
-            background: linear-gradient(135deg, #627eea 0%, #f7931a 100%);
+            background: #00e676;
+            color: #000;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -266,7 +267,7 @@
 
         .central-processor {
             background: #0a0a0a;
-            border: 2px solid #333;
+            border: 2px solid #00e676;
             border-radius: 12px;
             padding: 24px;
             margin: 32px 0;
@@ -276,9 +277,7 @@
         .processor-title {
             font-size: 18px;
             margin-bottom: 16px;
-            background: linear-gradient(135deg, #627eea 0%, #f7931a 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #00e676;
         }
 
         .feature-chip {
@@ -306,61 +305,44 @@
         }
 
         /* Mock UI Styles */
-        .spreadsheet-mock,
-        .dashboard-mock {
-            background: #1e1e1e;
+        .modal-mock {
+            background: white;
             border-radius: 8px;
             overflow: hidden;
             margin-top: 16px;
             font-size: 12px;
+            color: #333;
         }
 
-        .sheet-header,
-        .dashboard-header {
-            background: #2d2d30;
+        .modal-header {
+            background: #f8f9fa;
             padding: 12px;
-            border-bottom: 1px solid #3e3e42;
-        }
-
-        .spreadsheet-content {
-            overflow-x: auto;
-        }
-
-        .spreadsheet-table {
-            width: 100%;
-            border-collapse: collapse;
-            min-width: 300px;
-        }
-
-        .spreadsheet-table th,
-        .spreadsheet-table td {
-            padding: 8px;
-            border: 1px solid #3e3e42;
-            text-align: left;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 12px;
-            margin-top: 16px;
-        }
-
-        .stat-card {
-            background: #252526;
-            padding: 16px;
-            border-radius: 8px;
-            border: 1px solid #3e3e42;
-        }
-
-        .stat-value {
-            font-size: 24px;
+            border-bottom: 1px solid #ddd;
             font-weight: bold;
-            margin-bottom: 4px;
+            color: #1b5e20;
         }
 
-        .stat-label {
-            color: #9e9e9e;
+        .modal-body {
+            padding: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 12px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 4px;
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background: #f9f9f9;
         }
 
         .features-showcase {
@@ -381,6 +363,7 @@
         .feature-name {
             font-weight: 600;
             margin-bottom: 8px;
+            color: #fff;
         }
 
         .feature-detail {
@@ -412,7 +395,6 @@
             <li>
                 <a href="#showcases">Showcases</a>
                 <ul class="dropdown-menu">
-                    <li><a href="showcase1-mobile.html">Crypto Wallet Tracker</a></li>
                     <li><a href="showcase2-mobile.html">Business Analytics System</a></li>
                     <li><a href="showcase-job-post-pro-mobile.html">Job Post Pro</a></li>
                 </ul>
@@ -426,9 +408,9 @@
 
     <div class="showcase-container">
         <div style="text-align: center;">
-            <span class="badge">Blockchain Analytics</span>
-            <h1>Crypto Wallet Tracker</h1>
-            <p class="subtitle">Automated tracking of 100+ wallets across multiple chains</p>
+            <span class="badge">HR Automation</span>
+            <h1>Job Post Pro</h1>
+            <p class="subtitle">Streamlined recruitment process from application to interview</p>
         </div>
 
         <div class="system-architecture">
@@ -436,90 +418,49 @@
             <div class="process-flow">
                 <div class="process-step">
                     <div class="step-number">1</div>
-                    <h3 class="step-title">Data Collection</h3>
-                    <p class="step-description">Google Sheets script fetches wallet addresses and calls blockchain APIs
-                        (Etherscan, BscScan).</p>
+                    <h3 class="step-title">Application</h3>
+                    <p class="step-description">Candidate submits application via Typeform or website form.</p>
                 </div>
                 <div class="process-step">
                     <div class="step-number">2</div>
-                    <h3 class="step-title">Processing</h3>
-                    <p class="step-description">Data is normalized, converted to USD, and aggregated by token and chain.
-                    </p>
+                    <h3 class="step-title">Screening</h3>
+                    <p class="step-description">AI analyzes resume and answers to pre-screen candidates.</p>
                 </div>
                 <div class="process-step">
                     <div class="step-number">3</div>
-                    <h3 class="step-title">Visualization</h3>
-                    <p class="step-description">Clean data is pushed to a dashboard for real-time monitoring and
-                        reporting.</p>
+                    <h3 class="step-title">Scheduling</h3>
+                    <p class="step-description">Qualified candidates receive a Calendly link to book an interview.</p>
                 </div>
             </div>
 
             <div class="central-processor">
-                <h3 class="processor-title">Core Engine</h3>
+                <h3 class="processor-title">Recruitment Engine</h3>
                 <div>
-                    <span class="feature-chip">API Integration</span>
-                    <span class="feature-chip">Data Normalization</span>
-                    <span class="feature-chip">Auto-Refresh</span>
-                    <span class="feature-chip">Error Handling</span>
+                    <span class="feature-chip">Resume Parsing</span>
+                    <span class="feature-chip">AI Scoring</span>
+                    <span class="feature-chip">Auto-Scheduling</span>
+                    <span class="feature-chip">Email Notifications</span>
                 </div>
             </div>
         </div>
 
         <div class="workflow-step">
-            <h2 class="workflow-title">1. Input: Wallet Management</h2>
-            <p style="color: #9e9e9e; margin-bottom: 16px;">Wallets are managed in a simple Google Sheet.</p>
-            <div class="spreadsheet-mock">
-                <div class="sheet-header">Wallet Database</div>
-                <div class="spreadsheet-content">
-                    <table class="spreadsheet-table">
-                        <thead>
-                            <tr>
-                                <th>Address</th>
-                                <th>Label</th>
-                                <th>Chain</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>0x7a2...8b9</td>
-                                <td>Treasury</td>
-                                <td>ETH</td>
-                            </tr>
-                            <tr>
-                                <td>0x3f1...9c2</td>
-                                <td>Operations</td>
-                                <td>BSC</td>
-                            </tr>
-                            <tr>
-                                <td>0x9d4...1e5</td>
-                                <td>Investments</td>
-                                <td>POLY</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <div class="workflow-step">
-            <h2 class="workflow-title">2. Output: Analytics Dashboard</h2>
-            <p style="color: #9e9e9e; margin-bottom: 16px;">Aggregated view of all assets.</p>
-            <div class="dashboard-mock">
-                <div class="dashboard-header">Portfolio Overview</div>
-                <div style="padding: 16px;">
-                    <div class="stats-grid">
-                        <div class="stat-card">
-                            <div class="stat-value">$1,245,000</div>
-                            <div class="stat-label">Total Value</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-value">45.2 ETH</div>
-                            <div class="stat-label">Ether Holdings</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-value">12.5 BTC</div>
-                            <div class="stat-label">Bitcoin Holdings</div>
-                        </div>
+            <h2 class="workflow-title">1. Candidate Intake</h2>
+            <p style="color: #9e9e9e; margin-bottom: 16px;">Simple, branded application form.</p>
+            <div class="modal-mock">
+                <div class="modal-header">Apply for Senior Developer</div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-input" value="Alex Johnson" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-input" value="alex@example.com" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Years of Experience</label>
+                        <input type="text" class="form-input" value="5+" readonly>
                     </div>
                 </div>
             </div>
@@ -527,16 +468,16 @@
 
         <div class="features-showcase">
             <div class="feature-card">
-                <div class="feature-name">Multi-Chain Support</div>
-                <div class="feature-detail">Ethereum, BSC, Polygon, Avalanche, and Solana support.</div>
+                <div class="feature-name">Time Saving</div>
+                <div class="feature-detail">Reduces screening time by 80% with AI filtering.</div>
             </div>
             <div class="feature-card">
-                <div class="feature-name">Real-Time Pricing</div>
-                <div class="feature-detail">Live price feeds from CoinGecko for accurate valuations.</div>
+                <div class="feature-name">Better Experience</div>
+                <div class="feature-detail">Instant feedback for candidates, no black hole.</div>
             </div>
             <div class="feature-card">
-                <div class="feature-name">Whale Alerts</div>
-                <div class="feature-detail">Automated notifications for large transactions.</div>
+                <div class="feature-name">Centralized Data</div>
+                <div class="feature-detail">All candidate data stored in Notion or Airtable.</div>
             </div>
         </div>
     </div>

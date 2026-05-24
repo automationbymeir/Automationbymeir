@@ -19,14 +19,19 @@ export default defineConfig({
   },
 
   // --- Multi-page build settings ---
+  resolve: {
+    alias: {
+      'three/addons': resolve(__dirname, 'node_modules/three/examples/jsm'),
+    },
+  },
   build: {
     rollupOptions: {
       input: {
         // HTML pages that should become entry points
-        main:       resolve(__dirname, 'public/index.html'),
+        main: resolve(__dirname, 'public/index.html'),
         playground: resolve(__dirname, 'public/automation-playground.html'),
-        hebrew:     resolve(__dirname, 'public/index-he.html'),
-        payment:    resolve(__dirname, 'public/payment.html'),   // ← fixed path
+        hebrew: resolve(__dirname, 'public/index-he.html'),
+        payment: resolve(__dirname, 'public/payment.html'),   // ← fixed path
       },
     },
   },

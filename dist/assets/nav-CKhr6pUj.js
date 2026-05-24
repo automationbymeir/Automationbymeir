@@ -1,4 +1,4 @@
-function p(){const a=document.createElement("style");a.textContent=`
+function p(){const n=document.createElement("style");n.textContent=`
     /* Mobile menu toggle button styling */
     .menu-toggle {
       display: none;
@@ -56,7 +56,7 @@ function p(){const a=document.createElement("style");a.textContent=`
       .menu-toggle {
         display: flex !important;
         top: 16px;
-        right: 16px;
+        right: 20px;
       }
 
       /* Hide nav by default on mobile */
@@ -155,50 +155,8 @@ function p(){const a=document.createElement("style");a.textContent=`
       }
     }
 
-    /* Desktop stats layout fix */
+    /* Ensure h1 is not hidden on desktop */
     @media (min-width: 769px) {
-      #about .horizontal {
-        display: flex !important;
-        gap: 40px !important;
-        align-items: flex-start !important;
-      }
-
-      #about .horizontal > div:first-child {
-        flex: 1 !important;
-      }
-
-      #about .stats {
-        width: auto !important;
-        max-width: 300px !important;
-        display: flex !important;
-        flex-wrap: wrap !important;
-        gap: 20px !important;
-        margin-top: 8px !important;
-        flex-shrink: 0 !important;
-      }
-
-      #about .stats div {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        padding: 12px 20px !important;
-        background: #333333 !important;
-        border-radius: 8px !important;
-        font-size: clamp(1.5rem, 4vw, 2rem) !important;
-        white-space: nowrap !important;
-        gap: 8px !important;
-        flex: 1 !important;
-        min-width: 120px !important;
-        margin-top: 0 !important;
-        box-sizing: border-box !important;
-      }
-
-      #about .stats div p {
-        margin: 0 !important;
-        font-size: clamp(0.875rem, 2vw, 1rem) !important;
-      }
-
-      /* Ensure h1 is not hidden */
       #hero, .hero {
         margin-top: 40px !important;
         padding-top: 80px !important;
@@ -216,4 +174,4 @@ function p(){const a=document.createElement("style");a.textContent=`
       max-width: 100% !important;
       overflow-wrap: break-word !important;
     }
-  `,document.head.appendChild(a);const e=document.getElementById("header"),i=e?e.querySelector("nav"):null;if(!e||!i)return;let t=document.getElementById("menu-toggle");t||(t=document.createElement("div"),t.id="menu-toggle",t.className="menu-toggle",t.innerHTML="<span></span><span></span><span></span>",e.appendChild(t)),t.addEventListener("click",()=>{i.classList.toggle("open"),t.classList.toggle("active")}),i.querySelectorAll("a").forEach(n=>{n.addEventListener("click",()=>{i.classList.remove("open"),t.classList.remove("active")})}),document.addEventListener("click",n=>{i.classList.contains("open")&&!i.contains(n.target)&&!t.contains(n.target)&&(i.classList.remove("open"),t.classList.remove("active"))}),window.innerWidth<=768&&i.querySelectorAll("li.dropdown").forEach(o=>{const r=o.querySelector("a");r&&r.addEventListener("click",m=>{m.preventDefault(),o.classList.toggle("active")})})}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",p):p();let d;window.addEventListener("resize",()=>{clearTimeout(d),d=setTimeout(()=>{const a=document.querySelector("nav"),e=document.getElementById("menu-toggle");window.innerWidth>768&&(a&&a.classList.remove("open"),e&&e.classList.remove("active"))},250)});
+  `,document.head.appendChild(n);const i=document.getElementById("header"),e=i?i.querySelector("nav"):null;if(!i||!e)return;let t=document.getElementById("menu-toggle");t||(t=document.createElement("div"),t.id="menu-toggle",t.className="menu-toggle",t.innerHTML="<span></span><span></span><span></span>",i.appendChild(t)),t.addEventListener("click",()=>{e.classList.toggle("open"),t.classList.toggle("active")}),e.querySelectorAll("a").forEach(o=>{o.addEventListener("click",()=>{e.classList.remove("open"),t.classList.remove("active")})}),document.addEventListener("click",o=>{e.classList.contains("open")&&!e.contains(o.target)&&!t.contains(o.target)&&(e.classList.remove("open"),t.classList.remove("active"))}),window.innerWidth<=768&&e.querySelectorAll("li.dropdown").forEach(a=>{const r=a.querySelector("a");r&&r.addEventListener("click",s=>{s.preventDefault(),a.classList.toggle("active")})})}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",p):p();let d;window.addEventListener("resize",()=>{clearTimeout(d),d=setTimeout(()=>{const n=document.querySelector("nav"),i=document.getElementById("menu-toggle");window.innerWidth>768&&(n&&n.classList.remove("open"),i&&i.classList.remove("active"))},250)});

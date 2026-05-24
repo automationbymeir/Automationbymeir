@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="ad.size" content="width=160,height=600">
+    <title>160x600 - Automation by Meir</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
+        *{box-sizing:border-box;margin:0;padding:0}
+        .highlight{background:linear-gradient(90deg,#72FFA3,#34B1FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:600}
+        .ad{width:160px;height:600px;background:linear-gradient(180deg,#0c0c0c,#141416 50%,#0f1210);position:relative;overflow:hidden;cursor:pointer;font-family:'IBM Plex Sans',sans-serif}
+        .side-line{position:absolute;top:0;left:0;width:2px;height:100%;background:linear-gradient(180deg,transparent,#72FFA3,#34B1FF,transparent);opacity:0.4}
+        .content{padding:20px 14px;height:100%;display:flex;flex-direction:column;text-align:center;position:relative;z-index:1}
+        .logo-icon{width:32px;height:32px;background:rgba(114,255,163,0.1);border:1px solid rgba(114,255,163,0.2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;color:#72FFA3;margin:0 auto 16px;font-weight:600}
+        h2{color:#fff;font-size:18px;font-weight:300;line-height:1.25;margin-bottom:20px}
+        .features{display:flex;flex-direction:column;gap:10px;flex:1}
+        .feature{background:rgba(255,255,255,0.03);padding:12px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06)}
+        .feature-icon{margin-bottom:4px;display:flex;justify-content:center}
+        .feature-icon svg{width:18px;height:18px;color:#72FFA3}
+        .feature-title{color:#72FFA3;font-size:12px;font-weight:600;margin-bottom:2px}
+        .feature-text{color:#888;font-size:10px;line-height:1.3}
+        .price-tag{color:#fff;font-size:20px;font-weight:300;margin:16px 0 4px}
+        .price-label{color:#888;font-size:10px;margin-bottom:14px}
+        .cta-btn{display:inline-block;background:linear-gradient(135deg,#72FFA3,#4de88a);color:#0a0a0a;font-family:'IBM Plex Sans',sans-serif;font-weight:600;border:none;text-align:center;padding:11px 16px;border-radius:8px;font-size:12px;width:100%}
+    </style>
+</head>
+<body>
+<div class="ad" onclick="window.open(window.clickTag || 'https://automationbymeir.com')">
+    <div class="side-line"></div>
+    <div class="content">
+        <div class="logo-icon">&lt;/&gt;</div>
+        <h2><span class="highlight">Automate</span><br>Your<br>Business</h2>
+
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M13 2L3 14h9l-1 10 10-12h-9l1-10z"/>
+                    </svg>
+                </div>
+                <div class="feature-title">Google Apps</div>
+                <div class="feature-text">Sheets, Gmail, Drive</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/>
+                        <path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/>
+                    </svg>
+                </div>
+                <div class="feature-title">CRM Sync</div>
+                <div class="feature-text">Real-time integration</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2a10 10 0 0110 10c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2z"/>
+                        <path d="M12 8v4l3 3"/>
+                    </svg>
+                </div>
+                <div class="feature-title">AI Workflows</div>
+                <div class="feature-text">Intelligent automation</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="2"/>
+                        <path d="M12 8v8"/><path d="M8 12v4"/><path d="M16 10v6"/>
+                    </svg>
+                </div>
+                <div class="feature-title">Dashboards</div>
+                <div class="feature-text">Live reporting</div>
+            </div>
+        </div>
+
+        <div class="price-tag"><span class="highlight">From $1,200</span></div>
+        <div class="price-label">Fixed pricing · No surprises</div>
+        <div class="cta-btn">Book Free Call</div>
+    </div>
+</div>
+<script>var clickTag = "https://automationbymeir.com";</script>
+</body>
+</html>

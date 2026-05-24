@@ -1,0 +1,128 @@
+/* ── Shared responsive styles for all showcase pages ── */
+
+@media (max-width: 768px) {
+  body {
+    padding: 0.75rem;
+  }
+
+  .showcase-container {
+    margin-top: 80px !important;
+  }
+
+  h1 {
+    font-size: 1.8rem !important;
+    line-height: 1.2 !important;
+  }
+
+  h2 {
+    font-size: 1.4rem !important;
+  }
+
+  h3 {
+    font-size: 1.1rem !important;
+  }
+
+  /* Reduce section padding */
+  .system-architecture,
+  .showcase-section,
+  .workflow-section,
+  .section-card,
+  [class*="section"] {
+    padding: 1.5rem !important;
+  }
+
+  /* Collapse all 2-column fixed grids */
+  .dual-path-diagram,
+  .questionnaire-showcase,
+  .docs-interface-showcase,
+  .process-flow,
+  .features-showcase,
+  .dashboard-content,
+  .kpi-grid,
+  .workflow-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Fix fixed-height sidebar */
+  .sidebar-mock {
+    height: auto !important;
+    max-height: 300px !important;
+    border-right: none !important;
+    border-bottom: 1px solid #e0e0e0 !important;
+  }
+
+  /* Fix fixed-height docs mock */
+  .google-docs-mock {
+    max-height: 400px !important;
+    overflow-y: auto !important;
+  }
+
+  .docs-content {
+    height: auto !important;
+    min-height: unset !important;
+    padding: 1rem !important;
+  }
+
+  /* Tech stack on mobile */
+  .tech-stack-summary {
+    padding: 1rem !important;
+    gap: 1rem !important;
+  }
+
+  .tech-icon {
+    width: 48px !important;
+    height: 48px !important;
+  }
+
+  /* Stats bar */
+  .stats-bar {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    padding: 1.5rem !important;
+  }
+
+  /* Badges and pills */
+  .badge,
+  .tag-pill,
+  [class*="badge"] {
+    font-size: 0.75rem !important;
+  }
+
+  /* Subtitle */
+  .subtitle {
+    font-size: 1rem !important;
+  }
+
+  /* Cards */
+  .info-card,
+  .feature-card,
+  [class*="-card"] {
+    padding: 1rem !important;
+  }
+
+  /* Tables overflow */
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  /* Overflow protection */
+  img,
+  svg {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem !important;
+  }
+
+  .tech-icon {
+    width: 40px !important;
+    height: 40px !important;
+  }
+}

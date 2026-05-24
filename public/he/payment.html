@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <link rel="icon" type="image/svg+xml" href="/logos/favicon.svg">
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "sxaf839npz");
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D8GQDGVR08"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-D8GQDGVR08');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>תשלום מאובטח — Automation by Meir</title>
+  <meta name="description" content="השלימו את התשלום שלכם בצורה מאובטחת באמצעות PayPal." />
+  <link rel="canonical" href="https://automationbymeir.com/he/payment.html" />
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@200;300;400;500;600;700&display=swap');
+    :root {
+      --primary: #00e676;
+      --primary-dark: #00c853;
+      --secondary: #448aff;
+      --dark: #0a0a0a;
+      --dark-secondary: #1a1a1a;
+      --dark-tertiary: #2a2a2a;
+      --light: #ffffff;
+      --text-primary: #e0e0e0;
+      --text-secondary: #9e9e9e;
+      --border-color: #333;
+      --accent: #fbbc04;
+      --danger: #ea4335;
+      --gray: #5f6368;
+    }
+    body { font-family: 'IBM Plex Sans Hebrew', 'IBM Plex Sans', -apple-system, sans-serif; background: #000; color: var(--light); min-height: 100vh; overflow-x: hidden; }
+    h1 { font-weight: 200; }
+    .bg-animation { position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -1; background: linear-gradient(45deg, #202124 0%, #2d2d30 50%, #202124 100%); }
+    .bg-animation::before { content: ''; position: absolute; width: 200%; height: 200%; top: -50%; left: -50%; background: radial-gradient(circle, rgba(66,133,244,0.1) 0%, transparent 50%); animation: rotate 30s linear infinite; }
+    @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    #header { position: fixed; width: 100%; z-index: 100; padding: 40px; display: flex; justify-content: space-between; box-sizing: border-box; align-items: flex-start; top: 0; left: 0; height: 0; }
+    #header img { height: 40px; width: auto; backdrop-filter: blur(20px); padding: 8px; border-radius: 8px; }
+    nav { display: flex; flex-direction: row; align-items: flex-start; padding: 24px; gap: 40px; left: 32px; right: auto; top: 32px; background: rgba(13,13,14,0.6); backdrop-filter: blur(16px); border-radius: 8px; z-index: 100; width: 25%; min-width: min-content; flex-wrap: wrap; align-content: flex-start; justify-content: flex-start; box-sizing: border-box; }
+    nav ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; width: 40%; flex-grow: 1; }
+    a { color: white; text-decoration: none; }
+    nav a { font-size: 20px; position: relative; display: inline-block; font-weight: 300; white-space: nowrap; }
+    nav a:after { content: ''; display: block; width: 100%; height: 1px; background: #fff; transform: scaleX(0); transition: transform 0.2s ease-in-out; transform-origin: 0% 0; }
+    nav a:hover:after { transform: scaleX(1); transform-origin: 100% 0; }
+    nav ul li { position: relative; }
+    nav ul li .dropdown-menu { display: none; background: rgba(13,13,14,0.9); border-radius: 8px; padding: 8px 0; list-style: none; margin: 0; min-width: 220px; }
+    nav ul li:hover .dropdown-menu { display: block; }
+    nav ul li .dropdown-menu a { padding: 8px 16px; display: block; font-size: 16px; white-space: nowrap; }
+    nav ul li .dropdown-menu a:hover { background: none; }
+    .menu-toggle { display: none; flex-direction: column; justify-content: space-between; width: 30px; height: 21px; cursor: pointer; background: rgba(13,13,14,0.6); backdrop-filter: blur(16px); padding: 12px; border-radius: 8px; gap: 3px; position: fixed; top: 40px; left: 40px; right: auto; z-index: 101; }
+    .menu-toggle span { display: block; height: 2px; background: #fff; border-radius: 2px; transition: all 0.3s ease; }
+    .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .menu-toggle.active span:nth-child(2) { opacity: 0; }
+    .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+    .payment-wrapper { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 6rem 2rem 2rem; }
+    .payment-container { background: rgba(41,42,46,0.8); backdrop-filter: blur(10px); border-radius: 20px; border: 1px solid rgba(66,133,244,0.2); padding: 3rem; max-width: 95%; width: 100%; text-align: center; transition: all 0.3s ease; position: relative; overflow: hidden; }
+    .payment-container:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(66,133,244,0.3); border-color: var(--primary); }
+    h1 { font-size: 3rem; margin-bottom: 1rem; background: linear-gradient(135deg, #4285F4 0%, #34A853 50%, #FBBC04 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .payment-subtitle { color: #cbd5e1; font-size: 1.3rem; margin-bottom: 2rem; }
+    #paypal-button-container { margin: 2rem auto; max-width: 400px; display: flex; justify-content: center; align-items: center; min-height: 150px; background: transparent !important; }
+    #paypal-button-container > div { background: rgba(22,22,22,0.5) !important; border-radius: 8px; padding: 1rem; border: 1px solid rgba(255,255,255,0.1); }
+    #paypal-button-container iframe { border-radius: 8px; background: transparent !important; background-color: transparent !important; }
+    .form-group { margin-bottom: 2rem; text-align: right; }
+    .form-group label { display: block; margin-bottom: 0.75rem; color: var(--light); font-weight: 600; font-size: 1rem; letter-spacing: 0.025em; }
+    .amount-input-wrapper { position: relative; display: flex; align-items: center; background-color: rgba(45,45,48,0.8); border: 1px solid rgba(66,133,244,0.3); border-radius: 12px; transition: all 0.3s ease; overflow: hidden; }
+    .amount-input-wrapper:focus-within { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(66,133,244,0.2); }
+    .currency-symbol { position: absolute; right: 1.25rem; left: auto; color: var(--accent); font-size: 1.5rem; font-weight: 500; pointer-events: none; }
+    .form-group input[type="number"] { width: 100%; padding: 1rem 3rem 1rem 1rem; border: none; background-color: transparent; color: var(--light); font-size: 1.5rem; font-weight: 500; outline: none; appearance: none; -moz-appearance: textfield; text-align: right; }
+    .form-group input[type="number"]::-webkit-inner-spin-button,
+    .form-group input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+    #result-message { margin-top: 2rem; font-size: 1rem; color: var(--secondary); background-color: rgba(52,168,83,0.1); padding: 1rem; border-radius: 8px; border: 1px solid var(--secondary); display: none; }
+    #error-message { color: var(--danger); background-color: rgba(234,67,53,0.1); padding: 1rem; border-radius: 8px; border: 1px solid var(--danger); margin-bottom: 2rem; display: none; }
+    .loading-spinner { width: 48px; height: 48px; border: 3px solid rgba(66,133,244,0.2); border-top-color: var(--primary); border-radius: 50%; animation: spin 1s linear infinite; margin: 2rem auto; }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    .security-badge { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 2rem; color: #cbd5e1; font-size: 0.9rem; }
+    .security-badge svg { width: 20px; height: 20px; fill: var(--secondary); }
+    .packages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; margin: 2rem 0; text-align: right; }
+    .package-card { background: rgba(22,22,22,0.6); border: 1px solid var(--border-color); border-radius: 12px; padding: 2.5rem; position: relative; transition: all 0.3s ease; display: flex; flex-direction: column; }
+    .package-card:hover { border-color: var(--primary); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,230,118,0.2); }
+    .package-card.selected { border-color: var(--secondary); background: rgba(68,138,255,0.1); box-shadow: 0 0 20px rgba(68,138,255,0.3); }
+    .package-card.package-featured { border-color: var(--primary); background: rgba(0,230,118,0.05); }
+    .package-badge { position: absolute; top: -12px; right: 20px; background: var(--primary); color: var(--dark); padding: 6px 16px; border-radius: 12px; font-size: 0.9rem; font-weight: 600; }
+    .package-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
+    .package-header h3 { font-size: 2rem; font-weight: 600; margin: 0; color: var(--light); }
+    .package-price { display: flex; flex-direction: column; align-items: flex-start; }
+    .price-amount { font-size: 2.25rem; font-weight: 700; color: var(--primary); }
+    .price-note { font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.25rem; }
+    .package-title { font-size: 1.25rem; font-weight: 500; color: var(--text-primary); margin-bottom: 1.5rem; min-height: 3rem; line-height: 1.4; }
+    .package-features { list-style: none; padding: 0; margin: 0 0 1.5rem 0; flex-grow: 1; }
+    .package-features li { padding: 0.75rem 0; color: var(--text-secondary); font-size: 1.1rem; line-height: 1.6; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .package-features li:last-child { border-bottom: none; }
+    .package-features li strong { color: var(--light); font-weight: 600; font-size: 1.15rem; }
+    .package-select-btn { background: transparent; border: 1px solid var(--primary); color: var(--primary); padding: 1rem 2rem; border-radius: 8px; font-size: 1.15rem; font-weight: 500; cursor: pointer; transition: all 0.3s ease; margin-top: auto; width: 100%; display: flex; align-items: center; justify-content: center; text-align: center; min-height: 50px; height: auto; box-sizing: border-box; font-family: 'IBM Plex Sans Hebrew', sans-serif; }
+    .package-select-btn:hover { background: var(--primary); color: var(--dark); }
+    .package-card.selected .package-select-btn { background: var(--secondary); border-color: var(--secondary); color: white; }
+    .payment-section { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color); }
+    .selected-package-info { background: rgba(68,138,255,0.1); border: 1px solid var(--secondary); border-radius: 8px; padding: 1rem; margin-bottom: 1.5rem; text-align: right; }
+    .selected-package-info h4 { margin: 0 0 0.5rem 0; color: var(--light); font-size: 1.1rem; }
+    .selected-package-info p { margin: 0; color: var(--text-secondary); font-size: 0.9rem; }
+    .amount-note { font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.5rem; text-align: right; }
+    .form-group textarea { width: 100%; padding: 1rem; border: 1px solid rgba(66,133,244,0.3); border-radius: 12px; background-color: rgba(45,45,48,0.8); color: var(--light); font-size: 1rem; font-family: 'IBM Plex Sans Hebrew', sans-serif; outline: none; resize: vertical; min-height: 80px; transition: all 0.3s ease; box-sizing: border-box; text-align: right; }
+    .form-group textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(66,133,244,0.2); }
+    .form-group textarea::placeholder { color: var(--text-secondary); }
+    .package-card.package-custom { border-color: var(--accent); background: rgba(251,188,4,0.05); }
+    .package-card.package-custom .package-select-btn { border-color: var(--accent); color: var(--accent); }
+    .package-card.package-custom .package-select-btn:hover { background: var(--accent); color: var(--dark); }
+    .package-card.package-custom .price-amount { color: var(--accent); }
+    .custom-project-row { display: flex; justify-content: center; margin-top: 2.5rem; }
+    .custom-project-row .package-card { max-width: 500px; width: 100%; }
+    @media (max-width: 1024px) { .packages-grid { grid-template-columns: 1fr; gap: 1.5rem; } }
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+      .payment-container { padding: 2rem; }
+      .payment-wrapper { padding: 5rem 1rem 1rem; }
+      .packages-grid { gap: 1rem; }
+      .package-card { padding: 1.5rem; }
+      #header { padding: 16px !important; background: rgba(30,30,33,0.95); backdrop-filter: blur(10px); }
+      #header img { height: 32px !important; padding: 6px !important; }
+      .menu-toggle { display: flex !important; top: 16px; left: 16px; right: auto; }
+      nav { display: none !important; position: fixed !important; top: 70px !important; right: 16px !important; left: 16px !important; width: auto !important; max-height: calc(100vh - 100px) !important; background: rgba(13,13,14,0.95) !important; padding: 24px !important; flex-direction: column !important; overflow-y: auto !important; z-index: 99 !important; }
+      nav.open { display: flex !important; }
+    }
+    #header { z-index: 100; }
+    nav { z-index: 100; }
+    .menu-toggle { z-index: 101; }
+  </style>
+</head>
+<body>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PZ9XZMFL" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <div class="bg-animation"></div>
+
+  <div id="header">
+    <a href="/he/index.html"><img src="/ma_logo.svg" alt="Automation by Meir" width="196" height="64" /></a>
+    <nav>
+      <ul>
+        <li><a href="/he/index.html#services">שירותים</a></li>
+        <li><a href="/he/index.html#projects">פרויקטים</a></li>
+        <li class="dropdown"><a href="#">דוגמאות עבודה</a>
+          <ul class="dropdown-menu">
+            <li><a href="/he/showcase2.html">מערכת Business Analytics</a></li>
+            <li><a href="/he/showcase-job-post-pro.html">Job Post Pro</a></li>
+          </ul>
+        </li>
+        <li><a href="/he/why-automation.html">למה אוטומציה</a></li>
+        <li><a href="/he/index.html#contact">צרו קשר</a></li>
+      </ul>
+      <ul>
+        <li><a href="/automation-playground.html">נסו בלייב</a></li>
+        <li><a href="/he/payment.html">חבילות</a></li>
+        <li><a href="/">EN</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="payment-wrapper">
+    <div class="payment-container">
+      <h1>בחרו חבילה</h1>
+      <p class="payment-subtitle">בחרו את החבילה המתאימה לצרכים שלכם</p>
+      <div id="error-message"></div>
+
+      <div class="packages-grid">
+        <div class="package-card" data-package="basic" data-price="300">
+          <div class="package-header">
+            <h3>בסיסית</h3>
+            <div class="package-price">
+              <span class="price-amount">US$300</span>
+              <span class="price-note">+ מסים ועמלות</span>
+            </div>
+          </div>
+          <div class="package-title">התחלה עם Prompt Engineering</div>
+          <ul class="package-features">
+            <li>ייעוץ מהיר (פגישה אחת) לזיהוי מטרות תהליך העבודה שלכם</li>
+            <li>אינטגרציה של מודל AI לאפליקציה קיימת</li>
+            <li>אינטגרציית מסד נתונים</li>
+            <li>כולל קוד מקור</li>
+            <li>הערות קוד מפורטות</li>
+            <li><strong>תיקונים:</strong> 0</li>
+            <li><strong>זמן אספקה:</strong> 2 ימים (יום אחד +US$30)</li>
+          </ul>
+          <button class="package-select-btn" data-package="basic">בחרו חבילה בסיסית</button>
+        </div>
+
+        <div class="package-card package-featured" data-package="standard" data-price="900">
+          <div class="package-badge">פופולרי</div>
+          <div class="package-header">
+            <h3>סטנדרטית</h3>
+            <div class="package-price">
+              <span class="price-amount">US$900</span>
+              <span class="price-note">+ מסים ועמלות</span>
+            </div>
+          </div>
+          <div class="package-title">אינטגרציית AI מלאה + תמיכה</div>
+          <ul class="package-features">
+            <li>ניתוח תהליך עבודה מעמיק</li>
+            <li>הגדרת פרומפטים מרכזיים עם Claude AI, Gemini או ChatGPT</li>
+            <li>אינטגרציה של מודל AI לאפליקציה קיימת</li>
+            <li>אינטגרציית מסד נתונים</li>
+            <li>כולל קוד מקור</li>
+            <li>הערות קוד מפורטות</li>
+            <li><strong>תיקונים:</strong> 1</li>
+            <li><strong>זמן אספקה:</strong> 7 ימים (5 ימים +US$50)</li>
+          </ul>
+          <button class="package-select-btn" data-package="standard">בחרו חבילה סטנדרטית</button>
+        </div>
+
+        <div class="package-card" data-package="premium" data-price="1500">
+          <div class="package-header">
+            <h3>פרמיום</h3>
+            <div class="package-price">
+              <span class="price-amount">US$1,500</span>
+              <span class="price-note">+ מסים ועמלות</span>
+            </div>
+          </div>
+          <div class="package-title">אינטגרציית AI מלאה — פרמיום</div>
+          <ul class="package-features">
+            <li>אופטימיזציה מלאה של תהליך העבודה</li>
+            <li>Prompt engineering מתקדם ואינטגרציה רב-פלטפורמית</li>
+            <li>אינטגרציה של מודל AI לאפליקציה קיימת</li>
+            <li>אינטגרציית מסד נתונים</li>
+            <li>כולל קוד מקור</li>
+            <li>הערות קוד מפורטות</li>
+            <li><strong>תיקונים:</strong> 2</li>
+            <li><strong>זמן אספקה:</strong> 21 ימים (14 ימים +US$100)</li>
+          </ul>
+          <button class="package-select-btn" data-package="premium">בחרו חבילה פרמיום</button>
+        </div>
+      </div>
+
+      <div class="custom-project-row">
+        <div class="package-card package-custom" data-package="custom">
+          <div class="package-badge" style="background: var(--accent);">גמיש</div>
+          <div class="package-header">
+            <h3>פרויקט מותאם</h3>
+            <div class="package-price">
+              <span class="price-amount">לפי הסכמה</span>
+            </div>
+          </div>
+          <div class="package-title">כבר עובדים ביחד? הזינו את הסכום המוסכם</div>
+          <ul class="package-features">
+            <li>ללקוחות קיימים עם הסכם מותאם</li>
+            <li>הזינו את הסכום המדויק עליו הסכמנו</li>
+            <li>הוסיפו הערות או הפניה לפרויקט לרשומות שלכם</li>
+          </ul>
+          <button class="package-select-btn" data-package="custom">בחרו פרויקט מותאם</button>
+        </div>
+      </div>
+
+      <div class="payment-section" id="payment-section" style="display: none;">
+        <h3>השלימו את התשלום</h3>
+        <div class="selected-package-info" id="selected-package-info"></div>
+        <div class="form-group">
+          <label for="amount">סכום לתשלום (USD)</label>
+          <div class="amount-input-wrapper">
+            <span class="currency-symbol">$</span>
+            <input type="number" id="amount" name="amount" value="300.00" min="1.00" step="0.01" required>
+          </div>
+          <p class="amount-note">ניתן לשנות את הסכום לפי הצורך</p>
+        </div>
+        <div class="form-group">
+          <label for="payment-notes">הערות (אופציונלי)</label>
+          <textarea id="payment-notes" name="notes" rows="3" placeholder="הפניה לפרויקט, הוראות מיוחדות, או פרטים נוספים לתשלום זה..."></textarea>
+        </div>
+        <div id="paypal-button-container" class="paypal-button-container">
+          <div class="loading-spinner"></div>
+        </div>
+        <p id="result-message"></p>
+      </div>
+
+      <div class="security-badge">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+        </svg>
+        תשלום מאובטח מופעל על ידי PayPal
+      </div>
+    </div>
+  </div>
+
+  <script src="https://www.paypal.com/sdk/js?client-id=AeaBp323CjqYmHp-xUAI75zxRjYdV-zZBX9qoxbipdeQooVrakI7aAdfbPizQ3QmsUe0MjZ-4X71PuiC&currency=USD&components=buttons&enable-funding=venmo"></script>
+  <script>
+    const packages = {
+      basic: { name: 'Basic', title: 'Prompt Engineering Kickstart', price: 300 },
+      standard: { name: 'Standard', title: 'Complete AI Integration & Support', price: 900 },
+      premium: { name: 'Premium', title: 'Premium – Complete AI Integration', price: 1500 },
+      custom: { name: 'Custom Project', title: 'Custom Agreement', price: null }
+    };
+
+    let selectedPackage = null;
+    let paypalButtons = null;
+
+    document.querySelectorAll('.package-select-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        selectPackage(this.dataset.package);
+      });
+    });
+
+    function selectPackage(packageType) {
+      document.querySelectorAll('.package-card').forEach(card => card.classList.remove('selected'));
+      document.querySelector(`.package-card[data-package="${packageType}"]`).classList.add('selected');
+      selectedPackage = packages[packageType];
+      const amountInput = document.getElementById('amount');
+      if (selectedPackage.price !== null) {
+        amountInput.value = selectedPackage.price.toFixed(2);
+      } else {
+        amountInput.value = '';
+        amountInput.focus();
+      }
+      const paymentSection = document.getElementById('payment-section');
+      paymentSection.style.display = 'block';
+      const packageInfo = document.getElementById('selected-package-info');
+      if (packageType === 'custom') {
+        packageInfo.innerHTML = '<h4>נבחר: פרויקט מותאם</h4><p>הזינו את הסכום המוסכם והוסיפו הערות למטה</p>';
+      } else {
+        packageInfo.innerHTML = `<h4>נבחר: ${selectedPackage.name} - ${selectedPackage.title}</h4><p>מחיר בסיס: US$${selectedPackage.price.toFixed(2)} + מסים ועמלות</p>`;
+      }
+      paymentSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      if (paypalButtons) { paypalButtons.close(); }
+      renderPayPalButtons();
+    }
+
+    document.getElementById('amount').addEventListener('input', function() {
+      if (paypalButtons && parseFloat(this.value) > 0) {
+        paypalButtons.close();
+        renderPayPalButtons();
+      }
+    });
+
+    function renderPayPalButtons() {
+      const container = document.getElementById('paypal-button-container');
+      container.innerHTML = '<div class="loading-spinner"></div>';
+      paypalButtons = window.paypal.Buttons({
+        style: { shape: "rect", layout: "vertical", color: "white", label: "paypal", tagline: false },
+        async createOrder(data, actions) {
+          const amountValue = document.getElementById("amount").value;
+          const notesValue = document.getElementById("payment-notes").value;
+          if (!amountValue || parseFloat(amountValue) <= 0) {
+            resultMessage("אנא הזינו סכום תשלום תקין.");
+            return Promise.reject(new Error("Invalid amount"));
+          }
+          const pkgName = selectedPackage ? `${selectedPackage.name} - ${selectedPackage.title}` : 'Payment';
+          const description = notesValue ? `${pkgName} | ${notesValue}` : pkgName;
+          try {
+            const response = await fetch("/api/orders", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ amount: amountValue, notes: notesValue || undefined, description })
+            });
+            const orderData = await response.json();
+            if (response.ok && orderData.id) return orderData.id;
+            const errorDetail = orderData?.details?.[0];
+            throw new Error(errorDetail ? `${errorDetail.issue} ${errorDetail.description}` : JSON.stringify(orderData));
+          } catch (error) {
+            return actions.order.create({
+              purchase_units: [{ amount: { currency_code: "USD", value: amountValue }, description: notesValue ? notesValue.substring(0, 127) : undefined }]
+            });
+          }
+        },
+        async onApprove(data, actions) {
+          try {
+            const response = await fetch(`/api/orders/${data.orderID}/capture`, {
+              method: "POST", headers: { "Content-Type": "application/json" }
+            });
+            const orderData = await response.json();
+            const errorDetail = orderData?.details?.[0];
+            if (errorDetail?.issue === "INSTRUMENT_DECLINED") return actions.restart();
+            else if (errorDetail) throw new Error(`${errorDetail.description}`);
+            const transaction = orderData?.purchase_units?.[0]?.payments?.captures?.[0] || orderData?.purchase_units?.[0]?.payments?.authorizations?.[0];
+            resultMessage(`העסקה הושלמה: ${transaction.status} — ${transaction.id}<br><br>תודה על התשלום!`);
+          } catch (error) {
+            return actions.order.capture().then(details => {
+              resultMessage(`העסקה הושלמה: ${details.status}<br><br>תודה!`);
+            }).catch(err => resultMessage(`אירעה שגיאה בעיבוד התשלום. אנא נסו שוב.`));
+          }
+        }
+      });
+      paypalButtons.render("#paypal-button-container").then(() => {
+        const spinner = document.querySelector("#paypal-button-container .loading-spinner");
+        if (spinner) spinner.remove();
+      });
+    }
+
+    function resultMessage(message) {
+      const container = document.querySelector("#result-message");
+      container.innerHTML = message;
+      container.style.display = "block";
+    }
+  </script>
+  <script src="/nav.js" type="module"></script>
+</body>
+</html>

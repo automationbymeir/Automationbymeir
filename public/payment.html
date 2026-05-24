@@ -23,7 +23,7 @@
     <title>Secure Payment - Automation by Meir</title>
     <meta name="description" content="Complete your payment securely using PayPal." />
     <link rel="canonical" href="https://automationbymeir.com/payment.html" />
-    <link rel="stylesheet" type="text/css" href="https://www.paypalobjects.com/webstatic/en_US/developer/docs/css/cardfields.css" />
+
     <style>
 /* Your existing CSS - No changes made */
         @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;400;600;700&display=swap');
@@ -451,6 +451,14 @@
             cursor: pointer;
             transition: all 0.3s ease;
             margin-top: auto;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 50px;
+            height: auto;
+            box-sizing: border-box;
         }
         
         .package-select-btn:hover {
@@ -496,6 +504,60 @@
             color: var(--text-secondary);
             margin-top: 0.5rem;
             text-align: left;
+        }
+        
+        /* Notes textarea */
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid rgba(66, 133, 244, 0.3);
+            border-radius: 12px;
+            background-color: rgba(45, 45, 48, 0.8);
+            color: var(--light);
+            font-size: 1rem;
+            font-family: 'IBM Plex Sans', sans-serif;
+            outline: none;
+            resize: vertical;
+            min-height: 80px;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+        .form-group textarea:hover {
+            border-color: rgba(66, 133, 244, 0.5);
+            box-shadow: 0 0 20px rgba(66, 133, 244, 0.1);
+        }
+        .form-group textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.2);
+        }
+        .form-group textarea::placeholder {
+            color: var(--text-secondary);
+        }
+
+        /* Custom project card */
+        .package-card.package-custom {
+            border-color: var(--accent);
+            background: rgba(251, 188, 4, 0.05);
+        }
+        .package-card.package-custom .package-select-btn {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        .package-card.package-custom .package-select-btn:hover {
+            background: var(--accent);
+            color: var(--dark);
+        }
+        .package-card.package-custom .price-amount {
+            color: var(--accent);
+        }
+        .custom-project-row {
+            display: flex;
+            justify-content: center;
+            margin-top: 2.5rem;
+        }
+        .custom-project-row .package-card {
+            max-width: 500px;
+            width: 100%;
         }
         
         @media (max-width: 1024px) {
@@ -809,7 +871,6 @@ nav {
           <li><a href="index.html#projects">Projects</a></li>
           <li class="dropdown"><a href="#">Showcases</a>
             <ul class="dropdown-menu">
-              <li><a href="showcase1.html">Crypto Wallet Tracker</a></li>
               <li><a href="showcase2.html">Business Analytics System</a></li>
               <li><a href="showcase-job-post-pro.html">Job Post Pro</a></li>
             </ul>
@@ -820,6 +881,7 @@ nav {
         <ul>
           <li><a href="automation-playground.html">Try live</a></li>
           <li><a href="payment.html">Packages</a></li>
+          <li><a href="/he/">עב</a></li>
         </ul>
       </nav>
     </div>
@@ -899,6 +961,26 @@ nav {
                 </div>
             </div>
 
+            <!-- Custom Project -->
+            <div class="custom-project-row">
+                <div class="package-card package-custom" data-package="custom">
+                    <div class="package-badge" style="background: var(--accent);">Flexible</div>
+                    <div class="package-header">
+                        <h3>Custom Project</h3>
+                        <div class="package-price">
+                            <span class="price-amount">You Decide</span>
+                        </div>
+                    </div>
+                    <div class="package-title">Already working together? Enter the agreed amount</div>
+                    <ul class="package-features">
+                        <li>For existing clients with a custom agreement</li>
+                        <li>Enter the exact amount we agreed on</li>
+                        <li>Add notes or a project reference for your records</li>
+                    </ul>
+                    <button class="package-select-btn" data-package="custom">Select Custom Project</button>
+                </div>
+            </div>
+
             <!-- Payment Section -->
             <div class="payment-section" id="payment-section" style="display: none;">
                 <h3>Complete Your Payment</h3>
@@ -910,6 +992,10 @@ nav {
                         <input type="number" id="amount" name="amount" value="300.00" min="1.00" step="0.01" required>
                     </div>
                     <p class="amount-note">You can adjust the amount if needed</p>
+                </div>
+                <div class="form-group">
+                    <label for="payment-notes">Notes (optional)</label>
+                    <textarea id="payment-notes" name="notes" rows="3" placeholder="Project reference, special instructions, or any details for this payment..."></textarea>
                 </div>
                 <div id="paypal-button-container" class="paypal-button-container">
                     <div class="loading-spinner"></div>
@@ -926,7 +1012,7 @@ nav {
         </div>
     </div>
 
-    <script src="https://www.paypal.com/sdk/js?client-id=AaSn2JSC0jwjh-bbre2EiOkOIbd-L-H7RsN-LUYb1fiQqLZGdCfDlaTn0FQrj_Dc7F28Xo0eUcicOi22&buyer-country=US&currency=USD&components=buttons&enable-funding=venmo"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=AeaBp323CjqYmHp-xUAI75zxRjYdV-zZBX9qoxbipdeQooVrakI7aAdfbPizQ3QmsUe0MjZ-4X71PuiC&currency=USD&components=buttons&enable-funding=venmo"></script>
     
     <script>
         // Package data
@@ -974,6 +1060,12 @@ nav {
                     'Revisions: 2',
                     'Delivery Time: 21 days (14 days +US$100)'
                 ]
+            },
+            custom: {
+                name: 'Custom Project',
+                title: 'Custom Agreement',
+                price: null,
+                features: []
             }
         };
 
@@ -995,14 +1087,19 @@ nav {
             });
 
             // Add selection to clicked package
-            const packageCard = document.querySelector(`[data-package="${packageType}"]`);
+            const packageCard = document.querySelector(`.package-card[data-package="${packageType}"]`);
             packageCard.classList.add('selected');
 
             selectedPackage = packages[packageType];
             
             // Update amount field
             const amountInput = document.getElementById('amount');
-            amountInput.value = selectedPackage.price.toFixed(2);
+            if (selectedPackage.price !== null) {
+                amountInput.value = selectedPackage.price.toFixed(2);
+            } else {
+                amountInput.value = '';
+                amountInput.focus();
+            }
 
             // Show payment section
             const paymentSection = document.getElementById('payment-section');
@@ -1010,10 +1107,17 @@ nav {
 
             // Update selected package info
             const packageInfo = document.getElementById('selected-package-info');
-            packageInfo.innerHTML = `
-                <h4>Selected: ${selectedPackage.name} - ${selectedPackage.title}</h4>
-                <p>Base Price: US$${selectedPackage.price.toFixed(2)} + taxes & fees</p>
-            `;
+            if (packageType === 'custom') {
+                packageInfo.innerHTML = `
+                    <h4>Selected: Custom Project</h4>
+                    <p>Enter the agreed amount and add any notes below</p>
+                `;
+            } else {
+                packageInfo.innerHTML = `
+                    <h4>Selected: ${selectedPackage.name} - ${selectedPackage.title}</h4>
+                    <p>Base Price: US$${selectedPackage.price.toFixed(2)} + taxes & fees</p>
+                `;
+            }
 
             // Scroll to payment section
             paymentSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -1047,10 +1151,15 @@ nav {
                 },
                 async createOrder(data, actions) {
                     const amountValue = document.getElementById("amount").value;
+                    const notesValue = document.getElementById("payment-notes").value;
                     if (!amountValue || parseFloat(amountValue) <= 0) {
                         resultMessage("Please enter a valid payment amount.");
                         return Promise.reject(new Error("Invalid amount"));
                     }
+
+                    // Build description from selected package + notes
+                    const pkgName = selectedPackage ? `${selectedPackage.name} - ${selectedPackage.title}` : 'Payment';
+                    const description = notesValue ? `${pkgName} | ${notesValue}` : pkgName;
 
                     try {
                         const response = await fetch("/api/orders", {
@@ -1059,7 +1168,9 @@ nav {
                                 "Content-Type": "application/json",
                             },
                             body: JSON.stringify({
-                                amount: amountValue
+                                amount: amountValue,
+                                notes: notesValue || undefined,
+                                description: description
                             }),
                         });
 
@@ -1078,12 +1189,14 @@ nav {
 
                     } catch (error) {
                         console.warn("Server-side order creation failed. Falling back to client-side.", error);
+                        const notesForFallback = document.getElementById("payment-notes").value;
                         return actions.order.create({
                             purchase_units: [{
                                 amount: {
                                     currency_code: "USD",
                                     value: amountValue,
                                 },
+                                description: notesForFallback ? notesForFallback.substring(0, 127) : undefined,
                             }, ],
                         });
                     }

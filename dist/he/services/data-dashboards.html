@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <link rel="icon" type="image/svg+xml" href="/logos/favicon.svg">
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "sxaf839npz");
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>דשבורדי נתונים | Automation by Meir</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@200;300;400;500;600;700&display=swap');
+    body { font-family: 'IBM Plex Sans Hebrew', 'IBM Plex Sans', sans-serif; background: #1E1E21; color: #fff; margin: 0; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+    h1 { font-weight: 300; font-size: clamp(3rem, 5vw, 4rem); margin-top: 120px; margin-bottom: 40px; color: #fff; }
+    h2 { font-weight: 300; font-size: 32px; color: #fff; margin-bottom: 20px; }
+    p { font-weight: 300; font-size: 18px; line-height: 1.6; color: #C4C4C4; margin-bottom: 1.5rem; }
+    a { color: #00e676; text-decoration: none; }
+    #header { position: fixed; width: 100%; z-index: 100; padding: 40px; top: 0; left: 0; display: flex; justify-content: space-between; box-sizing: border-box; align-items: flex-start; transition: padding 0.3s ease; pointer-events: none; }
+    #header > * { pointer-events: auto; }
+    #header img { backdrop-filter: blur(20px); padding: 8px; border-radius: 8px; }
+    nav { display: flex; padding: 24px; gap: 40px; background: rgba(13,13,14,0.6); backdrop-filter: blur(16px); border-radius: 8px; z-index: 100; min-width: min-content; }
+    nav ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+    nav a { color: white; font-size: 20px; font-weight: 300; white-space: nowrap; position: relative; text-decoration: none; }
+    nav a:after { content: ''; display: block; width: 100%; height: 1px; background: #fff; transform: scaleX(0); transition: transform 0.2s ease-in-out; transform-origin: 0% 0; }
+    nav a:hover:after { transform: scaleX(1); transform-origin: 100% 0; }
+    .menu-toggle { display: none; flex-direction: column; justify-content: space-between; width: 30px; height: 21px; cursor: pointer; background: rgba(13,13,14,0.6); backdrop-filter: blur(16px); padding: 12px; border-radius: 8px; position: fixed; top: 40px; left: 40px; right: auto; z-index: 101; pointer-events: auto; }
+    .menu-toggle span { display: block; height: 2px; background: #fff; border-radius: 2px; transition: all 0.3s ease; }
+    .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .menu-toggle.active span:nth-child(2) { opacity: 0; }
+    .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+    .content-container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+    .section-block { margin: 60px 0; }
+    .highlight-box { background: rgba(251, 188, 4, 0.06); border-right: 4px solid #fbbc04; border-left: none; padding: 24px 28px; border-radius: 0 8px 8px 0; margin: 40px 0; }
+    .highlight-box p { color: #e0e0e0; margin: 0; font-size: 17px; }
+    #start_promo { background: #333333; border-radius: 8px; padding: 80px 24px; margin-top: 80px; margin-bottom: 40px; }
+    #start_promo .horizontal { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; gap: 40px; flex-wrap: wrap; }
+    #start_promo p { width: 50%; margin: 0; min-width: 300px; color: #fff; font-size: 24px; }
+    .button { display: flex; align-items: center; padding: 12px 27px; gap: 8px; color: #fff; border: 1px solid #FFFFFF; border-radius: 12px; font-size: 20px; font-weight: 300; background: transparent; transition: background 0.2s; white-space: nowrap; text-decoration: none; }
+    .button:hover { background: rgba(255,255,255,0.1); }
+    @media (max-width: 1000px) {
+      #header { padding: 16px; background: rgba(30,30,33,0.95); backdrop-filter: blur(10px); }
+      .menu-toggle { display: flex; top: 16px; left: 16px; right: auto; }
+      nav { display: none; position: fixed; top: 70px; right: 16px; left: 16px; width: auto; background: rgba(13,13,14,0.95); flex-direction: column; padding: 24px; }
+      nav.open { display: flex; }
+      h1 { margin-top: 100px; font-size: 2.5rem; }
+      #start_promo .horizontal { flex-direction: column; align-items: flex-start; }
+      #start_promo p { width: 100%; margin-bottom: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <a href="/he/index.html"><img src="/ma_logo.svg" alt="Automation by Meir" /></a>
+    <nav>
+      <ul>
+        <li><a href="/he/index.html#services">שירותים</a></li>
+        <li><a href="/he/index.html#projects">פרויקטים</a></li>
+        <li><a href="/he/why-automation.html">למה אוטומציה</a></li>
+        <li><a href="/he/index.html#contact">צרו קשר</a></li>
+      </ul>
+      <ul>
+        <li><a href="/automation-playground.html">נסו בלייב</a></li>
+        <li><a href="/he/payment.html">חבילות</a></li>
+        <li><a href="/">EN</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="content-container">
+    <h1>דשבורדי נתונים</h1>
+
+    <p>מידע שימושי רק כשהוא ברור, נגיש ועדכני. דשבורדי הנתונים שלנו הופכים מספרים גולמיים לנרטיבים ויזואליים שמנחים מקבלי החלטות בכל רמה בארגון. במקום לגלול בגיליונות אלקטרוניים אינסופיים, פותחים דף אחד שמדגיש מגמות, חריגות והזדמנויות בזמן אמת — בנוי במיוחד למטרות הייחודיות שלכם.</p>
+
+    <div class="section-block">
+      <h2>מקורות נתונים ורענון אוטומטי</h2>
+      <p>אנחנו מתחילים כל פרויקט במיפוי מקורות הנתונים שחשובים ביותר. Google Sheets, מסדי נתונים SQL, מערכות CRM ואפילו APIs מותאמים אישית יכולים כולם להזין מודל מאוחד. באמצעות מחזורי רענון אוטומטיים ו-webhooks, הדשבורד נשאר מסונכרן עם המידע העדכני ביותר — לעולם לא תתהו אם אתם מסתכלים על מספרים של אתמול.</p>
+    </div>
+
+    <div class="section-block">
+      <h2>עיצוב ויזואלי ממוקד</h2>
+      <p>עיצוב ויזואלי ממלא תפקיד קריטי בהבנה — לכן אנחנו מקדישים תשומת לב לאסתטיקה לא פחות מהדיוק. תרשימים מעוצבים להתאים למותג שלכם ולהדגיש את הסיפור מאחורי הנתונים. מפות חום, טבלאות דינמיות וויזואליזציות גיאו-מרחביות מחיות קשרים מורכבים, בעוד שפריסות responsive מבטיחות חוויה מעולה בכל מכשיר.</p>
+    </div>
+
+    <div class="highlight-box">
+      <p>בקרות גישה ניתנות לקישור לתפקידי משתמש בודדים — נתונים רגישים נשארים פרטיים. דשבורדים ניתנים להטמעה בפורטלים פנימיים או שיתוף באמצעות קישורים מאובטחים, וכל שאילתה ממוטבת למינימום זמני טעינה.</p>
+    </div>
+
+    <div class="section-block">
+      <h2>התראות ואוטומציה</h2>
+      <p>אוטומציה מוסיפה שכבת ערך נוספת. התראות מבוססות-סף יכולות להודיע למנהלים כשמדדים מרכזיים חוצים גבול מוגדר מראש — מה שמאפשר פעולה לפני שבעיה קטנה הופכת לגדולה. דוחות אימייל מתוזמנים מסכמים מגמות עדכניות לבעלי עניין המעדיפים תמונת מצב בתיבת הדואר שלהם.</p>
+    </div>
+
+    <div class="section-block">
+      <h2>מוצר חי שמתפתח</h2>
+      <p>דשבורד אינו תוצר חד-פעמי אלא מוצר חי. ככל שהעסק שלכם מתפתח, מדדים חדשים הופכים רלוונטיים וישנים מדעיכים. תוכניות התחזוקה שלנו כוללות שיפורים איטרטיביים, הדרכות משתמשים וביקורות תקופתיות של איכות נתונים — כדי שהדשבורד ימשיך לשרת מוצר מרכזי בפעילות שלכם.</p>
+    </div>
+
+    <p>המטרה הסופית היא לאפשר קבלת החלטות בטוחה ומבוססת-נתונים. כשההנהלה יכולה לראות תמונה הוליסטית של הכנסות, פעולות והתנהגות לקוחות, היא יכולה לשנות אסטרטגיות מהר ובאמון. תנו לנו לבנות את הדשבורד שיהיה פעימות הלב של הארגון שלכם.</p>
+  </div>
+
+  <div id="start_promo">
+    <div class="horizontal">
+      <p>רוצים לראות את הנתונים שלכם בצורה ברורה ועדכנית? נבנה לכם דשבורד מותאם</p>
+      <a href="/he/index.html#contact" class="button">התחילו פרויקט <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.1667 17.5L18.6667 14M18.6667 14L15.1667 10.5M18.6667 14H9.33333M24.5 14C24.5 19.799 19.799 24.5 14 24.5C8.20101 24.5 3.5 19.799 3.5 14C3.5 8.20101 8.20101 3.5 14 3.5C19.799 3.5 24.5 8.20101 24.5 14Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </div>
+
+  <script src="/nav.js" defer></script>
+</body>
+</html>

@@ -13,6 +13,10 @@
       {
         "source": "/api/**",
         "function": "schedule"
+      },
+      {
+        "source": "/he",
+        "destination": "/he/index.html"
       }
     ]
   }

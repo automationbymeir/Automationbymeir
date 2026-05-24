@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <link rel="icon" type="image/svg+xml" href="/logos/favicon.svg">
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "sxaf839npz");
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>קצת עליי — מאיר | Automation by Meir</title>
+  <meta name="description" content="מאיר הוא מומחה אוטומציה עם ניסיון של 8+ שנים בפיננסים וטכנולוגיה, המפתח פתרונות AI חכמים לעסקים." />
+  <link rel="canonical" href="https://automationbymeir.com/he/about-me.html" />
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@200;300;400;500;600;700&display=swap');
+    :root {
+      --primary: #00e676;
+      --secondary: #448aff;
+      --dark: #0a0a0a;
+      --light: #ffffff;
+      --text-primary: #e0e0e0;
+      --text-secondary: #9e9e9e;
+      --border-color: #333;
+    }
+    body { font-family: 'IBM Plex Sans Hebrew', 'IBM Plex Sans', sans-serif; background: var(--dark); color: var(--text-primary); margin: 0; }
+    .content { padding: 8rem 2rem 4rem; max-width: 800px; margin: 0 auto; line-height: 1.8; }
+    .content h1 { font-weight: 200; margin-bottom: 2rem; text-align: center; }
+    .content p { margin-bottom: 1.5rem; }
+    #header {
+      position: fixed;
+      width: 100%;
+      z-index: 100;
+      padding: 40px;
+      display: flex;
+      justify-content: space-between;
+      box-sizing: border-box;
+      align-items: flex-start;
+      top: 0;
+      left: 0;
+      height: 0;
+    }
+    #header img { height: 40px; width: auto; backdrop-filter: blur(20px); padding: 8px; border-radius: 8px; }
+    nav {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      padding: 24px;
+      gap: 40px;
+      left: 32px;
+      right: auto;
+      top: 32px;
+      background: rgba(13,13,14,0.6);
+      backdrop-filter: blur(16px);
+      border-radius: 8px;
+      z-index: 100;
+      width: 25%;
+      min-width: min-content;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      justify-content: flex-start;
+      box-sizing: border-box;
+    }
+    nav ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; width: 40%; flex-grow: 1; }
+    a { color: white; text-decoration: none; }
+    nav a { font-size: 20px; position: relative; display: inline-block; font-weight: 300; white-space: nowrap; }
+    nav a:after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 1px;
+      background: #fff;
+      transform: scaleX(0);
+      transition: transform 0.2s ease-in-out;
+      transform-origin: 0% 0;
+    }
+    nav a:hover:after { transform: scaleX(1); transform-origin: 100% 0; }
+    nav ul li { position: relative; }
+    nav ul li .dropdown-menu { display: none; background: rgba(13,13,14,0.9); border-radius: 8px; padding: 8px 0; list-style: none; margin: 0; min-width: 220px; }
+    nav ul li:hover .dropdown-menu { display: block; }
+    nav ul li .dropdown-menu a { padding: 8px 16px; display: block; font-size: 16px; white-space: nowrap; }
+    nav ul li .dropdown-menu a:hover { background: none; }
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 21px;
+      cursor: pointer;
+      background: rgba(13,13,14,0.6);
+      backdrop-filter: blur(16px);
+      padding: 12px;
+      border-radius: 8px;
+      gap: 3px;
+      position: fixed;
+      top: 40px;
+      left: 40px;
+      right: auto;
+      z-index: 101;
+    }
+    .menu-toggle span { display: block; height: 2px; background: #fff; border-radius: 2px; transition: all 0.3s ease; }
+    .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .menu-toggle.active span:nth-child(2) { opacity: 0; }
+    .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+    @media (max-width: 768px) {
+      #header { padding: 16px !important; background: rgba(30,30,33,0.95); backdrop-filter: blur(10px); }
+      #header img { height: 32px !important; padding: 6px !important; }
+      .menu-toggle { display: flex !important; top: 16px; left: 16px; right: auto; }
+      nav {
+        display: none !important;
+        position: fixed !important;
+        top: 70px !important;
+        right: 16px !important;
+        left: 16px !important;
+        width: auto !important;
+        max-height: calc(100vh - 100px) !important;
+        background: rgba(13,13,14,0.95) !important;
+        padding: 24px !important;
+        flex-direction: column !important;
+        overflow-y: auto !important;
+        z-index: 99 !important;
+      }
+      nav.open { display: flex !important; }
+    }
+    #header { z-index: 100; }
+    nav { z-index: 100; }
+    .menu-toggle { z-index: 101; }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <a href="/he/index.html"><img src="/ma_logo.svg" alt="Automation by Meir" width="196" height="64" /></a>
+    <nav>
+      <ul>
+        <li><a href="/he/index.html#services">שירותים</a></li>
+        <li><a href="/he/index.html#projects">פרויקטים</a></li>
+        <li class="dropdown"><a href="#">דוגמאות עבודה</a>
+          <ul class="dropdown-menu">
+            <li><a href="/he/showcase2.html">מערכת Business Analytics</a></li>
+            <li><a href="/he/showcase-job-post-pro.html">Job Post Pro</a></li>
+          </ul>
+        </li>
+        <li><a href="/he/why-automation.html">למה אוטומציה</a></li>
+        <li><a href="/he/index.html#contact">צרו קשר</a></li>
+      </ul>
+      <ul>
+        <li><a href="/automation-playground.html">נסו בלייב</a></li>
+        <li><a href="/he/payment.html">חבילות</a></li>
+        <li><a href="/">EN</a></li>
+      </ul>
+    </nav>
+  </div>
+  <section class="content">
+    <h1>קצת עליי</h1>
+    <p>שמי מאיר, ואני בונה אוטומציות לעסקים כבר יותר מ-8 שנים. התחלתי בעולם הפיננסים, שם הבנתי מהר מאוד שאחד הדברים הכי יקרים שיש לחברה הוא זמן — ושהרבה ממנו הולך לאיבוד על משימות שאפשר לעשות בצורה חכמה הרבה יותר.</p>
+    <p>מאז עבדתי עם מגוון עסקים: סטארטאפים בשלבים ראשונים שצריכים לעבוד ביעילות עם צוות קטן, וחברות בינוניות שמחפשות להביא סדר לתוך מערכות מורכבות. הכלים שאני עובד איתם — Google Apps Script, Firebase ו-APIs מתקדמים — נבחרו כי הם אמינים, גמישים, ועושים את העבודה.</p>
+    <p>בשנים האחרונות הוספתי לארגז הכלים גם מודלי AI — לא כי זה אופנתי, אלא כי במקרים רבים הם פותרים בעיות שבעבר היו דורשות עבודה ידנית אינטנסיבית. אני בונה מערכות שמבינות הקשר, מסכמות מידע ומקבלות החלטות פשוטות — כדי שהאנשים שלכם יוכלו להתמקד בהחלטות שבאמת דורשות אותם.</p>
+    <p>מה שמבדיל אותי הוא שאני לא מוכר פתרונות מוכנים. כל פרויקט מתחיל בשיחה אמיתית: מה באמת תוקע אתכם? מה גוזל יותר מדי זמן? מה מרגיש מסורבל? מתוך ההבנה הזו, אני בונה בדיוק מה שצריך — לא יותר ולא פחות.</p>
+    <p>אם יש תהליך שמעצבן אתכם כבר זמן, <a href="/he/index.html#contact">כדאי שנדבר</a>.</p>
+  </section>
+  <script src="/nav.js" defer></script>
+</body>
+</html>

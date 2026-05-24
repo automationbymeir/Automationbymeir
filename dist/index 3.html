@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="ad.size" content="width=300,height=250">
+    <title>300x250 v2 - Automation by Meir</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
+        *{box-sizing:border-box;margin:0;padding:0}
+        .highlight{background:linear-gradient(90deg,#72FFA3,#34B1FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:600}
+        .ad{width:300px;height:250px;background:linear-gradient(145deg,#0c0c0c,#1a1a1e 50%,#0f1210);position:relative;overflow:hidden;cursor:pointer;font-family:'IBM Plex Sans',sans-serif}
+        .noise{position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none}
+        .glow{position:absolute;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(114,255,163,0.08),transparent 70%);top:-40px;right:-60px;pointer-events:none}
+        .content{position:relative;padding:22px 20px 18px;height:100%;display:flex;flex-direction:column;justify-content:space-between;z-index:1}
+        .top-row{display:flex;justify-content:space-between;align-items:flex-start}
+        h2{color:#fff;font-size:22px;font-weight:300;line-height:1.15}
+        .logo-icon{width:34px;height:34px;background:rgba(114,255,163,0.1);border:1px solid rgba(114,255,163,0.2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;color:#72FFA3;flex-shrink:0;font-weight:600}
+        p{color:#999;font-size:13px;line-height:1.45;margin-top:8px}
+        .bottom{display:flex;flex-direction:column;gap:10px}
+        .cta-btn{display:inline-block;background:linear-gradient(135deg,#72FFA3,#4de88a);color:#0a0a0a;font-family:'IBM Plex Sans',sans-serif;font-weight:600;border:none;text-align:center;padding:11px 20px;border-radius:8px;font-size:14px}
+        .brand-mark{display:flex;align-items:center;gap:6px;font-size:11px;color:rgba(255,255,255,0.5);font-weight:400}
+        .brand-mark .dot{width:6px;height:6px;background:#72FFA3;border-radius:50%;flex-shrink:0}
+    </style>
+</head>
+<body>
+<div class="ad" onclick="window.open(window.clickTag || 'https://automationbymeir.com')">
+    <div class="noise"></div>
+    <div class="glow"></div>
+    <div class="content">
+        <div class="top-row">
+            <h2><span class="highlight">98% Time</span><br>Reduction<br>Guaranteed</h2>
+            <div class="logo-icon">&lt;/&gt;</div>
+        </div>
+        <p>Transform 4-hour manual tasks into 2-minute automations.</p>
+        <div class="bottom">
+            <div class="cta-btn">Book Free Consultation →</div>
+            <div class="brand-mark"><span class="dot"></span> 50+ projects · 100% satisfaction</div>
+        </div>
+    </div>
+</div>
+<script>var clickTag = "https://automationbymeir.com";</script>
+</body>
+</html>

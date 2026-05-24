@@ -31,7 +31,7 @@ const client = new Client({
         oAuthClientSecret: PAYPAL_CLIENT_SECRET,
     },
     timeout: 0,
-    environment: Environment.Sandbox, // Use Environment.Live for production
+    environment: Environment.Production,
     logging: {
         logLevel: LogLevel.Info,
         logRequest: {
@@ -46,16 +46,27 @@ const client = new Client({
 const ordersController = new OrdersController(client);
 
 // This function handles order creation
-const createOrder = async(amount) => {
+const createOrder = async(amount, notes, description) => {
+    const purchaseUnit = {
+        amount: {
+            currencyCode: "USD",
+            value: amount,
+        },
+    };
+
+    // Attach notes and description to the PayPal order
+    if (description) {
+        purchaseUnit.description = description.substring(0, 127);
+    }
+    if (notes) {
+        purchaseUnit.customId = notes.substring(0, 127);
+    }
+
     const request = {
         body: {
             intent: CheckoutPaymentIntent.Capture,
-            purchaseUnits: [{
-                amount: {
-                    currencyCode: "USD",
-                    value: amount, // Use the dynamic amount from the request
-                },
-            }, ],
+            purchaseUnits: [purchaseUnit],
+            ...(notes ? { noteToPayee: notes.substring(0, 255) } : {}),
         },
         prefer: "return=minimal",
     };
@@ -102,11 +113,11 @@ const captureOrder = async(orderID) => {
 // API endpoint to create an order
 app.post("/api/orders", async(req, res) => {
     try {
-        const { amount } = req.body;
+        const { amount, notes, description } = req.body;
         if (!amount || isNaN(parseFloat(amount))) {
             return res.status(400).json({ error: "Invalid amount provided." });
         }
-        const { jsonResponse, httpStatusCode } = await createOrder(amount);
+        const { jsonResponse, httpStatusCode } = await createOrder(amount, notes, description);
         res.status(httpStatusCode).json(jsonResponse);
     } catch (error) {
         console.error("Failed to create order:", error);

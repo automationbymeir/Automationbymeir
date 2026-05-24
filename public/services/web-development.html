@@ -1,215 +1,384 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <link rel="icon" type="image/svg+xml" href="/logos/favicon.svg">
-    <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "sxaf839npz");
-    </script>
-<meta charset="UTF-8">
-<title>Web Development | Automations by Meir</title>
-<style>
-body { font-family: 'IBM Plex Sans', sans-serif; background:#0a0a0a; color:#e0e0e0; padding:2rem; }
- a { color:#00e676; }
- p { margin-bottom:1rem; }
+  <script type="text/javascript">
+    (function (c, l, a, r, i, t, y) {
+      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+      t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "sxaf839npz");
+  </script>
+  <meta charset="UTF-8">
+  <title>Web Development | Automations by Meir</title>
+  <style>
+    /* Global & Typography */
+    body {
+      font-family: 'IBM Plex Sans', sans-serif;
+      background: #1E1E21;
+      color: #fff;
+      margin: 0;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
 
-#hero {
-  margin-top: 40px !important; 
-  padding-top: 80px !important; 
-}
+    h1 {
+      font-weight: 300;
+      font-size: clamp(3rem, 5vw, 4rem);
+      margin-top: 120px;
+      margin-bottom: 40px;
+      color: #fff;
+    }
 
+    h2 {
+      font-weight: 300;
+      font-size: 32px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
 
-#about .horizontal {
-  display: flex;
-  gap: 40px;
-  align-items: flex-start;
-}
+    p {
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 1.6;
+      color: #C4C4C4;
+      margin-bottom: 1.5rem;
+    }
 
-#about .horizontal > div:first-child {
-  flex: 1;
-}
+    a {
+      color: #00e676;
+      text-decoration: none;
+    }
 
-#about .stats {
-  width: auto;
-  max-width: 300px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin-top: 8px !important;
-  flex-shrink: 0;
-}
+    /* Header & Nav (From Index) */
+    #header {
+      position: fixed;
+      width: 100%;
+      z-index: 100;
+      padding: 40px;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: space-between;
+      box-sizing: border-box;
+      align-items: flex-start;
+      transition: padding 0.3s ease;
+      pointer-events: none;
+    }
 
-#about .stats div {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 12px 20px;
-  background: #333333;
-  border-radius: 8px;
-  font-size: clamp(1.5rem, 4vw, 2rem);
-  white-space: nowrap;
-  gap: 8px;
-  flex: 1;
-  min-width: 120px;
-  margin-top: 0;
-  box-sizing: border-box;
-}
+    #header>* {
+      pointer-events: auto;
+    }
 
-#about .stats div p {
-  margin: 0;
-  font-size: clamp(0.875rem, 2vw, 1rem);
-  color: #C4C4C4;
-}
+    #header img {
+      backdrop-filter: blur(20px);
+      padding: 8px;
+      border-radius: 8px;
+    }
 
+    nav {
+      display: flex;
+      padding: 24px;
+      gap: 40px;
+      background: rgba(13, 13, 14, 0.6);
+      backdrop-filter: blur(16px);
+      border-radius: 8px;
+      z-index: 100;
+      min-width: min-content;
+    }
 
-.service-card, .project-card, .stat-card, .service-item, .dropped-service {
-  overflow: hidden;
-  word-wrap: break-word;
-  box-sizing: border-box;
-}
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
 
-.service-card *, .project-card *, .stat-card *, .service-item *, .dropped-service * {
-  max-width: 100%;
-  overflow-wrap: break-word;
-}
+    nav a {
+      color: white;
+      font-size: 20px;
+      font-weight: 300;
+      white-space: nowrap;
+      position: relative;
+    }
 
+    nav a:after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 1px;
+      background: #fff;
+      transform: scaleX(0);
+      transition: transform 0.2s ease-in-out;
+      transform-origin: 100% 0;
+    }
 
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 30px;
-  height: 21px;
-  cursor: pointer;
-  background: rgba(13, 13, 14, 0.6);
-  backdrop-filter: blur(16px);
-  padding: 12px;
-  border-radius: 8px;
-  gap: 3px;
-  position: fixed;
-  top: 40px;
-  right: 40px;
-  z-index: 101;
-}
+    nav a:hover:after {
+      transform: scaleX(1);
+      transform-origin: 0 0;
+    }
 
-.menu-toggle span {
-  display: block;
-  height: 2px;
-  background: #fff;
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
+    /* Mobile Menu Toggle */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 21px;
+      cursor: pointer;
+      background: rgba(13, 13, 14, 0.6);
+      backdrop-filter: blur(16px);
+      padding: 12px;
+      border-radius: 8px;
+      position: fixed;
+      top: 40px;
+      right: 40px;
+      z-index: 101;
+      pointer-events: auto;
+    }
 
-.menu-toggle.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
+    .menu-toggle span {
+      display: block;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
 
-.menu-toggle.active span:nth-child(2) {
-  opacity: 0;
-}
+    .menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
 
-.menu-toggle.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
 
+    .menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
 
-@media (max-width: 768px) {
-  #header {
-    padding: 16px !important;
-    background: rgba(30, 30, 33, 0.95);
-    backdrop-filter: blur(10px);
-  }
+    /* Content Layout */
+    .content-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
-  #header img {
-    height: 32px !important;
-    padding: 6px !important;
-  }
+    .horizontal-section {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+      margin: 60px 0;
+      flex-wrap: wrap;
+    }
 
-  .menu-toggle {
-    display: flex !important;
-    top: 16px;
-    right: 16px;
-  }
+    .horizontal-section.reverse {
+      flex-direction: row-reverse;
+    }
 
-  nav {
-    display: none !important;
-    position: fixed !important;
-    top: 70px !important;
-    left: 16px !important;
-    right: 16px !important;
-    width: auto !important;
-    max-height: calc(100vh - 100px) !important;
-    background: rgba(13, 13, 14, 0.95) !important;
-    padding: 24px !important;
-    flex-direction: column !important;
-    overflow-y: auto !important;
-    z-index: 99 !important;
-  }
+    .horizontal-section>div {
+      flex: 1;
+      min-width: 300px;
+    }
 
-  nav.open {
-    display: flex !important;
-  }
+    .horizontal-section img {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid #333;
+    }
 
-  #hero {
-    min-height: 80vh;
-    padding: 40px 20px 40px;
-    margin-top: 60px !important;
-  }
+    /* Start Project CTA (From Index) */
+    #start_promo {
+      background: #333333;
+      border-radius: 8px;
+      padding: 80px 24px;
+      margin-top: 80px;
+      margin-bottom: 40px;
+    }
 
-  #about .horizontal {
-    flex-direction: column !important;
-  }
+    #start_promo .horizontal {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
 
-  #about .stats {
-    width: 100% !important;
-    max-width: none !important;
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 12px !important;
-    margin-top: 24px !important;
-  }
+    #start_promo p {
+      width: 50%;
+      margin: 0;
+      min-width: 300px;
+      color: #fff;
+      font-size: 24px;
+    }
 
-  #about .stats div {
-    width: 100% !important;
-    min-width: auto !important;
-    padding: 10px 16px !important;
-  }
+    .button {
+      display: flex;
+      align-items: center;
+      padding: 12px 27px;
+      gap: 8px;
+      color: #fff;
+      border: 1px solid #FFFFFF;
+      border-radius: 12px;
+      font-size: 20px;
+      font-weight: 300;
+      background: transparent;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
 
-  #profile_image {
-    width: 100% !important;
-    max-width: none !important;
-  }
-}
+    .button:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
 
+    @media (max-width: 1000px) {
+      #header {
+        padding: 16px;
+        background: rgba(30, 30, 33, 0.95);
+        backdrop-filter: blur(10px);
+      }
 
-#header {
-  z-index: 100;
-}
+      .menu-toggle {
+        display: flex;
+        top: 16px;
+        right: 16px;
+      }
 
-nav {
-  z-index: 100;
-}
+      nav {
+        display: none;
+        position: fixed;
+        top: 70px;
+        left: 16px;
+        right: 16px;
+        width: auto;
+        background: rgba(13, 13, 14, 0.95);
+        flex-direction: column;
+        padding: 24px;
+      }
 
-.menu-toggle {
-  z-index: 101;
-}
-</style>
+      nav.open {
+        display: flex;
+      }
 
+      h1 {
+        margin-top: 100px;
+        font-size: 2.5rem;
+      }
 
-</head>
+      #start_promo .horizontal {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      #start_promo p {
+        width: 100%;
+        margin-bottom: 24px;
+      }
+    }
+  </style>
+
 <body>
-<a href="../index.html">&larr; Back to Home</a>
-<h1>Web Development</h1>
-<p>A modern web presence requires more than a static site—it demands fast performance, intuitive design, and seamless integration with the services that power your business. Our web development offering spans the full stack, from polished front-end experiences to robust backend APIs. Whether you need a marketing landing page or a complex application with user authentication and real-time updates, we deliver solutions that are maintainable and tailored to your objectives.</p>
-<p>We employ contemporary frameworks such as React, Vue, or Svelte on the front end, enabling rich interfaces that feel responsive and engaging. Components are built with reusability in mind, allowing new pages or features to be added quickly. Accessibility standards guide our design choices so that users with diverse needs can navigate your site without friction. Animations and transitions are used sparingly to enhance, not distract from, the primary content.</p>
-<p>On the server side, we craft APIs and business logic using Node.js, Python, or other languages best suited to the task. Data is stored in scalable databases and accessed through well-defined endpoints. Authentication and authorization are handled with industry-standard practices, giving you confidence that user information is protected. For projects that require real-time collaboration or notifications, we integrate WebSocket or server-sent event architectures that keep clients in sync.</p>
-<p>DevOps is baked into our process from day one. Continuous integration pipelines run automated tests and linting to ensure code quality. Deployments can target serverless platforms, container clusters, or traditional virtual machines depending on your infrastructure preferences. Monitoring and logging provide visibility into performance and errors, allowing us to address issues before users notice them.</p>
-<p>Content management is often a critical requirement. We work with headless CMS solutions or build custom administrative panels so non-technical staff can update copy, images, or product catalogs without developer involvement. When needed, multilingual support and localization features make it easy to reach a global audience while maintaining consistent branding.</p>
-<p>Our web projects frequently intersect with automation. Forms can feed into backend workflows, data from external APIs can populate dashboards, and user actions can trigger personalized communications. This fusion of web development and automation ensures that your site is not just a brochure but a living system that streamlines operations and improves customer engagement.</p>
-<p>Choosing Automations by Meir means partnering with a team that values transparency and collaboration. We provide clear timelines, maintain open communication channels, and deliver detailed documentation so your internal team understands how everything fits together. The result is a web application that looks great, performs reliably, and evolves gracefully as your business grows.</p>
-<script src="../nav.js" defer></script>
+
+  <div id="header">
+    <a href="/index.html"><img src="/ma_logo.svg" alt="Automations by Meir" /></a>
+
+    <nav>
+      <ul>
+        <li><a href="/index.html#services">Services</a></li>
+        <li><a href="/index.html#projects">Projects</a></li>
+        <li class="dropdown"><a href="#">Showcases</a>
+          <!-- We can hide the dropdown content or keep it simple for now, simplified for consistency -->
+        </li>
+        <li><a href="/why-automation.html">Why Automate</a></li>
+        <li><a href="/index.html#contact">Contact Us</a></li>
+      </ul>
+      <ul>
+        <li><a href="/automation-playground.html">Try live</a></li>
+        <li><a href="/payment.html">Packages</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="content-container">
+    <h1>Web Development</h1>
+    <p>A modern web presence requires more than a static site—it demands fast performance, intuitive design, and
+      seamless integration with the services that power your business. Our web development offering spans the full
+      stack, from polished front-end experiences to robust backend APIs. Whether you need a marketing landing page or
+      a complex application with user authentication and real-time updates, we deliver solutions that are maintainable
+      and tailored to your objectives.</p>
+    <p>We employ contemporary frameworks such as React, Vue, or Svelte on the front end, enabling rich interfaces that
+      feel responsive and engaging. Components are built with reusability in mind, allowing new pages or features to
+      be added quickly. Accessibility standards guide our design choices so that users with diverse needs can navigate
+      your site without friction. Animations and transitions are used sparingly to enhance, not distract from, the
+      primary content.</p>
+    <p>On the server side, we craft APIs and business logic using Node.js, Python, or other languages best suited to
+      the task. Data is stored in scalable databases and accessed through well-defined endpoints. Authentication and
+      authorization are handled with industry-standard practices, giving you confidence that user information is
+      protected.</p>
+
+    <!-- New Flows Sections -->
+    <div class="horizontal-section">
+      <div>
+        <h2>Google Apps Script Flows</h2>
+        <p>Unlock the full potential of your Google Workspace with custom Apps Script automation. We design
+          sophisticated flows that seamlessly connect Gmail, Drive, Sheets, and Calendar. Imagine incoming emails
+          automatically parsing into a database, triggering report generation in Docs, and notifying your team via
+          Chat—all without lifting a finger.</p>
+        <p>Our flows handle error checking, logging, and complex logic that out-of-the-box tools can't touch. Whether
+          it's a simple approval process or a multi-stage data transformation pipeline, our scripts run reliably in
+          the background, saving you countless hours of manual work.</p>
+      </div>
+      <div>
+        <img src="/assets/images/google-apps-script-flow.png" alt="Google Apps Script Flow Diagram">
+      </div>
+    </div>
+
+    <div class="horizontal-section reverse">
+      <div>
+        <h2>Power Automate Flows</h2>
+        <p>For the Microsoft ecosystem, we build high-performance Power Automate flows that integrate deeply with
+          Office 365, SharePoint, and Teams. We turn manual tasks into streamlined digital processes, ensuring data
+          integrity and speed.</p>
+        <p>From automated onboarding sequences to synchronized data updates across SharePoint lists and SQL databases,
+          our solutions are designed for enterprise-grade reliability. We focus on low-code maintainability while
+          implementing pro-code extensions where necessary to achieve complex business requirements.</p>
+      </div>
+      <div>
+        <img src="/assets/images/power-automate-flow.png" alt="Power Automate Flow Diagram">
+      </div>
+    </div>
+
+    <p>DevOps is baked into our process from day one. Continuous integration pipelines run automated tests and linting
+      to ensure code quality. Deployments can target serverless platforms, container clusters, or traditional virtual
+      machines depending on your infrastructure preferences.</p>
+    <p>Choosing Automations by Meir means partnering with a team that values transparency and collaboration. We
+      provide clear timelines, maintain open communication channels, and deliver detailed documentation so your
+      internal team understands how everything fits together.</p>
+  </div>
+
+  <!-- Start Project CTA -->
+  <div id="start_promo">
+    <div class="horizontal">
+      <p>Try our interactive automation playground and build your own workflow by connecting Google services and AI
+        tools</p>
+      <a href="/index.html#contact" class="button">Start your project <svg width="28" height="28" viewBox="0 0 28 28"
+          fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M15.1667 17.5L18.6667 14M18.6667 14L15.1667 10.5M18.6667 14H9.33333M24.5 14C24.5 19.799 19.799 24.5 14 24.5C8.20101 24.5 3.5 19.799 3.5 14C3.5 8.20101 8.20101 3.5 14 3.5C19.799 3.5 24.5 8.20101 24.5 14Z"
+            stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <script src="/nav.js" defer></script>
 </body>
+
 </html>

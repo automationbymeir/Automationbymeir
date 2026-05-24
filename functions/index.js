@@ -8,6 +8,16 @@ import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 const busboy = require("busboy");
 const getRawBody = require("raw-body");
+import * as admin from "firebase-admin";
+
+// Import Firebase Admin methods
+import { initializeApp } from "firebase-admin/app";
+import { getFirestore, FieldValue } from "firebase-admin/firestore";
+
+// Initialize Firebase Admin
+initializeApp();
+const db = getFirestore();
+
 import {
   getEmailTemplate,
   createNotificationEmailContent,
@@ -15,6 +25,7 @@ import {
   createHebrewEmailContent,
   createBriefConfirmationEmailContent,
   createBriefNotificationEmailContent,
+  createChecklistEmailContent,
 } from "./emailTemplates.js";
 
 const runtimeConfig = functions.config() ?? {};
@@ -214,6 +225,7 @@ async function sendEmail({ to, subject, htmlBody, attachments = [] }) {
 const DEFAULT_ALLOWED_ORIGINS = [
   "https://www.automationbymeir.com",
   "https://automationbymeir.com",
+  "https://automationbymeir.web.app",
   "http://localhost:5000",
   "http://localhost:5173",
   "http://localhost:5500",
@@ -262,11 +274,16 @@ const handleMultipart = async (req, res, next) => {
 
   try {
     // Get the raw body as a buffer first (avoids streaming issues with Firebase Functions)
-    const rawBody = await getRawBody(req, {
-      length: req.headers['content-length'],
-      limit: '50mb', // Total request size limit
-      encoding: false // Return as buffer
-    });
+    let rawBody;
+    if (req.rawBody) {
+      rawBody = req.rawBody;
+    } else {
+      rawBody = await getRawBody(req, {
+        length: req.headers['content-length'],
+        limit: '50mb', // Total request size limit
+        encoding: false // Return as buffer
+      });
+    }
 
     return new Promise((resolve, reject) => {
       const busboyInstance = busboy({ headers: req.headers, limits: { fileSize: 10 * 1024 * 1024 } }); // 10MB limit
@@ -276,7 +293,7 @@ const handleMultipart = async (req, res, next) => {
 
       busboyInstance.on('file', (name, file, info) => {
         const { filename, encoding, mimeType } = info;
-        
+
         if (fileCount >= maxFiles) {
           file.resume(); // Drain the file stream
           return;
@@ -355,22 +372,17 @@ const handleMultipart = async (req, res, next) => {
   }
 };
 
-// Brief submission endpoint (must be before express.json() to avoid stream consumption)
-app.options("/api/brief", cors(corsOptions), (req, res) => {
-  res.sendStatus(200);
-});
-
-app.post("/api/brief", cors(corsOptions), handleMultipart, async (req, res) => {
+const handleBriefSubmission = async (req, res) => {
   try {
-    functions.logger.info("Brief submission received", { 
-      body: req.body, 
+    functions.logger.info("Brief submission received", {
+      body: req.body,
       files: req.files?.length || 0,
       contentType: req.headers['content-type']
     });
-    
+
     const { name, email, brief } = req.body;
 
-    functions.logger.info("Parsed form data", { 
+    functions.logger.info("Parsed form data", {
       name: name ? `${name.substring(0, 20)}...` : 'missing',
       email: email ? `${email.substring(0, 20)}...` : 'missing',
       brief: brief ? `${brief.substring(0, 50)}...` : 'missing',
@@ -384,9 +396,9 @@ app.post("/api/brief", cors(corsOptions), handleMultipart, async (req, res) => {
       if (!email) missing.push('email');
       if (!brief) missing.push('brief');
       functions.logger.warn("Missing required fields", { missing, bodyKeys: Object.keys(req.body || {}) });
-      res.status(400).json({ 
-        success: false, 
-        error: `Missing required fields: ${missing.join(', ')}. Please make sure all fields are filled out.` 
+      res.status(400).json({
+        success: false,
+        error: `Missing required fields: ${missing.join(', ')}. Please make sure all fields are filled out.`
       });
       return;
     }
@@ -465,18 +477,18 @@ app.post("/api/brief", cors(corsOptions), handleMultipart, async (req, res) => {
       message: "Brief submitted successfully. You will receive a confirmation email shortly.",
     });
   } catch (error) {
-    functions.logger.error("Failed to process brief submission", { 
-      error: error.message, 
+    functions.logger.error("Failed to process brief submission", {
+      error: error.message,
       stack: error.stack,
-      name: error.name 
+      name: error.name
     });
-    res.status(500).json({ 
-      success: false, 
+    res.status(500).json({
+      success: false,
       error: error.message || "Failed to submit brief.",
       details: process.env.NODE_ENV === 'development' ? error.stack : undefined
     });
   }
-});
+};
 
 app.use(express.json());
 
@@ -485,6 +497,97 @@ app.get("/", (req, res) => {
 });
 
 const scheduleRouter = express.Router();
+
+// Register the brief endpoints on the scheduleRouter instead of root app
+scheduleRouter.options("/brief", cors(corsOptions), (req, res) => {
+  res.sendStatus(200);
+});
+scheduleRouter.post("/brief", cors(corsOptions), handleMultipart, handleBriefSubmission);
+
+// Cookie Consent Endpoint
+scheduleRouter.post("/cookie-consent", cors(corsOptions), async (req, res) => {
+  try {
+    const { userAgent, timestamp, consentType, url } = req.body;
+
+    // Store in Firestore
+    await db.collection("cookie_consents").add({
+      userAgent: userAgent || "unknown",
+      timestamp: timestamp || new Date().toISOString(),
+      consentType: consentType || "all",
+      url: url || "",
+      ip: req.headers['x-forwarded-for'] || req.connection.remoteAddress || "unknown",
+      createdAt: FieldValue.serverTimestamp()
+    });
+
+    res.json({ success: true });
+  } catch (error) {
+    functions.logger.error("Error recording consent", error);
+    // Don't fail visible to user, just log it
+    res.status(200).json({ success: true, note: "logged_error" });
+  }
+});
+
+// Checklist download endpoint - sends email + saves lead to Firestore
+scheduleRouter.post("/checklist", cors(corsOptions), async (req, res) => {
+  const { email } = req.body ?? {};
+
+  if (!email) {
+    res.status(400).json({ success: false, error: "Email is required." });
+    return;
+  }
+
+  try {
+    // Save lead to Firestore (non-blocking — don't fail if Firestore is unavailable)
+    try {
+      await db.collection("checklist_leads").add({
+        email,
+        source: "exit_popup",
+        createdAt: FieldValue.serverTimestamp(),
+        ip: req.headers["x-forwarded-for"] || req.connection?.remoteAddress || "unknown",
+        userAgent: req.headers["user-agent"] || "unknown",
+      });
+      functions.logger.info("Checklist lead saved", { email });
+    } catch (dbError) {
+      functions.logger.error("Failed to save checklist lead to Firestore (non-fatal)", dbError);
+    }
+
+    // Send checklist email to the visitor
+    try {
+      const htmlBody = getEmailTemplate(createChecklistEmailContent());
+      await sendEmail({
+        to: email,
+        subject: "Your 10-Point Automation Checklist | Automation by Meir",
+        htmlBody,
+      });
+      functions.logger.info("Checklist email sent", { email });
+    } catch (emailError) {
+      functions.logger.error("Failed to send checklist email", emailError);
+    }
+
+    // Notify Meir about new lead
+    try {
+      const notifyHtml = getEmailTemplate(`
+        <h1 style="font-family: 'IBM Plex Sans', sans-serif; font-size: 24px; font-weight: 300; color: #ffffff; margin: 0 0 16px 0; text-align: center;">New Checklist Lead \uD83C\uDF89</h1>
+        <div style="background-color: #1E1E21; border: 1px solid #333333; border-radius: 8px; padding: 20px;">
+          <p style="font-family: 'IBM Plex Sans', sans-serif; font-size: 16px; color: #00e676; margin: 0;"><strong>Email:</strong> <a href="mailto:${email}" style="color: #00e676;">${email}</a></p>
+          <p style="font-family: 'IBM Plex Sans', sans-serif; font-size: 14px; color: #888888; margin: 8px 0 0 0;">Source: Exit intent popup (landing page)</p>
+        </div>
+      `);
+      await sendEmail({
+        to: NOTIFICATION_EMAIL,
+        subject: `New Checklist Lead: ${email}`,
+        htmlBody: notifyHtml,
+      });
+    } catch (emailError) {
+      functions.logger.error("Failed to send checklist lead notification", emailError);
+    }
+
+    res.json({ success: true, message: "Checklist sent successfully." });
+  } catch (error) {
+    functions.logger.error("Failed to process checklist request", error);
+    res.status(500).json({ success: false, error: "Failed to send checklist." });
+  }
+});
 
 scheduleRouter.get("/slots", async (req, res) => {
   try {

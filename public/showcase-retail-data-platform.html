@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Retail Data Intelligence — Automations by Meir</title>
+  <link rel="icon" type="image/svg+xml" href="/logos/favicon.svg">
+  <link rel="stylesheet" href="showcase-base.css">
+  <script src="nav.js" defer></script>
+</head>
+<body>
+
+<main>
+  <!-- ── Hero ── -->
+  <section class="sc-hero">
+    <div class="sc-page">
+      <span class="sc-badge">AI-Ready Retail Database</span>
+      <h1>Retail Data<br>Intelligence</h1>
+      <p class="sc-subtitle">
+        A vendor data ingestion, processing, and standardization engine that handles
+        both structured CSV uploads and complex unstructured documents — fully automated.
+      </p>
+
+      <div class="sc-pills">
+        <span class="sc-pill">
+          <img src="logos/azure.svg" alt="" onerror="this.style.display='none'">
+          Azure
+        </span>
+        <span class="sc-pill">
+          <img src="logos/openai.svg" alt="" onerror="this.style.display='none'">
+          OpenAI
+        </span>
+        <span class="sc-pill">
+          <img src="logos/claude.svg" alt="" onerror="this.style.display='none'">
+          Claude
+        </span>
+        <span class="sc-pill">
+          <img src="logos/pulumi.svg" alt="" onerror="this.style.display='none'">
+          Pulumi
+        </span>
+        <span class="sc-pill">
+          <img src="logos/azure-functions.svg" alt="" onerror="this.style.display='none'">
+          Azure Functions
+        </span>
+      </div>
+
+      <div class="sc-stats">
+        <div class="sc-stat">
+          <div class="sc-stat-val">10k+</div>
+          <div class="sc-stat-label">SKUs Per Batch</div>
+        </div>
+        <div class="sc-stat">
+          <div class="sc-stat-val">100MB</div>
+          <div class="sc-stat-label">Max File Size</div>
+        </div>
+        <div class="sc-stat">
+          <div class="sc-stat-val">1.0</div>
+          <div class="sc-stat-label">Max Confidence Score</div>
+        </div>
+        <div class="sc-stat">
+          <div class="sc-stat-val">2</div>
+          <div class="sc-stat-label">Processing Paths</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Challenge ── -->
+  <section class="sc-section">
+    <div class="sc-page">
+      <p class="sc-label">The Challenge</p>
+      <h2>Vendor data arrives in every format imaginable</h2>
+      <p class="sc-intro">
+        Retail businesses deal with hundreds of vendors, each sending product data differently —
+        clean CSVs, messy PDFs, multilingual catalogs, unstructured Excel files.
+        Manually standardizing this is slow, error-prone, and unscalable.
+        This platform automates the entire pipeline with two intelligent processing paths.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── Architecture ── -->
+  <section class="sc-section">
+    <div class="sc-page">
+      <p class="sc-label">Architecture</p>
+      <h2>Dual-Path Ingestion System</h2>
+      <p class="sc-intro">
+        Depending on how data arrives, the platform routes it through one of two optimized paths.
+      </p>
+
+      <div class="sc-paths">
+        <div class="sc-path">
+          <span class="sc-path-label manual">Path A — Manual Template</span>
+          <h3>Fast-track for structured data</h3>
+          <div class="sc-path-steps">
+            <div class="sc-path-step">
+              <div class="sc-path-dot green"></div>
+              <div>
+                <strong>Direct Upload</strong>
+                <span>Admin uploads a CSV following the strict schema.</span>
+              </div>
+            </div>
+            <div class="sc-path-step">
+              <div class="sc-path-dot green"></div>
+              <div>
+                <strong>Instant Validation</strong>
+                <span>API verifies data types and field constraints immediately.</span>
+              </div>
+            </div>
+            <div class="sc-path-step">
+              <div class="sc-path-dot green"></div>
+              <div>
+                <strong>Staged at 1.0 Confidence</strong>
+                <span>Records enter <code>Products_Staging</code> with maximum confidence.</span>
+              </div>
+            </div>
+            <div class="sc-path-step">
+              <div class="sc-path-dot green"></div>
+              <div>
+                <strong>Fast Track</strong>
+                <span>Bypasses AI entirely for maximum throughput.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sc-path">
+          <span class="sc-path-label ai">Path B — AI Processing</span>
+          <h3>Smart handling for unstructured docs</h3>
+          <div class="sc-path-steps">
+            <div class="sc-path-step">
+              <div class="sc-path-dot blue"></div>
+              <div>
+                <strong>Raw Document Ingestion</strong>
+                <span>PDFs, catalogs, and Excel files uploaded to Azure Data Lake.</span>
+              </div>
+            </div>
+            <div class="sc-path-step">
+              <div class="sc-path-dot blue"></div>
+              <div>
+                <strong>OCR &amp; Extraction</strong>
+                <span>Azure Document Intelligence extracts tables and key-value pairs.</span>
+              </div>
+            </div>
+            <div class="sc-path-step">
+              <div class="sc-path-dot blue"></div>
+              <div>
+                <strong>LLM Mapping Engine</strong>
+                <span>Claude &amp; OpenAI map vendor fields to the product schema.</span>
+              </div>
+            </div>
+            <div class="sc-path-step">
+              <div class="sc-path-dot blue"></div>
+              <div>
+                <strong>Confidence Scoring</strong>
+                <span>AI assigns 0.0–1.0; low-confidence items flagged for human review.</span>
+              </div>
+            </div>
+            <div class="sc-path-step">
+              <div class="sc-path-dot blue"></div>
+              <div>
+                <strong>Template Memory</strong>
+                <span>Valid mappings saved — future uploads from same vendor are automatic.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Features ── -->
+  <section class="sc-section">
+    <div class="sc-page">
+      <p class="sc-label">Features</p>
+      <h2>What the platform delivers</h2>
+      <p class="sc-intro">Built for reliability, scale, and flexibility at every stage of the pipeline.</p>
+
+      <div class="sc-features">
+        <div class="sc-feature">
+          <span class="sc-feature-icon">⚡</span>
+          <h3>Dual-Path Routing</h3>
+          <p>Automatic routing to the right processing path based on file type and structure.</p>
+        </div>
+        <div class="sc-feature">
+          <span class="sc-feature-icon">🧠</span>
+          <h3>AI Field Mapping</h3>
+          <p>Claude and OpenAI map arbitrary vendor fields to your product schema intelligently.</p>
+        </div>
+        <div class="sc-feature">
+          <span class="sc-feature-icon">📊</span>
+          <h3>Confidence Scoring</h3>
+          <p>Every AI-processed record gets a confidence score so you always know what to review.</p>
+        </div>
+        <div class="sc-feature">
+          <span class="sc-feature-icon">💾</span>
+          <h3>Template Memory</h3>
+          <p>Successful mappings are saved. Future uploads from the same vendor are fully automatic.</p>
+        </div>
+        <div class="sc-feature">
+          <span class="sc-feature-icon">☁️</span>
+          <h3>Infrastructure as Code</h3>
+          <p>Entire infrastructure defined with Pulumi — reproducible, versionable, and auditable.</p>
+        </div>
+        <div class="sc-feature">
+          <span class="sc-feature-icon">🔍</span>
+          <h3>Validation Pipeline</h3>
+          <p>Strict schema validation at every stage prevents bad data from entering production.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Tech Stack ── -->
+  <section class="sc-section">
+    <div class="sc-page">
+      <p class="sc-label">Tech Stack</p>
+      <h2>Built on enterprise-grade cloud</h2>
+
+      <div class="sc-tech-grid">
+        <div class="sc-tech-item">
+          <img src="logos/azure.svg" alt="Azure" onerror="this.style.display='none'">
+          <div>
+            <strong>Azure</strong>
+            <span>Cloud infrastructure &amp; data lake</span>
+          </div>
+        </div>
+        <div class="sc-tech-item">
+          <img src="logos/openai.svg" alt="OpenAI" onerror="this.style.display='none'">
+          <div>
+            <strong>OpenAI</strong>
+            <span>LLM field mapping engine</span>
+          </div>
+        </div>
+        <div class="sc-tech-item">
+          <img src="logos/claude.svg" alt="Claude" onerror="this.style.display='none'">
+          <div>
+            <strong>Claude</strong>
+            <span>Document understanding &amp; extraction</span>
+          </div>
+        </div>
+        <div class="sc-tech-item">
+          <img src="logos/pulumi.svg" alt="Pulumi" onerror="this.style.display='none'">
+          <div>
+            <strong>Pulumi</strong>
+            <span>Infrastructure as Code</span>
+          </div>
+        </div>
+        <div class="sc-tech-item">
+          <img src="logos/azure-functions.svg" alt="Azure Functions" onerror="this.style.display='none'">
+          <div>
+            <strong>Azure Functions</strong>
+            <span>Serverless processing (Node.js)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="sc-cta">
+    <div class="sc-page">
+      <h2>Need a similar system?</h2>
+      <p>Let's build a data pipeline tailored to your business.</p>
+      <a href="index.html#contact" class="sc-btn">Get in Touch</a>
+      <a href="index.html" class="sc-btn sc-btn-ghost">← Back to Home</a>
+    </div>
+  </section>
+</main>
+
+<footer class="sc-footer">
+  <div class="sc-page">
+    <div class="sc-footer-inner">
+      <span class="sc-footer-brand">&lt;&gt; Automations by Meir</span>
+      <nav class="sc-footer-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="/he/">עברית</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script src="footer-consent.js"></script>
+</body>
+</html>

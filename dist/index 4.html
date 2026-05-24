@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="ad.size" content="width=300,height=600">
+    <title>300x600 - Automation by Meir</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
+        *{box-sizing:border-box;margin:0;padding:0}
+        .highlight{background:linear-gradient(90deg,#72FFA3,#34B1FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:600}
+        .ad{width:300px;height:600px;background:linear-gradient(180deg,#0c0c0c,#161618 50%,#0f1210);position:relative;overflow:hidden;cursor:pointer;font-family:'IBM Plex Sans',sans-serif}
+        .glow{position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(52,177,255,0.06),transparent 70%);bottom:-80px;left:-80px;pointer-events:none}
+        .content{padding:24px 20px 20px;height:100%;display:flex;flex-direction:column;position:relative;z-index:1}
+        .brand-mark{display:flex;align-items:center;gap:6px;font-size:11px;color:rgba(255,255,255,0.5);font-weight:400;margin-bottom:16px}
+        .brand-mark .dot{width:6px;height:6px;background:#72FFA3;border-radius:50%}
+        h2{color:#fff;font-size:26px;font-weight:300;line-height:1.15;margin-bottom:8px}
+        .lead{color:#999;font-size:13px;line-height:1.5;margin-bottom:24px}
+        .steps{display:flex;flex-direction:column;gap:14px;flex:1}
+        .step{display:flex;gap:12px;align-items:flex-start}
+        .step-num{width:28px;height:28px;background:rgba(114,255,163,0.1);border:1px solid rgba(114,255,163,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#72FFA3;font-size:12px;font-weight:600;flex-shrink:0}
+        .step h4{color:#fff;font-size:14px;font-weight:500;margin-bottom:2px}
+        .step p{color:#888;font-size:12px;line-height:1.4}
+        .divider{height:1px;background:rgba(255,255,255,0.06);margin:20px 0}
+        .stars{color:#f1c40f;font-size:16px;margin-bottom:6px}
+        .quote{color:#aaa;font-size:12px;font-style:italic;line-height:1.4}
+        .quote-author{color:#666;font-size:11px;margin-top:4px;margin-bottom:20px}
+        .cta-btn{display:inline-block;background:linear-gradient(135deg,#72FFA3,#4de88a);color:#0a0a0a;font-family:'IBM Plex Sans',sans-serif;font-weight:600;border:none;text-align:center;padding:13px 24px;border-radius:10px;font-size:15px;width:100%}
+        .sub-cta{color:#666;font-size:11px;text-align:center;margin-top:8px}
+    </style>
+</head>
+<body>
+<div class="ad" onclick="window.open(window.clickTag || 'https://automationbymeir.com')">
+    <div class="glow"></div>
+    <div class="content">
+        <div class="brand-mark"><span class="dot"></span> Automation by Meir</div>
+        <h2>Automate Your<br><span class="highlight">Google Workspace</span><br>in 2 Weeks</h2>
+        <div class="lead">Custom automation that saves your team 20+ hours per week. Fixed pricing, guaranteed results.</div>
+        <div class="steps">
+            <div class="step">
+                <div class="step-num">1</div>
+                <div><h4>Free Consultation</h4><p>30-min call to map your workflows</p></div>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div><h4>Custom Solution</h4><p>Tailored automation built for you</p></div>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <div><h4>Launch &amp; Support</h4><p>Go live with ongoing maintenance</p></div>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="stars">★★★★★</div>
+        <div class="quote">"Meir exceeded expectations with his deep understanding of automation."</div>
+        <div class="quote-author">— Fiverr Pro client, Australia</div>
+        <div class="cta-btn">Book Free Consultation →</div>
+        <div class="sub-cta">From $1,200 · No credit card needed</div>
+    </div>
+</div>
+<script>var clickTag = "https://automationbymeir.com";</script>
+</body>
+</html>

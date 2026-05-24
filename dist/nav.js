@@ -60,7 +60,7 @@ function initMobileNav() {
       .menu-toggle {
         display: flex !important;
         top: 16px;
-        right: 16px;
+        right: 20px;
       }
 
       /* Hide nav by default on mobile */
@@ -159,50 +159,8 @@ function initMobileNav() {
       }
     }
 
-    /* Desktop stats layout fix */
+    /* Ensure h1 is not hidden on desktop */
     @media (min-width: 769px) {
-      #about .horizontal {
-        display: flex !important;
-        gap: 40px !important;
-        align-items: flex-start !important;
-      }
-
-      #about .horizontal > div:first-child {
-        flex: 1 !important;
-      }
-
-      #about .stats {
-        width: auto !important;
-        max-width: 300px !important;
-        display: flex !important;
-        flex-wrap: wrap !important;
-        gap: 20px !important;
-        margin-top: 8px !important;
-        flex-shrink: 0 !important;
-      }
-
-      #about .stats div {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        padding: 12px 20px !important;
-        background: #333333 !important;
-        border-radius: 8px !important;
-        font-size: clamp(1.5rem, 4vw, 2rem) !important;
-        white-space: nowrap !important;
-        gap: 8px !important;
-        flex: 1 !important;
-        min-width: 120px !important;
-        margin-top: 0 !important;
-        box-sizing: border-box !important;
-      }
-
-      #about .stats div p {
-        margin: 0 !important;
-        font-size: clamp(0.875rem, 2vw, 1rem) !important;
-      }
-
-      /* Ensure h1 is not hidden */
       #hero, .hero {
         margin-top: 40px !important;
         padding-top: 80px !important;

@@ -601,7 +601,6 @@ nav {
           <li><a href="index-he.html#projects">פרויקטים</a></li>
           <li class="dropdown"><a href="#">הדגמות</a>
             <ul class="dropdown-menu">
-              <li><a href="showcase1.html">Crypto Wallet Tracker</a></li>
               <li><a href="showcase2.html">Business Analytics System</a></li>
               <li><a href="showcase-job-post-pro.html">Job Post Pro</a></li>
             </ul>
@@ -739,6 +738,23 @@ nav {
             </div>
         </div>
     </section>
+    <section class="our-sites" id="our-sites" style="padding: 60px 0;">
+        <div class="container">
+            <h2 class="section-title">האתרים שלנו</h2>
+            <div class="sites-grid" style="display: flex; gap: 40px; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 40px;">
+                <a href="https://trendingtechdaily.com" target="_blank" style="display: flex; justify-content: center; align-items: center; padding: 20px; background: #161616; border-radius: 12px; border: 1px solid #333333; transition: transform .3s, border-color .3s; width: 250px; height: 100px; text-decoration: none;">
+                    <img src="logos/trendingtechdaily_logo.png" alt="TrendingTechDaily" style="max-width: 100%; max-height: 60px;">
+                </a>
+                <a href="https://shosho.ai" target="_blank" style="display: flex; justify-content: center; align-items: center; padding: 20px; background: #161616; border-radius: 12px; border: 1px solid #333333; transition: transform .3s, border-color .3s; width: 250px; height: 100px; text-decoration: none;">
+                    <img src="logos/shosho_logo.png" alt="Shosho" style="max-width: 100%; max-height: 60px;">
+                </a>
+                <a href="http://www.dream-analytics.com" target="_blank" style="display: flex; justify-content: center; align-items: center; padding: 20px; background: #161616; border-radius: 12px; border: 1px solid #333333; transition: transform .3s, border-color .3s; width: 250px; height: 100px; text-decoration: none;">
+                    <span style="font-size: 32px; margin-left: 12px;">🌙</span>
+                    <span style="font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 22px; font-weight: bold; font-style: italic; color: #E0E7FF; letter-spacing: -0.5px;">Dream Analytics</span>
+                </a>
+            </div>
+        </div>
+    </section>
     <section class="about" id="about">
         <div class="container">
             <h2 class="section-title">אודות מאיר
@@ -818,17 +834,6 @@ nav {
         <p>&copy; 2025 Automation by Meir. כל הזכויות שמורות.</p>
     </footer>
     <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-        const firebaseConfig = {
-            apiKey: "AIzaSyBDv0d_OVQsHzD_biFpkMvFrXaZguCYG58",
-            authDomain: "automationbymeir.firebaseapp.com",
-            projectId: "automationbymeir",
-            storageBucket: "automationbymeir.firebasestorage.app",
-            messagingSenderId: "216703427811",
-            appId: "1:216703427811:web:a2c848833870a1415c91d6",
-            measurementId: "G-D8GQDGVR08"
-        };
-        const app = initializeApp(firebaseConfig);
         const isLocalhost = ["localhost", "127.0.0.1", "[::1]"]
             .map((host) => host.toLowerCase())
             .includes(window.location.hostname.toLowerCase());
