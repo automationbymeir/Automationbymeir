@@ -2,25 +2,25 @@
 <html lang="en">
 <head>
   <link rel="icon" type="image/svg+xml" href="/logos/favicon.svg">
-    <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "sxaf839npz");
-    </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D8GQDGVR08"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-D8GQDGVR08');
-</script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Automation Puzzle - Build Your Perfect Workflow</title>
+    <script>
+    // The desktop playground is drag/mouse-only; touch devices get the touch build.
+    if (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) {
+      window.location.replace('/automation-playground-mobile.html');
+    }
+  </script>
+  <title>Automation Playground — Build Your Workflow Live | Automation by Meir</title>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Automation by Meir">
+  <meta property="og:title" content="Automation Playground — Build Your Workflow Live | Automation by Meir">
+  <meta property="og:description" content="Drag, drop and connect the tools you use daily to see how your workflow could run itself. Interactive automation demo by Automation by Meir.">
+  <meta property="og:url" content="https://www.automationbymeir.com/automation-playground.html">
+  <meta property="og:image" content="https://www.automationbymeir.com/logos/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://www.automationbymeir.com/automation-playground.html">
+  <meta name="description" content="Drag, drop and connect the tools you use daily to see how your workflow could run itself. Interactive automation demo by Automation by Meir.">
+  <script src="/analytics.js"></script>
     <style>
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;400;600;700&display=swap');
 
@@ -916,23 +916,26 @@ nav {
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <div id="header">
-      <a href="index.html"><img src="ma_logo.svg" alt="Automations by Meir" width="196" height="64" /></a>
+      <a href="index.html"><img src="ma_logo.svg" alt="Automation by Meir" width="196" height="64" /></a>
       <nav>
         <ul>
-          <li><a href="index.html#services">Services</a></li>
-          <li><a href="index.html#projects">Projects</a></li>
-          <li class="dropdown"><a href="#">Showcases</a>
+          <li><a href="/index.html#services">Services</a></li>
+          <li><a href="/index.html#projects">Projects</a></li>
+          <li class="dropdown"><a href="#" aria-haspopup="true">Showcases</a>
             <ul class="dropdown-menu">
-              <li><a href="showcase2.html">Business Analytics System</a></li>
-              <li><a href="showcase-job-post-pro.html">Job Post Pro</a></li>
+              <li><a href="/showcase2.html">Business Analytics System</a></li>
+              <li><a href="/showcase-job-post-pro.html">Job Post Pro</a></li>
+              <li><a href="/showcase-power-automate.html">Automated Student Onboarding</a></li>
+              <li><a href="/showcase-retail-data-platform.html">Retail Data Intelligence</a></li>
             </ul>
           </li>
-          <li><a href="why-automation.html">Why Automate</a></li>
-          <li><a href="index.html#contact">Contact Us</a></li>
+          <li><a href="/why-automation.html">Why Automate</a></li>
+          <li><a href="/index.html#contact">Contact Us</a></li>
         </ul>
         <ul>
-          <li><a href="automation-playground.html">Try live</a></li>
-          <li><a href="payment.html">Payments</a></li>
+          <li><a href="/automation-playground.html">Try the Playground</a></li>
+          <li><a href="/payment.html">Packages</a></li>
+          <li><a href="/he/">עב</a></li>
         </ul>
       </nav>
     </div>
@@ -1760,5 +1763,6 @@ nav {
     </script>
     
 <script src="nav.js" defer></script>
+<script src="/footer-consent.js"></script>
 </body>
 </html>

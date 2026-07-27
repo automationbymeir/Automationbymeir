@@ -7,7 +7,15 @@
     "ignore": [
       "firebase.json",
       "**/.*",
-      "**/node_modules/**"
+      "**/node_modules/**",
+      "**/index [0-9].html"
+    ],
+    "redirects": [
+      { "source": "/index-he.html", "destination": "/he/", "type": 301 },
+      { "source": "/index-mobile.html", "destination": "/", "type": 301 },
+      { "source": "/why-automation-he.html", "destination": "/he/why-automation.html", "type": 301 },
+      { "source": "/about-me-he.html", "destination": "/he/about-me.html", "type": 301 },
+      { "source": "/showcase-profitforge.html", "destination": "/", "type": 301 }
     ],
     "rewrites": [
       {
@@ -17,6 +25,30 @@
       {
         "source": "/he",
         "destination": "/he/index.html"
+      }
+    ],
+    "headers": [
+      {
+        "source": "**",
+        "headers": [
+          { "key": "X-Content-Type-Options", "value": "nosniff" },
+          { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+          { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+          { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" },
+          { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains" }
+        ]
+      },
+      {
+        "source": "**/*.@(jpg|jpeg|png|webp|svg|gif|ico|mp4)",
+        "headers": [
+          { "key": "Cache-Control", "value": "public, max-age=2592000" }
+        ]
+      },
+      {
+        "source": "**/*.@(js|css)",
+        "headers": [
+          { "key": "Cache-Control", "value": "public, max-age=86400" }
+        ]
       }
     ]
   }

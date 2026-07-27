@@ -1,31 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" class="js">
 
 <head>
-  <script type="text/javascript">
-    (function (c, l, a, r, i, t, y) {
-      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
-      t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
-      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
-    })(window, document, "clarity", "script", "sxaf839npz");
-  </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D8GQDGVR08"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-D8GQDGVR08');
-  </script>
-  <script src="/device-detect.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Automations by Meir</title>
+  <script src="/analytics.js"></script>
+  <title>Automation Consultant — Power Automate, Apps Script & AI Workflows | Automation by Meir</title>
   <meta name="description"
-    content="Transform your business with intelligent automation. Custom Google Apps Script & Firebase Solutions That Scale. Expert automation services by Meir.">
+    content="Solo automation consultant building custom Power Automate, Google Apps Script & AI workflows for small teams. Fixed-price projects, free 30-minute consultation.">
   <link rel="canonical" href="https://www.automationbymeir.com/">
-  <link rel="alternate" media="only screen and (max-width: 640px)"
-    href="https://www.automationbymeir.com/index-mobile.html">
+  <link rel="alternate" hreflang="en" href="https://www.automationbymeir.com/">
+  <link rel="alternate" hreflang="he" href="https://www.automationbymeir.com/he/">
+  <link rel="alternate" hreflang="x-default" href="https://www.automationbymeir.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Automation by Meir">
+  <meta property="og:title" content="Automation Consultant — Power Automate, Apps Script & AI Workflows">
+  <meta property="og:description"
+    content="Custom automation workflows for small teams. Fixed-price projects, free 30-minute consultation.">
+  <meta property="og:url" content="https://www.automationbymeir.com/">
+  <meta property="og:image" content="https://www.automationbymeir.com/logos/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Automation Consultant — Power Automate, Apps Script & AI Workflows">
+  <meta name="twitter:description"
+    content="Custom automation workflows for small teams. Fixed-price projects, free 30-minute consultation.">
+  <meta name="twitter:image" content="https://www.automationbymeir.com/logos/og-image.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Automation by Meir",
+    "url": "https://www.automationbymeir.com/",
+    "logo": "https://www.automationbymeir.com/ma_logo_email.png",
+    "image": "https://www.automationbymeir.com/logos/og-image.png",
+    "email": "service@automationbymeir.com",
+    "description": "Custom business automation: Power Automate, Google Apps Script, Firebase and AI workflow solutions for small and mid-sized teams.",
+    "founder": { "@type": "Person", "name": "Meir Horwitz" },
+    "areaServed": "Worldwide",
+    "priceRange": "$300 - $5,000",
+    "sameAs": []
+  }
+  </script>
   <link rel="icon" type="image/svg+xml" href="/logos/favicon.svg">
+  <link rel="apple-touch-icon" href="/logos/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap"
@@ -172,6 +190,11 @@
 
     #hero h3 {
       font-size: 1.8vw;
+    }
+
+    /* Initial hidden states only apply when JS is running (html.js) so content
+       is never invisible if scripts fail to load. */
+    .js #hero h3 {
       opacity: 0;
     }
 
@@ -184,7 +207,16 @@
       letter-spacing: -0.04em;
       margin: 0;
       color: #fff;
+    }
+
+    .js h1#animated-title {
       transform: translateY(80px);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .js #hero h3 { opacity: 1 !important; }
+      .js h1#animated-title { transform: none !important; }
+      .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
     }
 
     h1 .word {
@@ -1063,13 +1095,13 @@
 <body>
 
   <div id="header">
-    <a href="index.html"><img src="ma_logo.svg" alt="Automations by Meir" /></a>
+    <a href="index.html"><img src="ma_logo.svg" alt="Automation by Meir" /></a>
 
     <nav>
       <ul>
         <li><a href="index.html#services">Services</a></li>
         <li><a href="index.html#projects">Projects</a></li>
-        <li class="dropdown"><a href="#">Showcases</a>
+        <li class="dropdown"><a href="#" aria-haspopup="true">Showcases</a>
           <ul class="dropdown-menu">
 
             <li><a href="showcase2.html">Business Analytics System</a></li>
@@ -1082,7 +1114,7 @@
         <li><a href="index.html#contact">Contact Us</a></li>
       </ul>
       <ul>
-        <li><a href="automation-playground.html">Try live</a></li>
+        <li><a href="automation-playground.html">Try the Playground</a></li>
         <li><a href="payment.html">Packages</a></li>
         <li><a href="/he/">עב</a></li>
       </ul>
@@ -1091,15 +1123,15 @@
 
   <div id="hero">
     <div id="hero-canvas-container"></div>
-    <h1 id="animated-title">Transform your business with intelligent automation</h1>
-    <h3 id="animated-subtitle">Custom Google Apps Script & Firebase Solutions That Scale</h3>
+    <h1 id="animated-title">Automation that gives your team its hours back</h1>
+    <h3 id="animated-subtitle">Custom workflows across Google Workspace, Power Automate & AI — built by one senior consultant, fixed price, no agency overhead</h3>
     <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 8px;">
       <a href="#contact" class="white_button" style="font-size: 18px; padding: 14px 32px; display: inline-flex; align-items: center; gap: 10px;">
         Schedule Free Consultation
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
       </a>
       <a href="index.html#projects" class="button" style="font-size: 18px; padding: 14px 32px; display: inline-flex; align-items: center; gap: 10px;">
-        See Our Work
+        See My Work
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </div>
@@ -1459,7 +1491,7 @@
     <div class="horizontal">
       <p>Try our interactive automation playground and build your own workflow by connecting Google services and AI
         tools</p>
-      <a href="#contact" class="button">Start you project <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+      <a href="#contact" class="button">Start your project <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
           xmlns="http://www.w3.org/2000/svg">
           <path
             d="M15.1667 17.5L18.6667 14M18.6667 14L15.1667 10.5M18.6667 14H9.33333M24.5 14C24.5 19.799 19.799 24.5 14 24.5C8.20101 24.5 3.5 19.799 3.5 14C3.5 8.20101 8.20101 3.5 14 3.5C19.799 3.5 24.5 8.20101 24.5 14Z"
@@ -1568,9 +1600,9 @@
       </div>
     </div>
   </div>
-  <!-- Industries We Serve -->
+  <!-- Industries I Serve -->
   <div class="horizontal" id="industries">
-    <h2>Industries We Serve</h2>
+    <h2>Industries I Serve</h2>
     <div class="showcase-grid">
 
       <div class="showcase-card">
@@ -1739,9 +1771,9 @@
     </div>
   </div>
 
-  <!-- How We Work -->
+  <!-- How I Work -->
   <div class="dark horizontal" id="how-we-work">
-    <h2>How We Work</h2>
+    <h2>How I Work</h2>
     <div style="display: flex; flex-direction: column; gap: 0; flex-grow: 1;">
 
       <style>
@@ -1837,45 +1869,308 @@
   </div>
 
   <div class="horizontal" id="our-sites" style="padding-top: 0;">
-    <h2>Our Sites</h2>
-    <div class="showcase-grid" style="display: flex; gap: 40px; justify-content: flex-start; align-items: center; flex-wrap: wrap;">
-      <a href="https://trendingtechdaily.com" target="_blank" style="display: flex; justify-content: center; align-items: center; padding: 20px; background: #ffffff; border-radius: 12px; transition: transform .3s; width: 250px; height: 100px; text-decoration: none;">
-        <img src="logos/trendingtechdaily_logo.png" alt="TrendingTechDaily" style="max-width: 100%; max-height: 60px;">
-      </a>
-      <a href="https://shosho.ai" target="_blank" style="display: flex; justify-content: center; align-items: center; padding: 20px; background: #161616; border-radius: 12px; border: 1px solid #333333; transition: transform .3s, border-color .3s; width: 250px; height: 100px; text-decoration: none; gap: 8px;">
-        <img src="data:image/svg+xml,%3c?xml%20version='1.0'%20encoding='UTF-8'?%3e%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%20role='img'%20aria-label='Shoso'%3e%3c!--%20Open%20book%20icon%20--%3e%3cpath%20d='M32%2022c-2.8-2.1-7.6-4-15-4-2.2%200-4.2.2-6%20.6V48c1.8-.4%203.8-.6%206-.6%207.4%200%2012.2%201.9%2015%204'%20fill='none'%20stroke='%23fff'%20stroke-width='4'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3cpath%20d='M32%2022c2.8-2.1%207.6-4%2015-4%202.2%200%204.2.2%206%20.6V48c-1.8-.4-3.8-.6-6-.6-7.4%200-12.2%201.9-15%204'%20fill='none'%20stroke='%23fff'%20stroke-width='4'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3cpath%20d='M32%2022v30'%20fill='none'%20stroke='%23fff'%20stroke-width='4'%20stroke-linecap='round'/%3e%3c/svg%3e" alt="Shosho Logo" style="width: 32px; height: 32px;">
-        <span style="font-family: 'Assistant', sans-serif; font-weight: 900; letter-spacing: 0.1em; color: white; font-size: 20px;">SHOSHO</span>
-      </a>
-      <a href="http://www.dream-analytics.com" target="_blank" style="display: flex; justify-content: center; align-items: center; padding: 20px; background: #161616; border-radius: 12px; border: 1px solid #333333; transition: transform .3s, border-color .3s; width: 250px; height: 100px; text-decoration: none;">
-        <span style="font-size: 32px; margin-right: 12px;">🌙</span>
-        <span style="font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 22px; font-weight: bold; font-style: italic; color: #E0E7FF; letter-spacing: -0.5px;">Dream Analytics</span>
-      </a>
+    <h2>Products I've Built</h2>
+
+    <style>
+      .sites-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 24px;
+        flex-grow: 1;
+      }
+      .site-card {
+        background: #161616;
+        border: 1px solid #2a2a2a;
+        border-radius: 16px;
+        overflow: hidden;
+        transition: border-color 0.3s ease, transform 0.3s ease;
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+      }
+      .site-card:hover {
+        border-color: rgba(77,255,144,0.3);
+        transform: translateY(-4px);
+      }
+      .site-devices {
+        position: relative;
+        background: #0d0d0d;
+        padding: 24px 20px 0;
+        height: 200px;
+        overflow: hidden;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        gap: 0;
+      }
+      /* Laptop mockup */
+      .device-laptop {
+        width: 220px;
+        flex-shrink: 0;
+        position: relative;
+        z-index: 1;
+      }
+      .laptop-screen-wrap {
+        background: #111;
+        border: 2.5px solid #3a3a3a;
+        border-bottom: none;
+        border-radius: 8px 8px 0 0;
+        overflow: hidden;
+        aspect-ratio: 16 / 10;
+        width: 100%;
+      }
+      .laptop-screen-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+        display: block;
+      }
+      .laptop-chin {
+        height: 10px;
+        background: linear-gradient(to bottom, #3a3a3a, #2a2a2a);
+        border-radius: 0 0 3px 3px;
+        border: 2.5px solid #3a3a3a;
+        border-top: none;
+      }
+      .laptop-foot {
+        height: 7px;
+        background: #2a2a2a;
+        border-radius: 0 0 6px 6px;
+        margin: 0 -12px;
+      }
+      /* Phone mockup */
+      .device-phone {
+        width: 64px;
+        background: #1c1c1c;
+        border: 2.5px solid #3a3a3a;
+        border-radius: 12px;
+        margin-left: -16px;
+        margin-bottom: 0;
+        padding: 7px 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        flex-shrink: 0;
+        position: relative;
+        z-index: 2;
+        height: 120px;
+        align-self: flex-end;
+      }
+      .phone-notch {
+        width: 22px;
+        height: 4px;
+        background: #3a3a3a;
+        border-radius: 2px;
+        flex-shrink: 0;
+      }
+      .phone-screen-wrap {
+        flex-grow: 1;
+        background: #000;
+        border-radius: 4px;
+        overflow: hidden;
+        width: 100%;
+      }
+      .phone-screen-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+        display: block;
+      }
+      .phone-home-bar {
+        width: 18px;
+        height: 3px;
+        background: #3a3a3a;
+        border-radius: 2px;
+        flex-shrink: 0;
+      }
+      /* Card info */
+      .site-info {
+        padding: 18px 20px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        flex-grow: 1;
+      }
+      .site-info h3 {
+        font-size: 17px;
+        font-weight: 500;
+        color: #fff;
+        margin: 0;
+      }
+      .site-info p {
+        font-size: 13px;
+        color: #9a9a9a;
+        margin: 0 0 12px;
+        line-height: 1.5;
+      }
+      .site-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        color: #4DFF90;
+        text-decoration: none;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin-top: auto;
+      }
+      .site-link svg { transition: transform 0.2s; }
+      .site-card:hover .site-link svg { transform: translateX(4px); }
+      @media (max-width: 768px) {
+        .sites-grid { grid-template-columns: 1fr 1fr; }
+        .device-laptop { width: 180px; }
+        .site-devices { height: 170px; }
+      }
+      @media (max-width: 480px) {
+        .sites-grid { grid-template-columns: 1fr; }
+      }
+    </style>
+
+    <div class="sites-grid">
+
+      <!-- TrendingTechDaily -->
+      <div class="site-card">
+        <div class="site-devices">
+          <div class="device-laptop">
+            <div class="laptop-screen-wrap">
+              <img src="logos/site_trendingtechdaily_desktop.jpg" width="1280" height="853" alt="TrendingTechDaily desktop" loading="lazy">
+            </div>
+            <div class="laptop-chin"></div>
+            <div class="laptop-foot"></div>
+          </div>
+          <div class="device-phone">
+            <div class="phone-notch"></div>
+            <div class="phone-screen-wrap">
+              <img src="logos/site_trendingtechdaily_mobile.jpg" width="750" height="1334" alt="TrendingTechDaily mobile" loading="lazy">
+            </div>
+            <div class="phone-home-bar"></div>
+          </div>
+        </div>
+        <div class="site-info">
+          <h3>TrendingTechDaily</h3>
+          <p>Latest tech news, trends, and analysis — automated content pipeline.</p>
+          <a href="https://trendingtechdaily.com" target="_blank" class="site-link">
+            Visit Site
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Shosho -->
+      <div class="site-card">
+        <div class="site-devices">
+          <div class="device-laptop">
+            <div class="laptop-screen-wrap">
+              <img src="logos/site_shosho_desktop.jpg" width="1280" height="853" alt="Shosho desktop" loading="lazy">
+            </div>
+            <div class="laptop-chin"></div>
+            <div class="laptop-foot"></div>
+          </div>
+          <div class="device-phone">
+            <div class="phone-notch"></div>
+            <div class="phone-screen-wrap">
+              <img src="logos/site_shosho_mobile.jpg" width="750" height="1334" alt="Shosho mobile" loading="lazy">
+            </div>
+            <div class="phone-home-bar"></div>
+          </div>
+        </div>
+        <div class="site-info">
+          <h3>Shosho</h3>
+          <p>AI-powered photo book platform — turns your memories into premium printed albums.</p>
+          <a href="https://shosho.ai" target="_blank" class="site-link">
+            Visit Site
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Dream Analytics -->
+      <div class="site-card">
+        <div class="site-devices">
+          <div class="device-laptop">
+            <div class="laptop-screen-wrap">
+              <img src="logos/site_dreamanalytics_desktop.jpg" width="1280" height="853" alt="Dream Analytics desktop" loading="lazy">
+            </div>
+            <div class="laptop-chin"></div>
+            <div class="laptop-foot"></div>
+          </div>
+          <div class="device-phone">
+            <div class="phone-notch"></div>
+            <div class="phone-screen-wrap">
+              <img src="logos/site_dreamanalytics_mobile.jpg" width="750" height="1334" alt="Dream Analytics mobile" loading="lazy">
+            </div>
+            <div class="phone-home-bar"></div>
+          </div>
+        </div>
+        <div class="site-info">
+          <h3>Dream Analytics</h3>
+          <p>Intelligent dream journaling and pattern analysis app powered by AI.</p>
+          <a href="https://www.dream-analytics.com" target="_blank" class="site-link">
+            Visit Site
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Code Easel -->
+      <div class="site-card">
+        <div class="site-devices">
+          <div class="device-laptop">
+            <div class="laptop-screen-wrap">
+              <img src="logos/site_codeeasel_desktop.jpg" width="1280" height="853" alt="Code Easel desktop" loading="lazy">
+            </div>
+            <div class="laptop-chin"></div>
+            <div class="laptop-foot"></div>
+          </div>
+          <div class="device-phone">
+            <div class="phone-notch"></div>
+            <div class="phone-screen-wrap">
+              <img src="logos/site_codeeasel_mobile.jpg" width="750" height="1334" alt="Code Easel mobile" loading="lazy">
+            </div>
+            <div class="phone-home-bar"></div>
+          </div>
+        </div>
+        <div class="site-info">
+          <h3>Code Easel</h3>
+          <p>Visual coding platform — making code creation accessible and intuitive.</p>
+          <a href="https://code-easel.com" target="_blank" class="site-link">
+            Visit Site
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
     </div>
   </div>
 
   <div class="horizontal dark" id="about">
     <h2>About Meir</h2>
 
-    <p>With over 5 years of experience in automation and development, I specialize in creating custom solutions that
+    <p>With 8+ years of experience in automation and development, I specialize in creating custom solutions that
       transform how businesses operate. My "can-do" attitude and deep expertise in Google Apps Script, Firebase, and
       modern web technologies enable me to tackle even the most complex challenges.
       <img id="profile_image" src="logos/profilepicture.svg" alt="Meir">
       <b>Meir Horwitz <i>Automation expert at Fiverr</i></b>
     </p>
     <div class="stats">
-      <div>5<p>Years Experience</p>
+      <div>8+<p>Years Experience</p>
       </div>
       <div>50+<p>Projects completed</p>
       </div>
-      <div>100%<p>Client Satisfaction</p>
+      <div>5.0★<p>Fiverr Rating</p>
       </div>
-      <div>24/7<p>System Reliability</p>
+      <div>Fixed<p>Price Proposals</p>
       </div>
     </div>
   </div>
 
   <div class="horizontal" id="reviews">
     <h2>Customer Reviews</h2>
+    <p style="color: #9a9a9a; margin: 8px 0 0;">Verified 5.0★ client reviews from Fiverr</p>
 
     <div class="reviews-grid">
       <!-- Review 1 -->
@@ -1890,7 +2185,7 @@
           </div>
           <div class="review-meta">
             <div class="review-rating">★★★★★ <span>5.0</span></div>
-            <div class="review-date">2 days ago</div>
+            <div class="review-date">Verified on Fiverr</div>
           </div>
         </div>
         <div class="review-body">
@@ -1916,7 +2211,7 @@
           </div>
           <div class="review-meta">
             <div class="review-rating">★★★★★ <span>5.0</span></div>
-            <div class="review-date">4 months ago</div>
+            <div class="review-date">Verified on Fiverr</div>
           </div>
         </div>
         <div class="review-body">
@@ -1942,7 +2237,7 @@
           </div>
           <div class="review-meta">
             <div class="review-rating">★★★★★ <span>5.0</span></div>
-            <div class="review-date">6 months ago</div>
+            <div class="review-date">Verified on Fiverr</div>
           </div>
         </div>
         <div class="review-body">
@@ -2031,7 +2326,7 @@
 
       .review-date {
         font-size: 0.75rem;
-        color: #666;
+        color: #9a9a9a;
         margin-top: 4px;
       }
 
@@ -2063,7 +2358,7 @@
 
   <!-- Tech Stack / Integrations Strip -->
   <div style="padding: 48px 24px; background: #161616; border-radius: 8px; text-align: center;">
-    <p style="color: #666; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 28px 0;">Integrates with the tools your team already uses</p>
+    <p style="color: #9a9a9a; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 28px 0;">Integrates with the tools your team already uses</p>
     <div class="service-logos">
       <!-- Google Workspace -->
       <div title="Google Workspace" style="display:flex;align-items:center;gap:8px;padding:10px 18px;background:#1e1e1e;border:1px solid #2a2a2a;border-radius:8px;opacity:0.75;transition:opacity .3s,transform .3s;" onmouseover="this.style.opacity='1';this.style.transform='scale(1.06)'" onmouseout="this.style.opacity='0.75';this.style.transform='scale(1)'">
@@ -2108,9 +2403,56 @@
     </div>
   </div>
 
+  <div class="dark horizontal" id="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div style="max-width: 860px; width: 100%;">
+      <details style="border-bottom: 1px solid #2a2a2a; padding: 16px 0;">
+        <summary style="cursor: pointer; font-size: 1.1rem; color: #fff;">Do I need to change the tools my team already uses?</summary>
+        <p style="color: #9a9a9a; margin: 12px 0 0;">No. I build automations on top of the tools you already have — Google Workspace, Microsoft 365, Monday.com, Slack, your CRM. The goal is to connect them, not replace them.</p>
+      </details>
+      <details style="border-bottom: 1px solid #2a2a2a; padding: 16px 0;">
+        <summary style="cursor: pointer; font-size: 1.1rem; color: #fff;">What happens if an automation breaks?</summary>
+        <p style="color: #9a9a9a; margin: 12px 0 0;">If a delivered automation doesn't work as specified, I fix it free within 14 days of delivery. Beyond that, ongoing support and monitoring options are available — you're never left with a black box.</p>
+      </details>
+      <details style="border-bottom: 1px solid #2a2a2a; padding: 16px 0;">
+        <summary style="cursor: pointer; font-size: 1.1rem; color: #fff;">Why not just build it myself with Zapier or Make?</summary>
+        <p style="color: #9a9a9a; margin: 12px 0 0;">For simple two-app triggers, you should! I come in when workflows have logic, edge cases, approvals, documents, or data volume that off-the-shelf connectors handle poorly — and when you want it built once, correctly, with source code you own.</p>
+      </details>
+      <details style="border-bottom: 1px solid #2a2a2a; padding: 16px 0;">
+        <summary style="cursor: pointer; font-size: 1.1rem; color: #fff;">How much does a project cost?</summary>
+        <p style="color: #9a9a9a; margin: 12px 0 0;">Packages start at $300; most custom projects range $900–$5,000. Every project gets a fixed-price proposal up front — no hourly surprises.</p>
+      </details>
+      <details style="border-bottom: 1px solid #2a2a2a; padding: 16px 0;">
+        <summary style="cursor: pointer; font-size: 1.1rem; color: #fff;">How do payments work?</summary>
+        <p style="color: #9a9a9a; margin: 12px 0 0;">Through PayPal or Fiverr, per the proposal. Packages are listed on the <a href="payment.html" style="color: #72FFA3;">packages page</a>; custom projects are invoiced at the agreed fixed price.</p>
+      </details>
+      <details style="padding: 16px 0;">
+        <summary style="cursor: pointer; font-size: 1.1rem; color: #fff;">Who actually does the work?</summary>
+        <p style="color: #9a9a9a; margin: 12px 0 0;">I do — one senior consultant, no handoffs, no juniors. You get direct access to the person building your system, with progress updates via Loom, WhatsApp, or email.</p>
+      </details>
+    </div>
+  </div>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "Do I need to change the tools my team already uses?", "acceptedAnswer": {"@type": "Answer", "text": "No. Automations are built on top of the tools you already have — Google Workspace, Microsoft 365, Monday.com, Slack, your CRM — connecting them rather than replacing them."}},
+      {"@type": "Question", "name": "What happens if an automation breaks?", "acceptedAnswer": {"@type": "Answer", "text": "If a delivered automation doesn't work as specified, it is fixed free within 14 days of delivery. Ongoing support and monitoring options are available."}},
+      {"@type": "Question", "name": "Why not just build it myself with Zapier or Make?", "acceptedAnswer": {"@type": "Answer", "text": "For simple two-app triggers you can. A consultant helps when workflows have logic, edge cases, approvals, documents, or data volume that off-the-shelf connectors handle poorly."}},
+      {"@type": "Question", "name": "How much does a project cost?", "acceptedAnswer": {"@type": "Answer", "text": "Packages start at $300; most custom projects range $900–$5,000, always with a fixed-price proposal up front."}},
+      {"@type": "Question", "name": "How do payments work?", "acceptedAnswer": {"@type": "Answer", "text": "Through PayPal or Fiverr, per the proposal. Packages are listed on the packages page; custom projects are invoiced at the agreed fixed price."}},
+      {"@type": "Question", "name": "Who actually does the work?", "acceptedAnswer": {"@type": "Answer", "text": "One senior consultant — no handoffs. Clients get direct access to the person building their system."}}
+    ]
+  }
+  </script>
+
   <div class="horizontal " id="contact">
     <h2>Contact</h2>
-
+    <p style="color: #9a9a9a; margin: 8px 0 16px;">Projects typically start at $300; most range $900–$5,000 — every
+      project gets a fixed-price proposal before any work starts. Prefer email? Write to
+      <a href="mailto:service@automationbymeir.com" style="color: #72FFA3;">service@automationbymeir.com</a>
+      — I reply within 1 business day.</p>
 
     <form id="projectForm">
       <div id="step1" class="form-step active">
@@ -2152,7 +2494,6 @@
   </div>
 
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 
   <script>
@@ -2264,8 +2605,50 @@
       });
     }
 
+    // Safety net: if anime.js failed to load, the visitor prefers reduced
+    // motion, or the animation chain stalled (e.g. background tab pauses
+    // requestAnimationFrame), reveal the hero in its final state.
+    window.__heroAnimDone = false;
+    function revealHeroInstantly() {
+      window.__heroAnimDone = true;
+      const title = document.getElementById('animated-title');
+      const subtitle = document.getElementById('animated-subtitle');
+      const originalTitle = title.getAttribute('data-original-text');
+      if (originalTitle) title.innerHTML = originalTitle;
+      title.style.transform = 'none';
+      title.style.background = 'linear-gradient(90deg, #72FFA3 0%, #34B1FF 20%, #FFFFFF 40%)';
+      title.style.backgroundSize = '400% 100%';
+      title.style.backgroundPosition = '0vw 0px';
+      title.style.webkitBackgroundClip = 'text';
+      title.style.webkitTextFillColor = 'transparent';
+      title.style.backgroundClip = 'text';
+      title.style.filter = 'drop-shadow(0px 4px 8px rgba(0,0,0,0.8))';
+      const originalSub = subtitle.getAttribute('data-original-text');
+      if (originalSub) subtitle.innerHTML = originalSub;
+      subtitle.style.opacity = '1';
+    }
+
     // H1 letter-by-letter animation with preserved word wrapping
     document.addEventListener('DOMContentLoaded', function () {
+      const titleEl = document.getElementById('animated-title');
+      const subtitleEl = document.getElementById('animated-subtitle');
+      titleEl.setAttribute('data-original-text', titleEl.textContent);
+      subtitleEl.setAttribute('data-original-text', subtitleEl.textContent);
+
+      if (typeof anime === 'undefined' ||
+          (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+        revealHeroInstantly();
+        return;
+      }
+      // Belt-and-braces: if the chain hasn't finished, force the final state.
+      // Checked on a timer AND when the tab becomes visible again.
+      setTimeout(function () { if (!window.__heroAnimDone) revealHeroInstantly(); }, 4500);
+      document.addEventListener('visibilitychange', function () {
+        if (!document.hidden) {
+          setTimeout(function () { if (!window.__heroAnimDone) revealHeroInstantly(); }, 1500);
+        }
+      });
+
       const title = document.getElementById('animated-title');
       const originalText = title.textContent;
 
@@ -2332,6 +2715,7 @@
             easing: 'easeInOutCubic',
             delay: 500,
             complete: function () {
+              window.__heroAnimDone = true;
               // Start h3 animation after h1 gradient and movement completes
               animateH3();
             }
@@ -2467,7 +2851,7 @@
         console.error("Error sending message:", error);
         formMessage.style.display = "block";
         formMessage.className = "error";
-        formMessage.innerHTML = "<h3>Error</h3><p>Something went wrong. Please try again or use the email link in the footer.</p>";
+        formMessage.innerHTML = "<h3>Error</h3><p>Something went wrong. Please try again or email me directly at <a href='mailto:service@automationbymeir.com' style='color:#72FFA3;'>service@automationbymeir.com</a>.</p>";
 
         sendMessageBtn.disabled = false;
         sendMessageBtn.textContent = originalText;
@@ -2483,7 +2867,7 @@
         displaySlots(data.slots ?? []);
       } catch (error) {
         console.error("Error fetching slots:", error);
-        timeSlotsContainer.innerHTML = `<p style="color: var(--danger);">Could not load available times. Please try again later.</p>`;
+        timeSlotsContainer.innerHTML = `<p style="color: var(--danger);">Could not load available times. Please try again later, or email me at <a href='mailto:service@automationbymeir.com' style='color:#72FFA3;'>service@automationbymeir.com</a>.</p>`;
       } finally {
         slotsLoader.style.display = "none";
       }
@@ -2596,7 +2980,7 @@
         console.error("Error submitting form:", error);
         formMessage.style.display = "block";
         formMessage.className = "error";
-        formMessage.innerHTML = "<h3>Error</h3><p>Something went wrong. Please try again or contact me directly.</p>";
+        formMessage.innerHTML = "<h3>Error</h3><p>Something went wrong. Please try again or email me directly at <a href='mailto:service@automationbymeir.com' style='color:#72FFA3;'>service@automationbymeir.com</a>.</p>";
         submitBtn.disabled = false;
         submitBtn.textContent = "Submit & Schedule";
       }
@@ -2796,9 +3180,9 @@
 
   <div id="video-modal-overlay" onclick="closeVideoModal(event)">
     <div id="video-modal">
-      <button id="video-modal-close" onclick="closeVideoModal(event)">✕</button>
+      <button id="video-modal-close" aria-label="Close video" onclick="closeVideoModal(event)">✕</button>
       <div id="video-modal-inner">
-        <iframe id="video-modal-iframe" src="" title="Introduction — Automations by Meir"
+        <iframe id="video-modal-iframe" src="" title="Introduction — Automation by Meir"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen></iframe>
       </div>

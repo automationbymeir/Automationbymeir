@@ -2,27 +2,19 @@
 <html lang="en">
 <head>
   <link rel="icon" type="image/svg+xml" href="/logos/favicon.svg">
-    <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "sxaf839npz");
-    </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D8GQDGVR08"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-D8GQDGVR08');
-</script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secure Payment - Automation by Meir</title>
-    <meta name="description" content="Complete your payment securely using PayPal." />
-    <link rel="canonical" href="https://automationbymeir.com/payment.html" />
+    <title>Packages & Pricing | Automation by Meir</title>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Automation by Meir">
+  <meta property="og:title" content="Packages & Pricing | Automation by Meir">
+  <meta property="og:description" content="Fixed-price automation packages from $300. Google Apps Script, Power Automate and AI workflow projects with clear scope and delivery walkthrough.">
+  <meta property="og:url" content="https://www.automationbymeir.com/payment.html">
+  <meta property="og:image" content="https://www.automationbymeir.com/logos/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <script src="/analytics.js"></script>
+    <meta name="description" content="Fixed-price automation packages from $300. Google Apps Script, Power Automate and AI workflow projects with clear scope and delivery walkthrough.">
+    <link rel="canonical" href="https://www.automationbymeir.com/payment.html" />
 
     <style>
 /* Your existing CSS - No changes made */
@@ -864,23 +856,25 @@ nav {
     <div class="bg-animation"></div>
     
     <div id="header">
-      <a href="index.html"><img src="ma_logo.svg" alt="Automations by Meir" width="196" height="64" /></a>
+      <a href="index.html"><img src="ma_logo.svg" alt="Automation by Meir" width="196" height="64" /></a>
       <nav>
         <ul>
-          <li><a href="index.html#services">Services</a></li>
-          <li><a href="index.html#projects">Projects</a></li>
-          <li class="dropdown"><a href="#">Showcases</a>
+          <li><a href="/index.html#services">Services</a></li>
+          <li><a href="/index.html#projects">Projects</a></li>
+          <li class="dropdown"><a href="#" aria-haspopup="true">Showcases</a>
             <ul class="dropdown-menu">
-              <li><a href="showcase2.html">Business Analytics System</a></li>
-              <li><a href="showcase-job-post-pro.html">Job Post Pro</a></li>
+              <li><a href="/showcase2.html">Business Analytics System</a></li>
+              <li><a href="/showcase-job-post-pro.html">Job Post Pro</a></li>
+              <li><a href="/showcase-power-automate.html">Automated Student Onboarding</a></li>
+              <li><a href="/showcase-retail-data-platform.html">Retail Data Intelligence</a></li>
             </ul>
           </li>
-          <li><a href="why-automation.html">Why Automate</a></li>
-          <li><a href="index.html#contact">Contact Us</a></li>
+          <li><a href="/why-automation.html">Why Automate</a></li>
+          <li><a href="/index.html#contact">Contact Us</a></li>
         </ul>
         <ul>
-          <li><a href="automation-playground.html">Try live</a></li>
-          <li><a href="payment.html">Packages</a></li>
+          <li><a href="/automation-playground.html">Try the Playground</a></li>
+          <li><a href="/payment.html">Packages</a></li>
           <li><a href="/he/">עב</a></li>
         </ul>
       </nav>
@@ -888,8 +882,8 @@ nav {
 
     <div class="payment-wrapper">
         <div class="payment-container">
-            <h1>Choose Your Package</h1>
-            <p class="payment-subtitle">Select a package that fits your needs</p>
+            <h1>Packages & Pricing</h1>
+            <p class="payment-subtitle">Fixed-price packages with a clear scope — if a delivered automation doesn't work as specified, I fix it free within 14 days</p>
             <div id="error-message"></div>
             
             <!-- Package Selection -->
@@ -909,7 +903,7 @@ nav {
                         <li>Database integration</li>
                         <li>Include source code</li>
                         <li>Detailed code comments</li>
-                        <li><strong>Revisions:</strong> 0</li>
+                        <li><strong>Includes:</strong> delivery walkthrough; revisions quoted separately</li>
                         <li><strong>Delivery Time:</strong> 2 days (1 day +US$30)</li>
                     </ul>
                     <button class="package-select-btn" data-package="basic">Select Basic</button>
@@ -1020,46 +1014,17 @@ nav {
             basic: {
                 name: 'Basic',
                 title: 'Prompt Engineering Kickstart',
-                price: 300,
-                features: [
-                    'Quick consultation (1 session) to identify your workflow goals',
-                    'Integration of an AI model to existing app',
-                    'Database integration',
-                    'Include source code',
-                    'Detailed code comments',
-                    'Revisions: 0',
-                    'Delivery Time: 2 days (1 day +US$30)'
-                ]
+                price: 300
             },
             standard: {
                 name: 'Standard',
                 title: 'Complete AI Integration & Support',
-                price: 900,
-                features: [
-                    'In-depth workflow analysis',
-                    'Setup of core AI prompts using Claude AI, Gemini, or ChatGPT',
-                    'Integration of an AI model to existing app',
-                    'Database integration',
-                    'Include source code',
-                    'Detailed code comments',
-                    'Revisions: 1',
-                    'Delivery Time: 7 days (5 days +US$50)'
-                ]
+                price: 900
             },
             premium: {
                 name: 'Premium',
                 title: 'Premium – Complete AI Integration',
-                price: 1500,
-                features: [
-                    'Full-scale workflow optimization',
-                    'Advanced prompt engineering and multi-platform integration',
-                    'Integration of an AI model to existing app',
-                    'Database integration',
-                    'Include source code',
-                    'Detailed code comments',
-                    'Revisions: 2',
-                    'Delivery Time: 21 days (14 days +US$100)'
-                ]
+                price: 1500
             },
             custom: {
                 name: 'Custom Project',
@@ -1266,5 +1231,6 @@ nav {
     </script>
 
     <script src="nav.js" type="module"></script>
+<script src="/footer-consent.js"></script>
 </body>
 </html>

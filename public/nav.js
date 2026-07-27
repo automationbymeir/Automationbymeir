@@ -20,10 +20,23 @@ function initMobileNav() {
       top: 40px;
       right: 40px;
       z-index: 101;
+      border: none;
+      box-sizing: content-box;
+    }
+
+    .menu-toggle:focus-visible {
+      outline: 2px solid #72FFA3;
+      outline-offset: 2px;
+    }
+
+    /* Keyboard access: open dropdown when focus is inside it, matching :hover */
+    nav ul li.dropdown:focus-within .dropdown-menu {
+      display: block;
     }
 
     .menu-toggle span {
       display: block;
+      width: 100%;
       height: 2px;
       background: #fff;
       border-radius: 2px;
@@ -189,17 +202,29 @@ function initMobileNav() {
   // Check if menu toggle already exists
   let toggle = document.getElementById('menu-toggle');
   if (!toggle) {
-    toggle = document.createElement('div');
+    toggle = document.createElement('button');
     toggle.id = 'menu-toggle';
     toggle.className = 'menu-toggle';
+    toggle.type = 'button';
+    toggle.setAttribute('aria-label', 'Open menu');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-controls', 'site-nav');
+    nav.id = nav.id || 'site-nav';
     toggle.innerHTML = '<span></span><span></span><span></span>';
     header.appendChild(toggle);
+  }
+
+  function syncToggleState() {
+    const open = nav.classList.contains('open');
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
   }
 
   // Toggle menu on click
   toggle.addEventListener('click', () => {
     nav.classList.toggle('open');
     toggle.classList.toggle('active');
+    syncToggleState();
   });
 
   // Close menu when clicking on a link
@@ -207,16 +232,18 @@ function initMobileNav() {
     link.addEventListener('click', () => {
       nav.classList.remove('open');
       toggle.classList.remove('active');
+      syncToggleState();
     });
   });
 
   // Close menu when clicking outside
   document.addEventListener('click', (e) => {
-    if (nav.classList.contains('open') && 
-        !nav.contains(e.target) && 
+    if (nav.classList.contains('open') &&
+        !nav.contains(e.target) &&
         !toggle.contains(e.target)) {
       nav.classList.remove('open');
       toggle.classList.remove('active');
+      syncToggleState();
     }
   });
 

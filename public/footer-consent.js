@@ -99,6 +99,21 @@ function initFooterAndConsent() {
       background: #00c853;
       transform: translateY(-2px);
     }
+    .btn-decline {
+      background: transparent;
+      color: #ccc;
+      border: 1px solid #555;
+      padding: 0.6rem 1.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+    .btn-decline:hover {
+      border-color: #888;
+      color: #fff;
+    }
 
     @media (max-width: 768px) {
       .footer-content {
@@ -110,8 +125,12 @@ function initFooterAndConsent() {
         text-align: center;
         gap: 1rem;
       }
-      .btn-accept {
+      .btn-accept, .btn-decline {
         width: 100%;
+      }
+      .cookie-buttons {
+        width: 100%;
+        flex-direction: column;
       }
     }
   `;
@@ -124,37 +143,53 @@ function initFooterAndConsent() {
         <div class="footer-section">
           <h4>Navigation</h4>
           <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="index.html#services">Services</a></li>
-            <li><a href="index.html#projects">Featured Projects</a></li>
-            <li><a href="why-automation.html">Why Automate</a></li>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/index.html#services">Services</a></li>
+            <li><a href="/index.html#projects">Featured Projects</a></li>
+            <li><a href="/why-automation.html">Why Automate</a></li>
           </ul>
         </div>
         <div class="footer-section">
           <h4>Showcases</h4>
           <ul class="footer-links">
-            <li><a href="showcase2.html">Business Analytics System</a></li>
-            <li><a href="showcase-job-post-pro.html">Job Post Pro</a></li>
-            <li><a href="showcase-power-automate.html">Automated Onboarding</a></li>
-            <li><a href="showcase-retail-data-platform.html">Retail Data Intelligence</a></li>
+            <li><a href="/showcase2.html">Business Analytics System</a></li>
+            <li><a href="/showcase-job-post-pro.html">Job Post Pro</a></li>
+            <li><a href="/showcase-power-automate.html">Automated Onboarding</a></li>
+            <li><a href="/showcase-retail-data-platform.html">Retail Data Intelligence</a></li>
           </ul>
         </div>
         <div class="footer-section">
           <h4>Contact & Info</h4>
           <ul class="footer-links">
-            <li><a href="index.html#contact">Contact Us</a></li>
-            <li><a href="automation-playground.html">Automation Playground</a></li>
-            <li><a href="payment.html">Packages & Pricing</a></li>
-            <li><a href="about-me.html">About Me</a></li>
+            <li><a href="/index.html#contact">Contact</a></li>
+            <li><a href="mailto:service@automationbymeir.com">service@automationbymeir.com</a></li>
+            <li><a href="/automation-playground.html">Automation Playground</a></li>
+            <li><a href="/payment.html">Packages & Pricing</a></li>
+            <li><a href="/about-me.html">About Me</a></li>
           </ul>
         </div>
         <div class="footer-section">
-            <h4>AutomationByMeir</h4>
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="/services/process-automation.html">Process Automation</a></li>
+            <li><a href="/services/ai-powered-systems.html">AI-Powered Systems</a></li>
+            <li><a href="/services/api-integration.html">API Integration</a></li>
+            <li><a href="/services/data-dashboards.html">Data Dashboards</a></li>
+            <li><a href="/services/document-generation.html">Document Generation</a></li>
+            <li><a href="/services/web-development.html">Web Development</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Automation by Meir</h4>
             <p style="color: #aaa; font-size: 0.9rem;">Empowering businesses through intelligent automation.</p>
+            <ul class="footer-links" style="margin-top: 1rem;">
+              <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+              <li><a href="/terms.html">Terms of Service</a></li>
+            </ul>
         </div>
       </div>
       <div class="copyright">
-        &copy; ${new Date().getFullYear()} AutomationByMeir. All rights reserved.
+        &copy; ${new Date().getFullYear()} Automation by Meir. All rights reserved.
       </div>
     </footer>
   `;
@@ -173,7 +208,7 @@ function initFooterAndConsent() {
   // 3. Cookie Consent Logic
   const CONSENT_KEY = 'abm_cookie_consent';
 
-  // Check if already accepted
+  // Show the banner only if no choice has been made yet ('true' or 'false')
   if (!localStorage.getItem(CONSENT_KEY)) {
     // Inject Banner
     const banner = document.createElement('div');
@@ -181,9 +216,10 @@ function initFooterAndConsent() {
     banner.innerHTML = `
       <div class="cookie-content">
         <div class="cookie-text">
-          <p>We use cookies and similar technologies to enhance your experience, analyze site traffic, and personalize content. By clicking "Accept", you agree to our use of cookies.</p>
+          <p>I use cookies for analytics (Google Analytics and Microsoft Clarity) to understand how the site is used. Analytics only run if you accept. See the <a href="/privacy-policy.html" style="color:#00e676;">Privacy Policy</a>.</p>
         </div>
         <div class="cookie-buttons">
+          <button id="btn-decline-cookies" class="btn-decline">Decline</button>
           <button id="btn-accept-cookies" class="btn-accept">Accept</button>
         </div>
       </div>
@@ -197,14 +233,17 @@ function initFooterAndConsent() {
 
     // Handle Accept
     document.getElementById('btn-accept-cookies').addEventListener('click', () => {
-      // 1. Save locally
       localStorage.setItem(CONSENT_KEY, 'true');
-
-      // 2. Hide banner
       banner.style.display = 'none';
-
-      // 3. Record in DB
+      // Load analytics now that consent is given
+      if (window.abmLoadAnalytics) window.abmLoadAnalytics();
       recordConsent();
+    });
+
+    // Handle Decline — remember the choice, never load analytics
+    document.getElementById('btn-decline-cookies').addEventListener('click', () => {
+      localStorage.setItem(CONSENT_KEY, 'false');
+      banner.style.display = 'none';
     });
   }
 }
