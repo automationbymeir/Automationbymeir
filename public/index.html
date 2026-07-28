@@ -1049,6 +1049,85 @@
         width: auto;
       }
     }
+
+    /* ---- Trusted-by client logo marquee ---- */
+    .trusted-by {
+      padding: 36px 0 44px;
+      overflow: hidden;
+    }
+    .trusted-by-label {
+      text-align: center;
+      color: #9a9a9a;
+      font-size: 14px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin: 0 24px 26px;
+    }
+    .logo-marquee {
+      position: relative;
+      overflow: hidden;
+      /* fade the strip edges */
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+      mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    }
+    .logo-track {
+      display: flex;
+      width: max-content;
+      animation: trusted-scroll 36s linear infinite;
+    }
+    .logo-marquee:hover .logo-track { animation-play-state: paused; }
+    .logo-set {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      padding-right: 28px;
+    }
+    .client-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 14px;
+      padding: 14px 26px;
+      height: 72px;
+      text-decoration: none;
+      filter: grayscale(1);
+      opacity: .82;
+      transition: filter .3s ease, opacity .3s ease, transform .3s ease;
+    }
+    .client-logo:hover {
+      filter: grayscale(0);
+      opacity: 1;
+      transform: translateY(-2px);
+    }
+    .client-logo img {
+      height: 40px;
+      width: auto;
+      max-width: 190px;
+      object-fit: contain;
+    }
+    .client-logo span {
+      font-weight: 600;
+      font-size: 19px;
+      color: #1c1c1c;
+      white-space: nowrap;
+    }
+    /* white-only logo: render as dark silhouette on the light chip */
+    .logo-on-dark img { filter: brightness(0); }
+    @keyframes trusted-scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .logo-track { animation: none; }
+      .logo-marquee { overflow-x: auto; mask-image: none; -webkit-mask-image: none; }
+    }
+    @media (max-width: 768px) {
+      .client-logo { height: 58px; padding: 10px 18px; border-radius: 11px; }
+      .client-logo img { height: 30px; max-width: 150px; }
+      .client-logo span { font-size: 16px; }
+      .logo-set { gap: 16px; padding-right: 16px; }
+    }
   </style>
   <style>
     /* 3D Animation Background Styles */
@@ -1136,6 +1215,35 @@
       </a>
     </div>
   </div>
+
+  <!-- Trusted by — client logo marquee -->
+  <section class="trusted-by" id="trusted-by" aria-label="Trusted by clients">
+    <p class="trusted-by-label">Trusted by businesses across education, healthcare, retail &amp; tech</p>
+    <div class="logo-marquee">
+      <div class="logo-track">
+        <div class="logo-set">
+          <a class="client-logo" href="https://www.hatfieldwickeducation.co.uk/" target="_blank" rel="noopener" title="Hatfield Wick Education"><img src="/logos/clients/hatfieldwick.png" alt="Hatfield Wick Education"></a>
+          <a class="client-logo" href="https://rickyrescue.com/" target="_blank" rel="noopener" title="Ricky Rescue Training Academy"><img src="/logos/clients/rickyrescue.png" alt="Ricky Rescue Training Academy"></a>
+          <a class="client-logo" href="https://crownsensor.com/" target="_blank" rel="noopener" title="Crown EAS Technology"><img src="/logos/clients/crownsensor.png" alt="Crown EAS Technology"></a>
+          <a class="client-logo with-name" href="https://petach.ai/" target="_blank" rel="noopener" title="Petach.ai"><img src="/logos/clients/petach.png" alt="Petach.ai"><span>petach.ai</span></a>
+          <a class="client-logo with-name" href="https://www.ayra.app/" target="_blank" rel="noopener" title="Ayra"><img src="/logos/clients/ayra.png" alt="Ayra"><span>Ayra</span></a>
+          <a class="client-logo with-name" href="https://www.profitforge.ai/" target="_blank" rel="noopener" title="ProfitForge"><img src="/logos/clients/profitforge.webp" alt="ProfitForge"><span>ProfitForge</span></a>
+          <a class="client-logo" href="https://www.caceresgyn.com/" target="_blank" rel="noopener" title="Caceres GYN"><img src="/logos/clients/caceresgyn.png" alt="Caceres GYN"></a>
+          <a class="client-logo logo-on-dark" href="https://www.sarandimfg.com/" target="_blank" rel="noopener" title="Sarandi Manufacturing"><img src="/logos/clients/sarandimfg.png" alt="Sarandi Manufacturing"></a>
+        </div>
+        <div class="logo-set" aria-hidden="true">
+          <a class="client-logo" href="https://www.hatfieldwickeducation.co.uk/" target="_blank" rel="noopener" tabindex="-1"><img src="/logos/clients/hatfieldwick.png" alt=""></a>
+          <a class="client-logo" href="https://rickyrescue.com/" target="_blank" rel="noopener" tabindex="-1"><img src="/logos/clients/rickyrescue.png" alt=""></a>
+          <a class="client-logo" href="https://crownsensor.com/" target="_blank" rel="noopener" tabindex="-1"><img src="/logos/clients/crownsensor.png" alt=""></a>
+          <a class="client-logo with-name" href="https://petach.ai/" target="_blank" rel="noopener" tabindex="-1"><img src="/logos/clients/petach.png" alt=""><span>petach.ai</span></a>
+          <a class="client-logo with-name" href="https://www.ayra.app/" target="_blank" rel="noopener" tabindex="-1"><img src="/logos/clients/ayra.png" alt=""><span>Ayra</span></a>
+          <a class="client-logo with-name" href="https://www.profitforge.ai/" target="_blank" rel="noopener" tabindex="-1"><img src="/logos/clients/profitforge.webp" alt=""><span>ProfitForge</span></a>
+          <a class="client-logo" href="https://www.caceresgyn.com/" target="_blank" rel="noopener" tabindex="-1"><img src="/logos/clients/caceresgyn.png" alt=""></a>
+          <a class="client-logo logo-on-dark" href="https://www.sarandimfg.com/" target="_blank" rel="noopener" tabindex="-1"><img src="/logos/clients/sarandimfg.png" alt=""></a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <div class="dark horizontal" id="services">
     <h2>Services</h2>
