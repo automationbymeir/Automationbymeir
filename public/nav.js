@@ -18,7 +18,7 @@ function initMobileNav() {
       gap: 3px;
       position: fixed;
       top: 40px;
-      right: 40px;
+      inset-inline-end: 40px;
       z-index: 101;
       border: none;
       box-sizing: content-box;
@@ -73,7 +73,7 @@ function initMobileNav() {
       .menu-toggle {
         display: flex !important;
         top: 16px;
-        right: 20px;
+        inset-inline-end: 20px;
       }
 
       /* Hide nav by default on mobile */
@@ -106,7 +106,7 @@ function initMobileNav() {
         position: static !important;
         width: 100% !important;
         margin-top: 8px !important;
-        margin-left: 16px !important;
+        margin-inline-start: 16px !important;
       }
 
       nav ul li:hover .dropdown-menu,
