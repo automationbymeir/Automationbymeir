@@ -571,6 +571,21 @@
                 padding: 1.5rem;
             }
         }
+
+        @media (max-width: 480px) {
+            .payment-wrapper { padding: 5rem 0.5rem 1rem; }
+            .payment-container { padding: 1.5rem 1.25rem; }
+            .package-card { padding: 1.25rem; }
+            .package-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+            .package-header h3 { font-size: 1.5rem; }
+            .package-price { align-items: flex-start; }
+            .price-amount { font-size: 1.75rem; }
+            .package-badge { top: -12px; right: 12px; font-size: 0.8rem; padding: 5px 12px; }
+        }
         #header {
             position: fixed;
             width: 100%;
