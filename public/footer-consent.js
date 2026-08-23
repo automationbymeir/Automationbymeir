@@ -166,6 +166,7 @@ function initFooterAndConsent() {
             <li><a href="/automation-playground.html">Automation Playground</a></li>
             <li><a href="/payment.html">Packages & Pricing</a></li>
             <li><a href="/about-me.html">About Me</a></li>
+            <li><a href="#" onclick="SaaSBrowser.requestReview(); return false;">Leave a Review</a></li>
           </ul>
         </div>
         <div class="footer-section">
@@ -203,6 +204,17 @@ function initFooterAndConsent() {
   const tempDiv = document.createElement('div');
   tempDiv.innerHTML = footerHTML;
   body.appendChild(tempDiv.firstElementChild);
+
+  // Inject SaaSBrowser Collection Widget Script
+  if (!document.querySelector('script[src*="assets.saasbrowser.com/widgets/collection.min.js"]')) {
+    const saasScript = document.createElement('script');
+    saasScript.src = 'https://assets.saasbrowser.com/widgets/collection.min.js';
+    saasScript.dataset.profile = '802bdd8b-4171-429f-81b2-b94133c7cff6';
+    saasScript.dataset.mode = 'light';
+    saasScript.dataset.position = 'left';
+    saasScript.async = true;
+    document.head.appendChild(saasScript);
+  }
 
 
   // 3. Cookie Consent Logic
