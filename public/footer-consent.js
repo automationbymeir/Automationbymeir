@@ -168,6 +168,11 @@ function initFooterAndConsent() {
             <li><a href="/about-me.html">About Me</a></li>
             <li><a href="#" onclick="SaaSBrowser.requestReview(); return false;">Leave a Review</a></li>
           </ul>
+          <div style="margin-top: 1.2rem;">
+            <a href="https://saasbrowser.com/en/saas/1517278/automations-by-meir" target="_blank" rel="nofollow noopener" style="display: inline-block;">
+              <img src="https://files.saasbrowser.com/x7zl7y68jp7ltalvnrog445bdnse" alt="Automations By Meir - SaaS discovery platform verified badge" width="130" height="86" style="display: block; border-radius: 8px; background: #fff; padding: 4px; box-sizing: border-box; max-width: 100%; height: auto;" />
+            </a>
+          </div>
         </div>
         <div class="footer-section">
           <h4>Services</h4>
@@ -186,7 +191,6 @@ function initFooterAndConsent() {
             <ul class="footer-links" style="margin-top: 1rem;">
               <li><a href="/privacy-policy.html">Privacy Policy</a></li>
               <li><a href="/terms.html">Terms of Service</a></li>
-              <li><a href="#" onclick="SaaSBrowser.requestReview(); return false;">Leave a Review</a></li>
             </ul>
         </div>
       </div>
