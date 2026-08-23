@@ -186,6 +186,7 @@ function initFooterAndConsent() {
             <ul class="footer-links" style="margin-top: 1rem;">
               <li><a href="/privacy-policy.html">Privacy Policy</a></li>
               <li><a href="/terms.html">Terms of Service</a></li>
+              <li><a href="#" onclick="SaaSBrowser.requestReview(); return false;">Leave a Review</a></li>
             </ul>
         </div>
       </div>
