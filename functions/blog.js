@@ -134,11 +134,22 @@ function page({ title, description, canonical, ogImage, jsonLd, body }) {
   <style>
     body { font-family: 'IBM Plex Sans', Helvetica, Arial, sans-serif; background: #1E1E21; margin: 0; padding: 16px; color: #fff; }
     a { color: #72FFA3; }
-    nav { max-width: 1100px; margin: 24px auto; padding: 0 16px; }
-    nav > ul { list-style: none; display: flex; gap: 24px; flex-wrap: wrap; padding: 0; }
-    nav a { color: #fff; text-decoration: none; font-weight: 500; }
-    nav a:hover { color: #72FFA3; }
-    main { max-width: 860px; margin: 0 auto; padding: 24px 16px 64px; }
+    #header { position: fixed; width: 100%; z-index: 100; padding: 24px 32px; display: flex; justify-content: space-between; box-sizing: border-box; align-items: flex-start; top: 0; }
+    #header > a img { height: 44px; }
+    #header nav { display: flex; flex-direction: row; align-items: flex-start; padding: 20px 24px; gap: 36px; background: rgba(13, 13, 14, 0.6); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-radius: 16px; border: 1px solid rgba(255,255,255,0.08); }
+    #header nav ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+    #header nav ul li { position: relative; }
+    #header nav a { color: #fff; text-decoration: none; font-weight: 500; font-size: 0.95rem; white-space: nowrap; }
+    #header nav a:hover { color: #72FFA3; }
+    #header nav ul li .dropdown-menu { display: none; position: absolute; top: 100%; inset-inline-start: 0; background: rgba(13, 13, 14, 0.95); border: 1px solid #35353c; border-radius: 8px; padding: 8px 0; list-style: none; margin: 0; min-width: 220px; z-index: 110; }
+    #header nav ul li:hover .dropdown-menu { display: block; }
+    #header nav ul li .dropdown-menu a { padding: 8px 16px; display: block; }
+    @media (max-width: 900px) {
+      #header { position: static; flex-direction: column; gap: 16px; padding: 16px; }
+      #header nav { flex-wrap: wrap; gap: 16px; padding: 14px 16px; }
+      #header nav a { font-size: 0.85rem; }
+    }
+    main { max-width: 860px; margin: 0 auto; padding: 150px 16px 64px; }
     .blog-index h1 { font-size: 2.4rem; margin-bottom: 8px; }
     .sub { color: #b9b9c0; margin-bottom: 40px; }
     .cards { display: grid; gap: 24px; }
@@ -166,16 +177,32 @@ function page({ title, description, canonical, ogImage, jsonLd, body }) {
   </style>
 </head>
 <body>
-  <nav>
-    <ul>
-      <li><a href="/">Automation by Meir</a></li>
-      <li><a href="/index.html#services">Services</a></li>
-      <li><a href="/index.html#projects">Projects</a></li>
-      <li><a href="/why-automation.html">Why Automate</a></li>
-      <li><a href="/blog">Blog</a></li>
-      <li><a href="/index.html#contact">Contact</a></li>
-    </ul>
-  </nav>
+  <div id="header">
+    <a href="/index.html"><img src="/ma_logo.svg" alt="Automation by Meir" /></a>
+    <nav>
+      <ul>
+        <li><a href="/index.html#services">Services</a></li>
+        <li><a href="/index.html#projects">Projects</a></li>
+        <li class="dropdown"><a href="#" aria-haspopup="true">Showcases</a>
+          <ul class="dropdown-menu">
+
+            <li><a href="/showcase2.html">Business Analytics System</a></li>
+            <li><a href="/showcase-job-post-pro.html">Job Post Pro</a></li>
+            <li><a href="/showcase-power-automate.html">Automated Student Onboarding</a></li>
+            <li><a href="/showcase-retail-data-platform.html">Retail Data Intelligence</a></li>
+          </ul>
+        </li>
+        <li><a href="/why-automation.html">Why Automate</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/index.html#contact">Contact</a></li>
+      </ul>
+      <ul>
+        <li><a href="/automation-playground.html">Try the Playground</a></li>
+        <li><a href="/payment.html">Packages</a></li>
+        <li><a href="/he/">עב</a></li>
+      </ul>
+        </nav>
+  </div>
   <main>${body}</main>
   <script src="/nav.js"></script>
   <script src="/footer-consent.js"></script>
