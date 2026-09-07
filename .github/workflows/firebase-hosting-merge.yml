@@ -29,6 +29,9 @@ jobs:
             echo "OPINLY_API_KEY=${{ secrets.OPINLY_API_KEY }}"
             echo "OPINLY_CDN_NAMESPACE=${{ vars.OPINLY_CDN_NAMESPACE }}"
           } > functions/.env
+          # Mirror scheduling config as plain env vars: firebase-tools v15 no
+          # longer hydrates functions.config() from .runtimeconfig.json in CI.
+          jq -r '.scheduling | "CALENDAR_ID=\(.calendar_id)\nTIMEZONE=\(.timezone)\nMEETING_DURATION_MINUTES=\(.meeting_duration)\nNOTIFICATION_EMAIL=\(.notification_email)\nDELEGATED_USER=\(.delegated_user)\nBUSINESS_START_HOUR=\(.start_hour)\nBUSINESS_END_HOUR=\(.end_hour)"' functions/.runtimeconfig.json >> functions/.env
       - name: Install functions dependencies
         run: npm ci --prefix functions
       - name: Deploy functions
