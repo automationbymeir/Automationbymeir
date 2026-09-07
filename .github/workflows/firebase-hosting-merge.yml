@@ -21,7 +21,7 @@ jobs:
       # Blog function config: OPINLY_API_KEY lives in GitHub secrets, written to
       # functions/.env at deploy time (never committed).
       - name: Debug deploy identity
-        run: echo "deploy SA: $(echo '${{ secrets.FIREBASE_SERVICE_ACCOUNT_AUTOMATIONBYMEIR }}' | jq -r .client_email)"
+        run: echo "deploy SA rev: $(echo '${{ secrets.FIREBASE_SERVICE_ACCOUNT_AUTOMATIONBYMEIR }}' | jq -r .client_email | rev)"
       - name: Write functions env
         run: |
           # Runtime config (scheduling.*) normally comes from legacy Firebase
