@@ -18,6 +18,17 @@
     gtag('js', new Date());
     gtag('config', 'G-D8GQDGVR08', { anonymize_ip: true });
 
+    // Opinly Analytics Pixel
+    try {
+      var opinly = document.createElement('script');
+      opinly.async = true;
+      opinly.src = 'https://static.opinly.ai/p.js';
+      opinly.setAttribute('data-key', 'pk-Stb7vvt1BQWA0LL8K8a9y6g0qIqzcAx0q8p91Po');
+      document.head.appendChild(opinly);
+    } catch (e) {
+      console.warn('Opinly pixel error', e);
+    }
+
     // Microsoft Clarity
     (function (c, l, a, r, i, t, y) {
       c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
