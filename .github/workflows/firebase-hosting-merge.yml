@@ -26,6 +26,8 @@ jobs:
             echo "OPINLY_API_KEY=${{ secrets.OPINLY_API_KEY }}"
             echo "OPINLY_CDN_NAMESPACE=${{ vars.OPINLY_CDN_NAMESPACE }}"
           } > functions/.env
+      - name: Install functions dependencies
+        run: npm ci --prefix functions
       - name: Deploy functions
         uses: w9jds/firebase-action@master
         with:
