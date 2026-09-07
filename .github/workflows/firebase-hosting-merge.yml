@@ -18,3 +18,17 @@ jobs:
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_AUTOMATIONBYMEIR }}
           channelId: live
           projectId: automationbymeir
+      # Blog function config: OPINLY_API_KEY lives in GitHub secrets, written to
+      # functions/.env at deploy time (never committed).
+      - name: Write functions env
+        run: |
+          {
+            echo "OPINLY_API_KEY=${{ secrets.OPINLY_API_KEY }}"
+            echo "OPINLY_CDN_NAMESPACE=${{ vars.OPINLY_CDN_NAMESPACE }}"
+          } > functions/.env
+      - name: Deploy functions
+        uses: w9jds/firebase-action@main
+        with:
+          args: deploy --only functions --project automationbymeir
+        env:
+          GCP_SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_AUTOMATIONBYMEIR }}

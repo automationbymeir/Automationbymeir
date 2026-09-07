@@ -690,3 +690,5 @@ export const schedule = functions
   .region("us-central1")
   .runWith({ secrets: ["GOOGLE_SERVICE_ACCOUNT"] })
   .https.onRequest(app);
+
+export { blog } from "./blog.js";
