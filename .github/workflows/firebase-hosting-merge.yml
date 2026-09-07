@@ -27,7 +27,7 @@ jobs:
             echo "OPINLY_CDN_NAMESPACE=${{ vars.OPINLY_CDN_NAMESPACE }}"
           } > functions/.env
       - name: Deploy functions
-        uses: w9jds/firebase-action@main
+        uses: w9jds/firebase-action@master
         with:
           args: deploy --only functions --project automationbymeir
         env:
