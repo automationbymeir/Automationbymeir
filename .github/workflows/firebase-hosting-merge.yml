@@ -22,6 +22,9 @@ jobs:
       # functions/.env at deploy time (never committed).
       - name: Write functions env
         run: |
+          # Runtime config (scheduling.*) normally comes from legacy Firebase
+          # runtimeconfig on Meir's machine; CI reconstructs it from a secret.
+          echo '${{ secrets.ABM_RUNTIME_CONFIG }}' > functions/.runtimeconfig.json
           {
             echo "OPINLY_API_KEY=${{ secrets.OPINLY_API_KEY }}"
             echo "OPINLY_CDN_NAMESPACE=${{ vars.OPINLY_CDN_NAMESPACE }}"
