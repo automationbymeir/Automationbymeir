@@ -87,6 +87,10 @@ function renderNode(node) {
     case "blockquote": return `<blockquote>${kids}</blockquote>`;
     case "codeBlock": return `<pre><code>${kids}</code></pre>`;
     case "horizontalRule": return "<hr>";
+    case "table": return `<table>${kids}</table>`;
+    case "tableRow": return `<tr>${kids}</tr>`;
+    case "tableCell": return `<td>${kids}</td>`;
+    case "tableHeader": return `<th>${kids}</th>`;
     case "image": {
       const src = safeUrl((node.attrs && node.attrs.src) || imageUrl(node.attrs) || "");
       if (!src) return "";
@@ -194,6 +198,9 @@ function page({ title, description, canonical, ogImage, jsonLd, body, he }) {
     .faq { margin-top: 48px; }
     .faq details { background: #26262b; border: 1px solid #35353c; border-radius: 10px; padding: 14px 18px; margin-bottom: 12px; }
     .faq summary { cursor: pointer; font-weight: 600; }
+    article .content table { border-collapse: collapse; width: 100%; margin: 24px 0; font-size: 0.95rem; }
+    article .content th, article .content td { border: 1px solid #35353c; padding: 8px 12px; text-align: start; }
+    article .content th { background: #26262b; }
     .empty { color: #b9b9c0; background: #26262b; border: 1px dashed #35353c; border-radius: 14px; padding: 48px 24px; text-align: center; }
   </style>
 </head>
