@@ -107,11 +107,32 @@ const HEBREW_RE = /[\u0590-\u05FF]/;
 function rtlAttr(...texts) {
   return texts.some((t) => typeof t === "string" && HEBREW_RE.test(t)) ? ' dir="rtl" lang="he"' : "";
 }
+function isHebrew(...texts) {
+  return texts.some((t) => typeof t === "string" && HEBREW_RE.test(t));
+}
+
+// Chrome strings per language: Hebrew chrome shows when Hebrew posts are shown.
+const UI = {
+  en: {
+    blog: "Blog",
+    sub: "Practical automation notes: Power Automate, Apps Script, AI workflows and integrations.",
+    empty: "First posts are on the way. Check back soon.",
+    faq: "FAQ",
+    locale: "en-US",
+  },
+  he: {
+    blog: "בלוג",
+    sub: "רשימות פרקטיות על אוטומציה: Power Automate, Apps Script, תהליכי AI ואינטגרציות.",
+    empty: "הפוסטים הראשונים בדרך. בקרו שוב בקרוב.",
+    faq: "שאלות נפוצות",
+    locale: "he-IL",
+  },
+};
 
 // ---- Page template (mirrors the static site shell) ----
-function page({ title, description, canonical, ogImage, jsonLd, body }) {
+function page({ title, description, canonical, ogImage, jsonLd, body, he }) {
   return `<!DOCTYPE html>
-<html lang="en">
+<html lang="${he ? "he" : "en"}"${he ? ' dir="rtl"' : ""}>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -210,13 +231,15 @@ function page({ title, description, canonical, ogImage, jsonLd, body }) {
 </html>`;
 }
 
-function fmtDate(iso) {
+function fmtDate(iso, locale) {
   try {
-    return new Date(iso).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+    return new Date(iso).toLocaleDateString(locale || "en-US", { year: "numeric", month: "long", day: "numeric" });
   } catch { return ""; }
 }
 
-const EMPTY_BODY = `<div class="blog-index"><h1>Blog</h1><p class="sub">Practical automation notes from Automation by Meir.</p><div class="empty"><p>First posts are on the way. Check back soon.</p></div></div>`;
+function emptyBody(ui) {
+  return `<div class="blog-index"><h1>${ui.blog}</h1><p class="sub">${ui.sub}</p><div class="empty"><p>${ui.empty}</p></div></div>`;
+}
 
 async function renderIndex() {
   const data = await cached("posts", CACHE_TTL_MS, () =>
@@ -227,19 +250,22 @@ async function renderIndex() {
       title: "Blog | Automation by Meir",
       description: "Practical automation notes: Power Automate, Apps Script, AI workflows and integrations.",
       canonical: `${SITE}/blog`,
-      body: EMPTY_BODY,
+      body: emptyBody(UI.en),
     });
   }
+  const he = isHebrew(data.data[0].title, data.data[0].description);
+  const ui = he ? UI.he : UI.en;
   const cards = data.data.map((p) => {
     const img = imageUrl(p.titleFile);
     const dir = rtlAttr(p.title, p.description);
-    return `<div class="card"${dir}>${img ? `<a href="/blog/${esc(p.slug)}"><img src="${esc(img)}" alt="${esc(p.titleFile.altText || p.title)}" loading="lazy"></a>` : ""}<div class="pad"><div class="meta">${esc(fmtDate(p.firstPublishedAt))}${p.category ? " · " + esc(p.category.name) : ""}</div><h2><a href="/blog/${esc(p.slug)}">${esc(p.title)}</a></h2><p>${esc(p.description || "")}</p></div></div>`;
+    return `<div class="card"${dir}>${img ? `<a href="/blog/${esc(p.slug)}"><img src="${esc(img)}" alt="${esc(p.titleFile.altText || p.title)}" loading="lazy"></a>` : ""}<div class="pad"><div class="meta">${esc(fmtDate(p.firstPublishedAt, dir ? UI.he.locale : UI.en.locale))}${p.category ? " · " + esc(p.category.name) : ""}</div><h2><a href="/blog/${esc(p.slug)}">${esc(p.title)}</a></h2><p>${esc(p.description || "")}</p></div></div>`;
   }).join("");
   return page({
     title: "Blog | Automation by Meir",
     description: "Practical automation notes: Power Automate, Apps Script, AI workflows and integrations.",
     canonical: `${SITE}/blog`,
-    body: `<div class="blog-index"><h1>Blog</h1><p class="sub">Practical automation notes: Power Automate, Apps Script, AI workflows and integrations.</p><div class="cards">${cards}</div></div>`,
+    he,
+    body: `<div class="blog-index"><h1>${ui.blog}</h1><p class="sub">${ui.sub}</p><div class="cards">${cards}</div></div>`,
   });
 }
 
@@ -250,8 +276,10 @@ async function renderPost(slug) {
   if (!post || post.__nokey || post.__error || !post.slug) return null;
   const hero = imageUrl(post.titleFile);
   const contentHtml = renderContent(post.content);
+  const he = isHebrew(post.title, post.metaDescription || post.description);
+  const ui = he ? UI.he : UI.en;
   const faq = Array.isArray(post.faqs) && post.faqs.length
-    ? `<section class="faq"><h2>FAQ</h2>${post.faqs.map((f) => `<details><summary>${esc(f.question)}</summary><p>${esc(f.answer)}</p></details>`).join("")}</section>`
+    ? `<section class="faq"><h2>${ui.faq}</h2>${post.faqs.map((f) => `<details><summary>${esc(f.question)}</summary><p>${esc(f.answer)}</p></details>`).join("")}</section>`
     : "";
   const jsonLd = JSON.stringify({
     "@context": "https://schema.org",
@@ -270,7 +298,8 @@ async function renderPost(slug) {
     canonical: `${SITE}/blog/${post.slug}`,
     ogImage: hero,
     jsonLd,
-    body: `<article${rtlAttr(post.title, post.metaDescription || post.description)}><h1>${esc(post.title)}</h1><div class="meta">${esc(fmtDate(post.firstPublishedAt))}${post.author ? " · " + esc(post.author.name) : ""}${post.category ? " · " + esc(post.category.name) : ""}</div>${hero ? `<img class="hero" src="${esc(hero)}" alt="${esc((post.titleFile && post.titleFile.altText) || post.title)}">` : ""}<div class="content">${contentHtml}</div>${faq}</article>`,
+    he,
+    body: `<article${rtlAttr(post.title, post.metaDescription || post.description)}><h1>${esc(post.title)}</h1><div class="meta">${esc(fmtDate(post.firstPublishedAt, ui.locale))}${post.author ? " · " + esc(post.author.name) : ""}${post.category ? " · " + esc(post.category.name) : ""}</div>${hero ? `<img class="hero" src="${esc(hero)}" alt="${esc((post.titleFile && post.titleFile.altText) || post.title)}">` : ""}<div class="content">${contentHtml}</div>${faq}</article>`,
   });
 }
 
