@@ -201,6 +201,7 @@ function page({ title, description, canonical, ogImage, jsonLd, body, he }) {
     article .content table { border-collapse: collapse; width: 100%; margin: 24px 0; font-size: 0.95rem; }
     article .content th, article .content td { border: 1px solid #35353c; padding: 8px 12px; text-align: start; }
     article .content th { background: #26262b; }
+    article .content th p, article .content td p { margin: 0; }
     .empty { color: #b9b9c0; background: #26262b; border: 1px dashed #35353c; border-radius: 14px; padding: 48px 24px; text-align: center; }
   </style>
 </head>
