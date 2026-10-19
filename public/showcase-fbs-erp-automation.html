@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Study: FBS Fahnen AI Quotation, Order &amp; ERP Suite | Automation by Meir</title>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Automation by Meir">
+  <meta property="og:title" content="Case Study: FBS Fahnen AI Quotation, Order &amp; ERP Suite | Automation by Meir">
+  <meta property="og:description" content="3-engine autonomous AI &amp; Easybill ERP automation suite built for FBS Fahnen GmbH: instant quote generation, PDF order confirmation &amp; delivery notes, and smart quote follow-ups.">
+  <meta property="og:url" content="https://www.automationbymeir.com/showcase-fbs-erp-automation.html">
+  <meta property="og:image" content="https://www.automationbymeir.com/logos/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://www.automationbymeir.com/showcase-fbs-erp-automation.html">
+  <meta name="description" content="3-engine autonomous AI &amp; Easybill ERP automation suite built for FBS Fahnen GmbH: instant quote generation, PDF order confirmation &amp; delivery notes, and smart quote follow-ups.">
+  <link rel="icon" type="image/svg+xml" href="/logos/favicon.svg">
+  <link rel="stylesheet" href="showcase-base.css">
+  <script src="nav.js" defer></script>
+</head>
+<body>
+
+<main>
+  <!-- ── Hero ── -->
+  <section class="sc-hero">
+    <div class="sc-page">
+      <div style="display:flex; align-items:center; gap:1rem; flex-wrap:wrap; margin-bottom:1.5rem;">
+        <span class="sc-badge" style="margin-bottom:0;">Autonomous AI &amp; ERP Suite</span>
+        <a href="https://fbs-fahnen.com/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.6rem; background:rgba(255,255,255,0.96); padding:0.35rem 0.85rem; border-radius:999px; text-decoration:none; color:#111; font-size:0.8rem; font-weight:600;">
+          <img src="/logos/clients/fbsfahnen.png" alt="FBS Fahnen GmbH" width="55" height="30" style="height:22px; width:auto; object-fit:contain;">
+          <span>FBS Fahnen GmbH · Germany</span>
+        </a>
+      </div>
+      <h1>AI Quotation, Order &amp;<br>Follow-Up ERP Suite</h1>
+      <p class="sc-subtitle">
+        A 3-engine autonomous AI automation suite built for <strong>FBS Fahnen GmbH</strong> — transforming incoming German B2B sales inquiries and complex PDF purchase orders into validated Easybill ERP quotes, order confirmations, delivery notes, and automated follow-ups 24/7.
+      </p>
+
+      <div class="sc-pills">
+        <span class="sc-pill">
+          <img src="logos/openai.svg" alt="" onerror="this.style.display='none'">
+          OpenAI GPT-4o
+        </span>
+        <span class="sc-pill">
+          <img src="logos/googlegemini.svg" alt="" onerror="this.style.display='none'">
+          Google Gemini
+        </span>
+        <span class="sc-pill">
+          <img src="logos/webhook.svg" alt="" onerror="this.style.display='none'">
+          Easybill ERP API
+        </span>
+        <span class="sc-pill">
+          <img src="logos/gmail.svg" alt="" onerror="this.style.display='none'">
+          IMAP / SMTP Automation
+        </span>
+        <span class="sc-pill">
+          Python &amp; Docker
+        </span>
+      </div>
+
+      <div class="sc-stats">
+        <div class="sc-stat">
+          <div class="sc-stat-val">3</div>
+          <div class="sc-stat-label">Autonomous AI Engines</div>
+        </div>
+        <div class="sc-stat">
+          <div class="sc-stat-val">&lt;30s</div>
+          <div class="sc-stat-label">Quote &amp; Order Draft Time</div>
+        </div>
+        <div class="sc-stat">
+          <div class="sc-stat-val">24/7</div>
+          <div class="sc-stat-label">Live Inbox &amp; ERP Sync</div>
+        </div>
+        <div class="sc-stat">
+          <div class="sc-stat-val">99.9%</div>
+          <div class="sc-stat-label">AI Quality Gate Accuracy</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Challenge ── -->
+  <section class="sc-section">
+    <div class="sc-page">
+      <p class="sc-label">The Challenge</p>
+      <h2>High-volume German B2B inquiries &amp; enterprise purchase orders</h2>
+      <p class="sc-intro">
+        As a leading German manufacturer of custom promotional flags, beachflags, and flagpoles serving major enterprises like <strong>TÜV NORD</strong>, <strong>BabyOne</strong>, <strong>Lidl</strong>, and <strong>Dehner</strong>, FBS Fahnen receives dozens of complex email inquiries and multi-page PDF purchase orders daily. Each required manually searching customer history in Easybill, calculating tiered volume pricing (<em>Staffelpreise</em>) and freight matrices, creating formal ERP documents, and manually tracking open quotes for follow-up.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── 3-Engine Architecture ── -->
+  <section class="sc-section">
+    <div class="sc-page">
+      <p class="sc-label">System Architecture</p>
+      <h2>Three autonomous engines working in concert</h2>
+      <p class="sc-intro">
+        Deployed as three isolated, self-healing Docker microservices on a dedicated cloud server, the suite automates the entire B2B sales lifecycle from first inquiry to closed order.
+      </p>
+
+      <div class="sc-steps">
+        <div class="sc-step">
+          <div class="sc-step-num">1</div>
+          <div>
+            <h3>Engine 1 — Autonomous AI Quotation Engine (Angebotserstellung)</h3>
+            <p>Monitors the sales inbox 24/7 via IMAP, extracts technical flag specifications (dimensions, materials, finishing/<em>Konfektion</em>, quantities) from German emails and PDF attachments using Multimodal AI, matches or auto-creates the customer in Easybill, calculates historical or tiered pricing plus automated shipping tiers, verifies every line item through a secondary AI Quality Gate (<code>DraftAuditor</code>), and saves a ready-to-send Easybill Quote Draft.</p>
+          </div>
+        </div>
+        <div class="sc-step">
+          <div class="sc-step-num">2</div>
+          <div>
+            <h3>Engine 2 — Order Confirmation &amp; Delivery Note Engine (Auftragsbestätigung &amp; Lieferschein)</h3>
+            <p>Detects incoming B2B purchase orders and parses complex PDF order tables. Includes dedicated enterprise rules — such as a 19-SKU catalog engine for <strong>TÜV NORD</strong> and automatic differing shipping address (<em>Abweichende Lieferadresse</em>) formatting for multi-branch buyers like <strong>BabyOne</strong>. Generates both the priced <strong>Order Confirmation</strong> (for 1-click invoice conversion) and the <strong>Delivery Note</strong> directly in Easybill.</p>
+          </div>
+        </div>
+        <div class="sc-step">
+          <div class="sc-step-num">3</div>
+          <div>
+            <h3>Engine 3 — Smart Quote Follow-Up Engine (Angebots-Follow-Up)</h3>
+            <p>Tracks finalized quotes in Easybill after 5 days, automatically verifies that no subsequent order or invoice was created, determines personalized German salutations (<em>Herr / Frau</em>) and product categories (<em>Werbefahnen, Fahnenmasten, Fahnenzubehör</em>), downloads the official Easybill Quote PDF, sends a personalized reminder email with the PDF attached, CCs the sales team, and syncs the sent message to the IMAP <code>Sent</code> folder.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Dual Processing Paths ── -->
+  <section class="sc-section">
+    <div class="sc-page">
+      <p class="sc-label">Intelligent Pricing &amp; Order Routing</p>
+      <h2>How the AI handles quotes vs. enterprise orders</h2>
+      <p class="sc-intro">
+        Every incoming document is classified and routed to the dedicated pipeline with strict deterministic guardrails.
+      </p>
+
+      <div class="sc-paths">
+        <div class="sc-path">
+          <span class="sc-path-label manual">Path A — AI Quotation Pipeline</span>
+          <h3>4-tier pricing &amp; quality verification</h3>
+          <div class="sc-path-steps">
+            <div class="sc-path-step">
+              <div class="sc-path-dot green"></div>
+              <div>
+                <strong>Customer &amp; Domain Resolution</strong>
+                <span>Matches existing Easybill customers by email or corporate domain, or auto-creates a complete profile with address &amp; VAT ID.</span>
+              </div>
+            </div>
+            <div class="sc-path-step">
+              <div class="sc-path-dot green"></div>
+              <div>
+                <strong>Historical &amp; Tiered Pricing (Staffelpreise)</strong>
+                <span>Cross-references past quotes/invoices for exact repeat-order pricing or applies volume discount tiers automatically.</span>
+              </div>
+            </div>
+            <div class="sc-path-step">
+              <div class="sc-path-dot green"></div>
+              <div>
+                <strong>Automated Shipping Matrix</strong>
+                <span>Calculates exact freight &amp; packaging costs based on flagpole length, weight, and item quantities.</span>
+              </div>
+            </div>
+            <div class="sc-path-step">
+              <div class="sc-path-dot green"></div>
+              <div>
+                <strong>Dual-LLM DraftAuditor Gate</strong>
+                <span>Second AI pass audits quantities, unit prices, and specs before creating the Easybill draft and emailing the sales rep.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sc-path">
+          <span class="sc-path-label ai">Path B — Enterprise Order &amp; Follow-Up</span>
+          <h3>PDF purchase orders &amp; automated conversion</h3>
+          <div class="sc-path-steps">
+            <div class="sc-path-step">
+              <div class="sc-path-dot blue"></div>
+              <div>
+                <strong>Enterprise Catalog Matching</strong>
+                <span>Maps customer article numbers and descriptions to exact Easybill SKUs, dimensions, and net unit prices.</span>
+              </div>
+            </div>
+            <div class="sc-path-step">
+              <div class="sc-path-dot blue"></div>
+              <div>
+                <strong>Differing Delivery Address Detection</strong>
+                <span>Separates billing headquarters from branch or agency delivery addresses automatically on both ERP documents.</span>
+              </div>
+            </div>
+            <div class="sc-path-step">
+              <div class="sc-path-dot blue"></div>
+              <div>
+                <strong>Dual Document Generation</strong>
+                <span>Creates both the priced <code>CHARGE_CONFIRM</code> (Auftragsbestätigung) and <code>DELIVERY</code> (Lieferschein) drafts in seconds.</span>
+              </div>
+            </div>
+            <div class="sc-path-step">
+              <div class="sc-path-dot blue"></div>
+              <div>
+                <strong>5-Day Smart Quote Follow-Up</strong>
+                <span>Follows up on open quotes with the original Easybill PDF attached and full IMAP Sent-folder synchronization.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Features ── -->
+  <section class="sc-section">
+    <div class="sc-page">
+      <p class="sc-label">Features</p>
+      <h2>Engineered for zero-touch B2B reliability</h2>
+      <p class="sc-intro">Built to handle real-world German manufacturing nuances without human intervention.</p>
+
+      <div class="sc-features">
+        <div class="sc-feature">
+          <span class="sc-feature-icon">🧠</span>
+          <h3>Multimodal German B2B Extraction</h3>
+          <p>Extracts complex flag dimensions, materials, pole types, and custom finishing instructions from free-text German emails and PDFs.</p>
+        </div>
+        <div class="sc-feature">
+          <span class="sc-feature-icon">💶</span>
+          <h3>4-Tier Pricing &amp; Staffelpreise</h3>
+          <p>Combines customer-specific historical pricing, catalog volume tiers, and automated shipping calculation with cent-level precision.</p>
+        </div>
+        <div class="sc-feature">
+          <span class="sc-feature-icon">🏢</span>
+          <h3>Enterprise PO Rules</h3>
+          <p>Custom handling for major accounts like TÜV NORD and BabyOne, including multi-branch shipping addresses and preserved catalog prices.</p>
+        </div>
+        <div class="sc-feature">
+          <span class="sc-feature-icon">🛡️</span>
+          <h3>AI Quality Gate (DraftAuditor)</h3>
+          <p>Independent verification layer inspects every draft against the original email and auto-corrects discrepancies before saving.</p>
+        </div>
+        <div class="sc-feature">
+          <span class="sc-feature-icon">📬</span>
+          <h3>PDF-Attached Quote Follow-Ups</h3>
+          <p>Automatically pulls the official Quote PDF from Easybill, personalizes German salutations, and sends follow-ups via SMTP + IMAP sync.</p>
+        </div>
+        <div class="sc-feature">
+          <span class="sc-feature-icon">🐳</span>
+          <h3>24/7 Docker Microservices</h3>
+          <p>Three isolated containers with persistent SQLite state tracking, automatic retry backoff, and instant HTML email notifications.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Results ── -->
+  <section class="sc-section">
+    <div class="sc-page">
+      <p class="sc-label">Results</p>
+      <h2>Impact for FBS Fahnen GmbH</h2>
+
+      <div class="sc-results">
+        <div class="sc-result">
+          <div class="sc-result-val">&lt;30s</div>
+          <p>From incoming email or PO to ready Easybill draft</p>
+        </div>
+        <div class="sc-result">
+          <div class="sc-result-val">3</div>
+          <p>Autonomous engines running 24/7 in production</p>
+        </div>
+        <div class="sc-result">
+          <div class="sc-result-val">100%</div>
+          <p>Automated PDF attachment &amp; Sent-folder sync on follow-ups</p>
+        </div>
+        <div class="sc-result">
+          <div class="sc-result-val">1-Click</div>
+          <p>Review &amp; send workflow for the sales team in Easybill</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Tech Stack ── -->
+  <section class="sc-section">
+    <div class="sc-page">
+      <p class="sc-label">Tech Stack</p>
+      <h2>Built on modern AI &amp; ERP APIs</h2>
+
+      <div class="sc-tech-grid">
+        <div class="sc-tech-item">
+          <img src="logos/openai.svg" alt="OpenAI" loading="lazy" onerror="this.style.display='none'">
+          <div>
+            <strong>OpenAI GPT-4o</strong>
+            <span>Structured B2B extraction &amp; DraftAuditor</span>
+          </div>
+        </div>
+        <div class="sc-tech-item">
+          <img src="logos/googlegemini.svg" alt="Google Gemini" loading="lazy" onerror="this.style.display='none'">
+          <div>
+            <strong>Google Gemini</strong>
+            <span>Multimodal PDF order &amp; catalog parsing</span>
+          </div>
+        </div>
+        <div class="sc-tech-item">
+          <img src="logos/webhook.svg" alt="Easybill API" loading="lazy" onerror="this.style.display='none'">
+          <div>
+            <strong>Easybill REST API</strong>
+            <span>Quotes, orders, delivery notes &amp; CRM</span>
+          </div>
+        </div>
+        <div class="sc-tech-item">
+          <img src="logos/gmail.svg" alt="IMAP &amp; SMTP" loading="lazy" onerror="this.style.display='none'">
+          <div>
+            <strong>IMAP / SMTP / MIME</strong>
+            <span>Real-time inbox listener &amp; Sent sync</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="sc-cta">
+    <div class="sc-page">
+      <h2>Want to automate your quotes &amp; ERP workflows?</h2>
+      <p>Let's build a custom AI system that connects your inbox directly to your ERP.</p>
+      <a href="/index.html#contact" class="sc-btn">Want results like this? Book a free 30-minute call</a>
+      <a href="index.html" class="sc-btn sc-btn-ghost">← Back to Home</a>
+    </div>
+  </section>
+</main>
+
+<footer class="sc-footer">
+  <div class="sc-page">
+    <div class="sc-footer-inner">
+      <span class="sc-footer-brand">&lt;&gt; Automation by Meir</span>
+      <nav class="sc-footer-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="/he/showcase-fbs-erp-automation.html">עברית</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script src="footer-consent.js?v=3"></script>
+</body>
+</html>

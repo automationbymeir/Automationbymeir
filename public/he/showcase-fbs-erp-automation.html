@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>חקר מקרה: מערך AI ואוטומציית ERP עבור FBS Fahnen — Automation by Meir</title>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Automation by Meir">
+  <meta property="og:title" content="חקר מקרה: מערך AI ואוטומציית ERP עבור FBS Fahnen — Automation by Meir">
+  <meta property="og:description" content="מערכת AI אוטונומית בעלת 3 מנועים עבור FBS Fahnen GmbH בגרמניה: הפקת הצעות מחיר, אישורי הזמנה ותעודות משלוח ב-Easybill, ומנוע פולואפ חכם.">
+  <meta property="og:url" content="https://www.automationbymeir.com/he/showcase-fbs-erp-automation.html">
+  <meta property="og:image" content="https://www.automationbymeir.com/logos/og-image.png">
+  <link rel="canonical" href="https://www.automationbymeir.com/he/showcase-fbs-erp-automation.html">
+  <link rel="icon" type="image/svg+xml" href="/logos/favicon.svg">
+  <link rel="stylesheet" href="/showcase-base.css">
+  <script src="/nav.js" defer></script>
+  <style>
+    body { font-family: 'IBM Plex Sans Hebrew', 'IBM Plex Sans', sans-serif !important; direction: rtl; }
+  </style>
+</head>
+<body>
+
+<main>
+  <section class="sc-hero">
+    <div class="sc-page">
+      <div style="display:flex; align-items:center; gap:1rem; flex-wrap:wrap; margin-bottom:1.5rem;">
+        <span class="sc-badge" style="margin-bottom:0;">מערך AI ואוטומציית ERP אוטונומי</span>
+        <a href="https://fbs-fahnen.com/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.6rem; background:rgba(255,255,255,0.96); padding:0.35rem 0.85rem; border-radius:999px; text-decoration:none; color:#111; font-size:0.8rem; font-weight:600;">
+          <img src="/logos/clients/fbsfahnen.png" alt="FBS Fahnen GmbH" width="55" height="30" style="height:22px; width:auto; object-fit:contain;">
+          <span>FBS Fahnen GmbH · גרמניה</span>
+        </a>
+      </div>
+      <h1>מערכת AI להצעות מחיר,<br>הזמנות ופולואפ ב-ERP</h1>
+      <p class="sc-subtitle">
+        חליפת אוטומציה אוטונומית בעלת 3 מנועי AI שנבנתה עבור <strong>FBS Fahnen GmbH</strong> — הופכת פניות מכירה בגרמנית והזמנות רכש מורכבות ב-PDF לטיוטות הצעות מחיר, אישורי הזמנה, תעודות משלוח ופולואפ אוטומטי במערכת ה-ERP של Easybill, 24/7.
+      </p>
+
+      <div class="sc-pills">
+        <span class="sc-pill">
+          <img src="/logos/openai.svg" alt="" onerror="this.style.display='none'">
+          OpenAI GPT-4o
+        </span>
+        <span class="sc-pill">
+          <img src="/logos/googlegemini.svg" alt="" onerror="this.style.display='none'">
+          Google Gemini
+        </span>
+        <span class="sc-pill">
+          <img src="/logos/webhook.svg" alt="" onerror="this.style.display='none'">
+          Easybill ERP API
+        </span>
+        <span class="sc-pill">
+          <img src="/logos/gmail.svg" alt="" onerror="this.style.display='none'">
+          IMAP / SMTP Automation
+        </span>
+        <span class="sc-pill">
+          Python &amp; Docker
+        </span>
+      </div>
+
+      <div class="sc-stats">
+        <div class="sc-stat">
+          <div class="sc-stat-val">3</div>
+          <div class="sc-stat-label">מנועי AI אוטונומיים</div>
+        </div>
+        <div class="sc-stat">
+          <div class="sc-stat-val">&lt;30s</div>
+          <div class="sc-stat-label">זמן הפקת הצעה / הזמנה</div>
+        </div>
+        <div class="sc-stat">
+          <div class="sc-stat-val">24/7</div>
+          <div class="sc-stat-label">ניטור תיבה וסנכרון ERP</div>
+        </div>
+        <div class="sc-stat">
+          <div class="sc-stat-val">99.9%</div>
+          <div class="sc-stat-label">דיוק שער בקרת איכות AI</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sc-section">
+    <div class="sc-page">
+      <p class="sc-label">האתגר</p>
+      <h2>עומס יומי של פניות B2B בגרמנית והזמנות רכש של תאגידי ענק</h2>
+      <p class="sc-intro">
+        כיצרנית גרמנית מובילה של דגלים ממותגים, דגלי חוף ותורנים המשרתת לקוחות אנטרפרייז כגון <strong>TÜV NORD</strong>, <strong>BabyOne</strong>, <strong>Lidl</strong> ו-<strong>Dehner</strong>, חברת FBS Fahnen מקבלת מדי יום עשרות מיילים מורכבים והזמנות רכש מרובות עמודים ב-PDF. כל פנייה דרשה חיפוש ידני של היסטוריית הלקוח ב-Easybill, חישוב מדרגות הנחה לכמויות (<em>Staffelpreise</em>) ועלויות שילוח, הקמת מסמכי ERP רשמיים ומעקב ידני אחר הצעות מחיר פתוחות.
+      </p>
+    </div>
+  </section>
+
+  <section class="sc-section">
+    <div class="sc-page">
+      <p class="sc-label">ארכיטקטורת המערכת</p>
+      <h2>שלושה מנועים אוטונומיים שעובדים בסנכרון מלא</h2>
+      <p class="sc-intro">
+        המערכת פרוסה כשלושה שירותי Docker מבודדים על שרת ענן ייעודי, ומנהלת באופן אוטונומי את כל מחזור המכירה — מהפנייה הראשונית ועד להזמנה ולפולואפ.
+      </p>
+
+      <div class="sc-steps">
+        <div class="sc-step">
+          <div class="sc-step-num">1</div>
+          <div>
+            <h3>מנוע 1 — הפקת הצעות מחיר אוטונומית (Angebotserstellung)</h3>
+            <p>מנטר את תיבת המכירות 24/7 ב-IMAP, מחלץ מפרטים טכניים (מידות, סוגי בד, גימור/<em>Konfektion</em> וכמויות) מגוף המייל ומקבצי PDF באמצעות AI מולטי-מודאלי, מאתר או מקים אוטומטית את הלקוח ב-Easybill, מחשב תמחור היסטורי או מדרגות כמות בתוספת שילוח אוטומטי, מעביר כל שורה דרך שער בקרת איכות שני (<code>DraftAuditor</code>) ושומר טיוטת הצעת מחיר מוכנה לשליחה.</p>
+          </div>
+        </div>
+        <div class="sc-step">
+          <div class="sc-step-num">2</div>
+          <div>
+            <h3>מנוע 2 — אישורי הזמנה ותעודות משלוח (Auftragsbestätigung &amp; Lieferschein)</h3>
+            <p>מזהה הזמנות רכש נכנסות (<em>Bestellungen</em>) ומפענח טבלאות הזמנה מ-PDF. כולל לוגיקה ייעודית ללקוחות אנטרפרייז — כגון מנוע קטלוג של 19 מק"טים עבור <strong>TÜV NORD</strong> וזיהוי אוטומטי של כתובת משלוח שונה מכתובת החיוב (<em>Abweichende Lieferadresse</em>) עבור רשתות כמו <strong>BabyOne</strong>. מפיק במקביל גם <strong>אישור הזמנה מתומחר</strong> (להמרה לחשבונית בלחיצה אחת) וגם <strong>תעודת משלוח</strong> ב-Easybill.</p>
+          </div>
+        </div>
+        <div class="sc-step">
+          <div class="sc-step-num">3</div>
+          <div>
+            <h3>מנוע 3 — פולואפ חכם להצעות מחיר (Angebots-Follow-Up)</h3>
+            <p>סורק מדי יום הצעות מחיר פתוחות ב-Easybill שעברו 5 ימים, מוודא שלא הופקה עבורן הזמנה או חשבונית, מזהה אוטומטית פנייה מגדרית בגרמנית (<em>Guten Tag Herr / Frau</em>) ואת קטגוריית המוצר המדויקת, מוריד את ה-PDF הרשמי של הצעת המחיר מ-Easybill, שולח מייל פולואפ אישי עם ה-PDF המצורף (כולל העתק לצוות המכירות) ומסנכרן עותק לתיקיית ה-<code>Sent</code> ב-IMAP.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sc-section">
+    <div class="sc-page">
+      <p class="sc-label">תמחור חכם וניתוב מסמכים</p>
+      <h2>כיצד ה-AI מטפל בהצעות מחיר מול הזמנות אנטרפרייז</h2>
+      <p class="sc-intro">
+        כל פנייה נכנסת מסווגת בזמן אמת ומנותבת למסלול הייעודי עם שכבות הגנה דטרמיניסטיות.
+      </p>
+
+      <div class="sc-paths">
+        <div class="sc-path">
+          <span class="sc-path-label manual">מסלול A — צינור הצעות מחיר (Quotation)</span>
+          <h3>תמחור 4-שכבתי ובקרת איכות כפולה</h3>
+          <div class="sc-path-steps">
+            <div class="sc-path-step">
+              <div class="sc-path-dot green"></div>
+              <div>
+                <strong>זיהוי והקמת לקוח אוטומטית</strong>
+                <span>איתור לקוח קיים ב-Easybill לפי אימייל או דומיין חברה, או הקמה אוטומטית של כרטיס לקוח מלא כולל כתובת ו-VAT ID.</span>
+              </div>
+            </div>
+            <div class="sc-path-step">
+              <div class="sc-path-dot green"></div>
+              <div>
+                <strong>תמחור היסטורי ומדרגות הנחה (Staffelpreise)</strong>
+                <span>הצלבת הזמנות והצעות עבר לשליפת מחיר מדויק להזמנה חוזרת, או חישוב אוטומטי של מדרגות כמות מהקטלוג.</span>
+              </div>
+            </div>
+            <div class="sc-path-step">
+              <div class="sc-path-dot green"></div>
+              <div>
+                <strong>מטריצת שילוח אוטומטית</strong>
+                <span>חישוב מדויק של דמי משלוח ואריזה לפי גובה התורן, משקל וכמות הפריטים בהזמנה.</span>
+              </div>
+            </div>
+            <div class="sc-path-step">
+              <div class="sc-path-dot green"></div>
+              <div>
+                <strong>שער בקרת איכות DraftAuditor</strong>
+                <span>סוכן AI שני מבקר את הכמויות, המחירים והמפרט מול המייל המקורי לפני יצירת הטיוטה ב-Easybill ושליחת ההתראה.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sc-path">
+          <span class="sc-path-label ai">מסלול B — הזמנות אנטרפרייז ופולואפ</span>
+          <h3>פענוח הזמנות PDF וסגירת מעגל מכירה</h3>
+          <div class="sc-path-steps">
+            <div class="sc-path-step">
+              <div class="sc-path-dot blue"></div>
+              <div>
+                <strong>התאמת קטלוג אנטרפרייז</strong>
+                <span>מיפוי מספרי פריט של הלקוח למק"טים ב-Easybill, כולל מידות ומחירי יחידה נטו מדויקים.</span>
+              </div>
+            </div>
+            <div class="sc-path-step">
+              <div class="sc-path-dot blue"></div>
+              <div>
+                <strong>הפרדת כתובת חיוב וכתובת משלוח</strong>
+                <span>זיהוי אוטומטי של כתובת משלוח שונה (סניף קצה או בית דפוס) והזנתה בשני מסמכי ה-ERP.</span>
+              </div>
+            </div>
+            <div class="sc-path-step">
+              <div class="sc-path-dot blue"></div>
+              <div>
+                <strong>הפקה כפולה ב-Easybill</strong>
+                <span>יצירה מיידית של טיוטת אישור הזמנה (<code>CHARGE_CONFIRM</code>) ותעודת משלוח (<code>DELIVERY</code>).</span>
+              </div>
+            </div>
+            <div class="sc-path-step">
+              <div class="sc-path-dot blue"></div>
+              <div>
+                <strong>פולואפ אוטומטי לאחר 5 ימים</strong>
+                <span>שליחת מייל תזכורת מותאם אישית בצירוף קובץ ה-PDF המקורי של הצעת המחיר וסנכרון לתיקיית הדואר היוצא.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sc-section">
+    <div class="sc-page">
+      <p class="sc-label">יכולות מרכזיות</p>
+      <h2>תוכנן לאמינות תעשייתית באפס מגע יד אדם</h2>
+      <p class="sc-intro">מותאם לדרישות המדויקות של מפעל ייצור B2B בגרמניה.</p>
+
+      <div class="sc-features">
+        <div class="sc-feature">
+          <span class="sc-feature-icon">🧠</span>
+          <h3>חילוץ מולטי-מודאלי בגרמנית</h3>
+          <p>הבנה מדויקת של מידות דגלים, סוגי בד, תורנים והוראות גימור מתוך מיילים חופשיים ומסמכי PDF.</p>
+        </div>
+        <div class="sc-feature">
+          <span class="sc-feature-icon">💶</span>
+          <h3>מנוע תמחור 4-שכבתי</h3>
+          <p>שילוב בין היסטוריית מחירים ללקוח, מדרגות הנחה כמותיות וחישוב שילוח אוטומטי ברמת הסנט.</p>
+        </div>
+        <div class="sc-feature">
+          <span class="sc-feature-icon">🏢</span>
+          <h3>חוקי אנטרפרייז מותאמים</h3>
+          <p>טיפול ייעודי בלקוחות ענק כגון TÜV NORD ו-BabyOne, כולל פיצול כתובות משלוח ושמירת מחירי קטלוג.</p>
+        </div>
+        <div class="sc-feature">
+          <span class="sc-feature-icon">🛡️</span>
+          <h3>בקרת איכות כפולה (DraftAuditor)</h3>
+          <p>שכבת אימות עצמאית שבודקת כל טיוטה מול המייל המקורי ומתקנת חריגות באופן אוטומטי.</p>
+        </div>
+        <div class="sc-feature">
+          <span class="sc-feature-icon">📬</span>
+          <h3>פולואפ עם PDF מצורף</h3>
+          <p>משיכת ה-PDF הרשמי מ-Easybill, התאמת פנייה מגדרית בגרמנית, שליחה ב-SMTP ושמירה בתיקיית Sent.</p>
+        </div>
+        <div class="sc-feature">
+          <span class="sc-feature-icon">🐳</span>
+          <h3>מיקרו-שירותי Docker 24/7</h3>
+          <p>שלושה קונטיינרים מבודדים עם מסד נתונים מקומי למניעת כפילויות, מנגנון Retry אוטומטי והתראות חיות.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sc-section">
+    <div class="sc-page">
+      <p class="sc-label">תוצאות</p>
+      <h2>האימפקט העסקי עבור FBS Fahnen GmbH</h2>
+
+      <div class="sc-results">
+        <div class="sc-result">
+          <div class="sc-result-val">&lt;30s</div>
+          <p>מפנייה או הזמנה במייל לטיוטה מוכנה ב-Easybill</p>
+        </div>
+        <div class="sc-result">
+          <div class="sc-result-val">3</div>
+          <p>מנועים אוטונומיים הפועלים 24/7 בפרודקשן</p>
+        </div>
+        <div class="sc-result">
+          <div class="sc-result-val">100%</div>
+          <p>צירוף PDF אוטומטי וסנכרון תיקיית Sent בפולואפ</p>
+        </div>
+        <div class="sc-result">
+          <div class="sc-result-val">קליק 1</div>
+          <p>לאישור ושליחת המסמך על ידי צוות המכירות</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sc-section">
+    <div class="sc-page">
+      <p class="sc-label">טכנולוגיות</p>
+      <h2>בנוי על מודלי ה-AI וממשקי ה-ERP המתקדמים ביותר</h2>
+
+      <div class="sc-tech-grid">
+        <div class="sc-tech-item">
+          <img src="/logos/openai.svg" alt="OpenAI" loading="lazy" onerror="this.style.display='none'">
+          <div>
+            <strong>OpenAI GPT-4o</strong>
+            <span>חילוץ נתוני B2B מובנים ו-DraftAuditor</span>
+          </div>
+        </div>
+        <div class="sc-tech-item">
+          <img src="/logos/googlegemini.svg" alt="Google Gemini" loading="lazy" onerror="this.style.display='none'">
+          <div>
+            <strong>Google Gemini</strong>
+            <span>פענוח מולטי-מודאלי של הזמנות PDF</span>
+          </div>
+        </div>
+        <div class="sc-tech-item">
+          <img src="/logos/webhook.svg" alt="Easybill API" loading="lazy" onerror="this.style.display='none'">
+          <div>
+            <strong>Easybill REST API</strong>
+            <span>הצעות מחיר, הזמנות, תעודות משלוח ו-CRM</span>
+          </div>
+        </div>
+        <div class="sc-tech-item">
+          <img src="/logos/gmail.svg" alt="IMAP &amp; SMTP" loading="lazy" onerror="this.style.display='none'">
+          <div>
+            <strong>IMAP / SMTP / MIME</strong>
+            <span>האזנה לתיבת המכירות וסנכרון תיקיית Sent</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sc-cta">
+    <div class="sc-page">
+      <h2>רוצים להפוך את הצעות המחיר וה-ERP שלכם לאוטומטיים?</h2>
+      <p>בואו נבנה מערכת AI מותאמת אישית שמחברת את תיבת המייל שלכם ישירות ל-ERP.</p>
+      <a href="/he/index.html#contact" class="sc-btn">צרו קשר לשיחת ייעוץ חינם</a>
+      <a href="/he/index.html" class="sc-btn sc-btn-ghost">→ חזרה לדף הבית</a>
+    </div>
+  </section>
+</main>
+
+<footer class="sc-footer">
+  <div class="sc-page">
+    <div class="sc-footer-inner">
+      <span class="sc-footer-brand">&lt;&gt; Automation by Meir</span>
+      <nav class="sc-footer-links">
+        <a href="/he/index.html">דף הבית</a>
+        <a href="/he/index.html#services">שירותים</a>
+        <a href="/showcase-fbs-erp-automation.html">English</a>
+        <a href="/he/index.html#projects">פרויקטים</a>
+        <a href="/he/index.html#contact">צרו קשר</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

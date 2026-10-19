@@ -990,6 +990,83 @@
         width: auto;
       }
     }
+
+    /* ---- Trusted-by client logo marquee ---- */
+    .trusted-by {
+      padding: 36px 0 44px;
+      overflow: hidden;
+    }
+    .trusted-by-label {
+      text-align: center;
+      color: #9a9a9a;
+      font-size: 14px;
+      letter-spacing: .04em;
+      margin: 0 24px 26px;
+    }
+    .logo-marquee {
+      position: relative;
+      overflow: hidden;
+      direction: ltr;
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+      mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    }
+    .logo-track {
+      display: flex;
+      width: max-content;
+      animation: trusted-scroll 36s linear infinite;
+    }
+    .logo-marquee:hover .logo-track { animation-play-state: paused; }
+    .logo-set {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      padding-right: 28px;
+    }
+    .client-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 14px;
+      padding: 14px 26px;
+      height: 72px;
+      text-decoration: none;
+      filter: grayscale(1);
+      opacity: .82;
+      transition: filter .3s ease, opacity .3s ease, transform .3s ease;
+    }
+    .client-logo:hover {
+      filter: grayscale(0);
+      opacity: 1;
+      transform: translateY(-2px);
+    }
+    .client-logo img {
+      height: 40px;
+      width: auto;
+      max-width: 190px;
+      object-fit: contain;
+    }
+    .client-logo span {
+      font-weight: 600;
+      font-size: 19px;
+      color: #1c1c1c;
+      white-space: nowrap;
+    }
+    .logo-on-dark img { filter: brightness(0); }
+    @keyframes trusted-scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .logo-track { animation: none; }
+      .logo-marquee { overflow-x: auto; mask-image: none; -webkit-mask-image: none; }
+    }
+    @media (max-width: 768px) {
+      .client-logo { height: 58px; padding: 10px 18px; border-radius: 11px; }
+      .client-logo img { height: 30px; max-width: 150px; }
+      .client-logo span { font-size: 16px; }
+      .logo-set { gap: 16px; padding-right: 16px; }
+    }
   </style>
   <style>
     /* 3D Animation Background Styles */
@@ -1039,6 +1116,7 @@
         <li><a href="/he/#projects">פרויקטים</a></li>
         <li class="dropdown"><a href="#">הדגמות</a>
           <ul class="dropdown-menu">
+            <li><a href="/he/showcase-fbs-erp-automation.html">מערכת AI להצעות מחיר ו-ERP</a></li>
             <li><a href="/he/showcase2.html">Business Analytics System</a></li>
             <li><a href="/he/showcase-job-post-pro.html">Job Post Pro</a></li>
             <li><a href="/he/showcase-power-automate.html">מערכת קליטת סטודנטים</a></li>
@@ -1046,6 +1124,7 @@
           </ul>
         </li>
         <li><a href="/he/why-automation.html">למה אוטומציה</a></li>
+        <li><a href="/blog">בלוג</a></li>
         <li><a href="/he/#contact">צור קשר</a></li>
       </ul>
       <ul>
@@ -1071,6 +1150,37 @@
       </a>
     </div>
   </div>
+
+  <!-- Trusted by — client logo marquee -->
+  <section class="trusted-by" id="trusted-by" aria-label="לקוחות שסומכים עלינו">
+    <p class="trusted-by-label">נבחרו על ידי עסקים בתחומי הייצור, החינוך, הרפואה, הקמעונאות והטכנולוגיה</p>
+    <div class="logo-marquee">
+      <div class="logo-track">
+        <div class="logo-set">
+          <a class="client-logo" href="https://fbs-fahnen.com/" target="_blank" rel="noopener" title="FBS Fahnen GmbH"><img src="/logos/clients/fbsfahnen.png" alt="FBS Fahnen GmbH"></a>
+          <a class="client-logo" href="https://www.hatfieldwickeducation.co.uk/" target="_blank" rel="noopener" title="Hatfield Wick Education"><img src="/logos/clients/hatfieldwick.png" alt="Hatfield Wick Education"></a>
+          <a class="client-logo" href="https://rickyrescue.com/" target="_blank" rel="noopener" title="Ricky Rescue Training Academy"><img src="/logos/clients/rickyrescue.png" alt="Ricky Rescue Training Academy"></a>
+          <a class="client-logo" href="https://crownsensor.com/" target="_blank" rel="noopener" title="Crown EAS Technology"><img src="/logos/clients/crownsensor.png" alt="Crown EAS Technology"></a>
+          <a class="client-logo with-name" href="https://petach.ai/" target="_blank" rel="noopener" title="Petach.ai"><img src="/logos/clients/petach.png" alt="Petach.ai"><span>petach.ai</span></a>
+          <a class="client-logo with-name" href="https://www.ayra.app/" target="_blank" rel="noopener" title="Ayra"><img src="/logos/clients/ayra.png" alt="Ayra"><span>Ayra</span></a>
+          <a class="client-logo with-name" href="https://www.profitforge.ai/" target="_blank" rel="noopener" title="ProfitForge"><img src="/logos/clients/profitforge.webp" alt="ProfitForge"><span>ProfitForge</span></a>
+          <a class="client-logo" href="https://www.caceresgyn.com/" target="_blank" rel="noopener" title="Caceres GYN"><img src="/logos/clients/caceresgyn.png" alt="Caceres GYN"></a>
+          <a class="client-logo logo-on-dark" href="https://www.sarandimfg.com/" target="_blank" rel="noopener" title="Sarandi Manufacturing"><img src="/logos/clients/sarandimfg.png" alt="Sarandi Manufacturing"></a>
+        </div>
+        <div class="logo-set" aria-hidden="true">
+          <a class="client-logo" href="https://fbs-fahnen.com/" target="_blank" rel="noopener" tabindex="-1"><img src="/logos/clients/fbsfahnen.png" alt=""></a>
+          <a class="client-logo" href="https://www.hatfieldwickeducation.co.uk/" target="_blank" rel="noopener" tabindex="-1"><img src="/logos/clients/hatfieldwick.png" alt=""></a>
+          <a class="client-logo" href="https://rickyrescue.com/" target="_blank" rel="noopener" tabindex="-1"><img src="/logos/clients/rickyrescue.png" alt=""></a>
+          <a class="client-logo" href="https://crownsensor.com/" target="_blank" rel="noopener" tabindex="-1"><img src="/logos/clients/crownsensor.png" alt=""></a>
+          <a class="client-logo with-name" href="https://petach.ai/" target="_blank" rel="noopener" tabindex="-1"><img src="/logos/clients/petach.png" alt=""><span>petach.ai</span></a>
+          <a class="client-logo with-name" href="https://www.ayra.app/" target="_blank" rel="noopener" tabindex="-1"><img src="/logos/clients/ayra.png" alt=""><span>Ayra</span></a>
+          <a class="client-logo with-name" href="https://www.profitforge.ai/" target="_blank" rel="noopener" tabindex="-1"><img src="/logos/clients/profitforge.webp" alt=""><span>ProfitForge</span></a>
+          <a class="client-logo" href="https://www.caceresgyn.com/" target="_blank" rel="noopener" tabindex="-1"><img src="/logos/clients/caceresgyn.png" alt=""></a>
+          <a class="client-logo logo-on-dark" href="https://www.sarandimfg.com/" target="_blank" rel="noopener" tabindex="-1"><img src="/logos/clients/sarandimfg.png" alt=""></a>
+        </div>
+      </div>
+    </div>
+  </section>
 
 
   <div id="start_promo">
@@ -1575,7 +1685,8 @@
       .bento-metric .metric-value { font-size: 52px; font-weight: 700; color: #4DFF90; line-height: 1; letter-spacing: -0.03em; }
       .bento-metric .metric-label { font-size: 15px; color: #888; max-width: 160px; line-height: 1.4; }
       .bento-sector { display: inline-flex; align-items: center; gap: 5px; padding: 3px 10px; background: rgba(77,191,255,0.08); border: 1px solid rgba(77,191,255,0.18); border-radius: 100px; font-size: 11px; color: #4DBFFF; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500; margin-bottom: 12px; width: fit-content; }
-      @media (max-width: 900px) { .bento-grid { grid-template-columns: 1fr; } .bento-featured { grid-column: span 1; grid-row: span 1; min-height: auto; } .bento-metric .metric-value { font-size: 40px; } }
+      .bento-wide { grid-column: span 2; }
+      @media (max-width: 900px) { .bento-grid { grid-template-columns: 1fr; } .bento-featured, .bento-wide { grid-column: span 1; grid-row: span 1; min-height: auto; } .bento-metric .metric-value { font-size: 40px; } }
     </style>
 
     <div class="bento-grid">
@@ -1611,6 +1722,16 @@
         </div>
         <h3>מודיעין נתוני קמעונאות</h3>
         <p>מנוע קליטה, סטנדרטיזציה עם AI ועיבוד בקנה מידה ענן לפעילות קמעונאית.</p>
+        <span class="showcase-cta">צפו בחקר המקרה <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></span>
+      </a>
+
+      <a href="/he/showcase-fbs-erp-automation.html" class="showcase-card bento-wide">
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <span class="showcase-tag">אוטומציית AI ו-ERP</span>
+          <span class="bento-sector">ייצור B2B · גרמניה</span>
+        </div>
+        <h3>מערכת AI להצעות מחיר, הזמנות ופולואפ (FBS Fahnen GmbH)</h3>
+        <p>מערך אוטונומי בעל 3 מנועים המפענח פניות B2B בגרמנית והזמנות רכש ב-PDF (TÜV NORD, BabyOne), מחשב תמחור מדרגות ושילוח, מפיק הצעות מחיר, אישורי הזמנה ותעודות משלוח ב-Easybill, ושולח פולואפ אוטומטי עם ה-PDF המצורף.</p>
         <span class="showcase-cta">צפו בחקר המקרה <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></span>
       </a>
 
@@ -2606,6 +2727,7 @@
       <div class="footer-section">
         <h4>הדגמות</h4>
         <ul class="footer-links">
+          <li><a href="/he/showcase-fbs-erp-automation.html">מערכת AI להצעות מחיר ו-ERP</a></li>
           <li><a href="/he/showcase2.html">Business Analytics System</a></li>
           <li><a href="/he/showcase-job-post-pro.html">Job Post Pro</a></li>
           <li><a href="/he/showcase-power-automate.html">Automated Onboarding</a></li>

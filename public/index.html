@@ -1184,6 +1184,7 @@
         <li class="dropdown"><a href="#" aria-haspopup="true">Showcases</a>
           <ul class="dropdown-menu">
 
+            <li><a href="showcase-fbs-erp-automation.html">AI Quotation &amp; ERP Suite</a></li>
             <li><a href="showcase2.html">Business Analytics System</a></li>
             <li><a href="showcase-job-post-pro.html">Job Post Pro</a></li>
             <li><a href="showcase-power-automate.html">Automated Student Onboarding</a></li>
@@ -1220,10 +1221,11 @@
 
   <!-- Trusted by — client logo marquee -->
   <section class="trusted-by" id="trusted-by" aria-label="Trusted by clients">
-    <p class="trusted-by-label">Trusted by businesses across education, healthcare, retail &amp; tech</p>
+    <p class="trusted-by-label">Trusted by businesses across manufacturing, education, healthcare, retail &amp; tech</p>
     <div class="logo-marquee">
       <div class="logo-track">
         <div class="logo-set">
+          <a class="client-logo" href="https://fbs-fahnen.com/" target="_blank" rel="noopener" title="FBS Fahnen GmbH"><img src="/logos/clients/fbsfahnen.png" alt="FBS Fahnen GmbH"></a>
           <a class="client-logo" href="https://www.hatfieldwickeducation.co.uk/" target="_blank" rel="noopener" title="Hatfield Wick Education"><img src="/logos/clients/hatfieldwick.png" alt="Hatfield Wick Education"></a>
           <a class="client-logo" href="https://rickyrescue.com/" target="_blank" rel="noopener" title="Ricky Rescue Training Academy"><img src="/logos/clients/rickyrescue.png" alt="Ricky Rescue Training Academy"></a>
           <a class="client-logo" href="https://crownsensor.com/" target="_blank" rel="noopener" title="Crown EAS Technology"><img src="/logos/clients/crownsensor.png" alt="Crown EAS Technology"></a>
@@ -1234,6 +1236,7 @@
           <a class="client-logo logo-on-dark" href="https://www.sarandimfg.com/" target="_blank" rel="noopener" title="Sarandi Manufacturing"><img src="/logos/clients/sarandimfg.png" alt="Sarandi Manufacturing"></a>
         </div>
         <div class="logo-set" aria-hidden="true">
+          <a class="client-logo" href="https://fbs-fahnen.com/" target="_blank" rel="noopener" tabindex="-1"><img src="/logos/clients/fbsfahnen.png" alt=""></a>
           <a class="client-logo" href="https://www.hatfieldwickeducation.co.uk/" target="_blank" rel="noopener" tabindex="-1"><img src="/logos/clients/hatfieldwick.png" alt=""></a>
           <a class="client-logo" href="https://rickyrescue.com/" target="_blank" rel="noopener" tabindex="-1"><img src="/logos/clients/rickyrescue.png" alt=""></a>
           <a class="client-logo" href="https://crownsensor.com/" target="_blank" rel="noopener" tabindex="-1"><img src="/logos/clients/crownsensor.png" alt=""></a>
@@ -1458,11 +1461,14 @@
         margin-bottom: 12px;
         width: fit-content;
       }
+      .bento-wide {
+        grid-column: span 2;
+      }
       .bento-metric-sm .metric-value { font-size: 32px; }
       .bento-metric-sm .metric-label { font-size: 13px; }
       @media (max-width: 900px) {
         .bento-grid { grid-template-columns: 1fr; }
-        .bento-featured { grid-column: span 1; grid-row: span 1; min-height: auto; }
+        .bento-featured, .bento-wide { grid-column: span 1; grid-row: span 1; min-height: auto; }
         .bento-metric .metric-value { font-size: 40px; }
         .bento-metric-sm .metric-value { font-size: 28px; }
       }
@@ -1511,6 +1517,21 @@
         <div class="bento-metric bento-metric-sm">
           <span class="metric-value">100%</span>
           <span class="metric-label">of vendor data mapped by AI, in real time</span>
+        </div>
+        <span class="showcase-cta">View Case Study <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <!-- Wide card: FBS Fahnen -->
+      <a href="showcase-fbs-erp-automation.html" class="showcase-card bento-wide">
+        <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+          <span class="showcase-tag">AI &amp; ERP Automation</span>
+          <span class="bento-sector">B2B Manufacturing · Germany</span>
+        </div>
+        <h3>Autonomous AI Quotation, Order &amp; Follow-Up Suite (FBS Fahnen GmbH)</h3>
+        <p>3-engine autonomous system that extracts German B2B email inquiries and PDF purchase orders (TÜV NORD, BabyOne), applies 4-tier pricing &amp; shipping matrices, generates Easybill quotes, order confirmations &amp; delivery notes, and sends automated PDF quote follow-ups.</p>
+        <div class="bento-metric bento-metric-sm">
+          <span class="metric-value">&lt;30s</span>
+          <span class="metric-label">from incoming inquiry or PO to validated Easybill ERP draft across 3 live engines</span>
         </div>
         <span class="showcase-cta">View Case Study <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </a>

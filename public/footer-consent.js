@@ -152,6 +152,7 @@ function initFooterAndConsent() {
         <div class="footer-section">
           <h4>Showcases</h4>
           <ul class="footer-links">
+            <li><a href="/showcase-fbs-erp-automation.html">AI Quotation &amp; ERP Suite</a></li>
             <li><a href="/showcase2.html">Business Analytics System</a></li>
             <li><a href="/showcase-job-post-pro.html">Job Post Pro</a></li>
             <li><a href="/showcase-power-automate.html">Automated Onboarding</a></li>
