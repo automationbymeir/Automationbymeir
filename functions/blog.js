@@ -284,6 +284,7 @@ function emptyBody(ui) {
 async function renderIndex() {
   const data = await cached("posts", CACHE_TTL_MS, () =>
     storePosts()
+      .catch((e) => { console.error("firestore posts read failed, falling back", e.message); return null; })
       .then((r) => r || opinlyFetch("/content/posts?limit=24&sort=newest"))
       .catch((e) => ({ __error: e.message }))
   );
@@ -314,6 +315,7 @@ async function renderIndex() {
 async function renderPost(slug) {
   const post = await cached(`post:${slug}`, CACHE_TTL_MS, () =>
     storePost(slug)
+      .catch((e) => { console.error("firestore post read failed, falling back", e.message); return null; })
       .then((r) => r || opinlyFetch(`/content/post?slug=${encodeURIComponent(slug)}`))
       .catch((e) => ({ __error: e.message }))
   );
