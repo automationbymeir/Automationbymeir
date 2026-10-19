@@ -51,8 +51,8 @@ function db() {
   return getFirestore();
 }
 
-async function storePosts() {
-  const snap = await db().collection("blogPosts").orderBy("firstPublishedAt", "desc").limit(100).get();
+async function storePosts(coll = "blogPosts") {
+  const snap = await db().collection(coll).orderBy("firstPublishedAt", "desc").limit(100).get();
   const now = Date.now();
   const rows = snap.docs.map((d) => d.data()).filter(
     (p) => p && p.status === "published" && p.slug && Date.parse(p.firstPublishedAt) <= now
@@ -60,8 +60,8 @@ async function storePosts() {
   return rows.length ? { data: rows } : null;
 }
 
-async function storePost(slug) {
-  const d = await db().collection("blogPosts").doc(slug).get();
+async function storePost(slug, coll = "blogPosts") {
+  const d = await db().collection(coll).doc(slug).get();
   if (!d.exists) return null;
   const p = d.data();
   if (!p || p.status !== "published" || Date.parse(p.firstPublishedAt) > Date.now()) return null;
@@ -283,7 +283,7 @@ function emptyBody(ui) {
 
 async function renderIndex(storeOnly = false) {
   const data = await cached(storeOnly ? "posts:store" : "posts", CACHE_TTL_MS, () =>
-    storePosts()
+    storePosts(storeOnly ? "blogPostsStaging" : "blogPosts")
       .catch((e) => { console.error("firestore posts read failed, falling back", e.message); return null; })
       .then((r) => r || (storeOnly ? null : opinlyFetch("/content/posts?limit=24&sort=newest")))
       .catch((e) => ({ __error: e.message }))
@@ -314,7 +314,7 @@ async function renderIndex(storeOnly = false) {
 
 async function renderPost(slug, storeOnly = false) {
   const post = await cached(`post${storeOnly ? ":store" : ""}:${slug}`, CACHE_TTL_MS, () =>
-    storePost(slug)
+    storePost(slug, storeOnly ? "blogPostsStaging" : "blogPosts")
       .catch((e) => { console.error("firestore post read failed, falling back", e.message); return null; })
       .then((r) => r || (storeOnly ? null : opinlyFetch(`/content/post?slug=${encodeURIComponent(slug)}`)))
       .catch((e) => ({ __error: e.message }))
