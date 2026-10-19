@@ -63,7 +63,7 @@ if (!DRY) {
   const pid = process.env.GCLOUD_PROJECT || JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS ? (await import("fs")).readFileSync(process.env.GOOGLE_APPLICATION_CREDENTIALS, "utf8") : "{}").project_id;
   const cands = [process.env.STORAGE_BUCKET, `${pid}.firebasestorage.app`, `${pid}.appspot.com`].filter(Boolean);
   for (const c of cands) {
-    try { const b = admin.storage().bucket(c); if ((await b.exists())[0]) { bucket = b; break; } } catch (e) { console.log(`bucket ${c}: ${e.message}`); }
+    try { const b = admin.storage().bucket(c); if ((await b.exists())[0]) { bucket = b; break; } } catch (e) { console.log(`bucket ${c}: ${e.message.slice(0, 120)}`); if (/storage\.buckets\.get/.test(e.message) && c.endsWith(".firebasestorage.app")) { bucket = admin.storage().bucket(c); break; } }
   }
   if (!bucket) throw new Error(`no storage bucket found among ${cands.join(", ")}`);
   console.log(`project=${pid} bucket=${bucket.name}`);
