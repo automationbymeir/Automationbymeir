@@ -8,6 +8,8 @@
 //   OPINLY_CDN_NAMESPACE - company CDN namespace (image host prefix)
 
 import functions from "firebase-functions";
+import { getApps, initializeApp } from "firebase-admin/app";
+import { getFirestore } from "firebase-admin/firestore";
 
 const OPINLY_API = "https://sdk.opinly.ai/v1";
 const SITE = "https://www.automationbymeir.com";
@@ -34,6 +36,36 @@ async function opinlyFetch(path) {
     throw new Error(`Opinly API ${res.status} for ${path}: ${body.slice(0, 200)}`);
   }
   return res.json();
+}
+
+
+// ---- Firestore post store (collection "blogPosts", doc id = slug) ----
+// Docs keep the Opinly post shape so the renderers below are unchanged:
+//   title, slug, description, metaDescription, titleFile{fileKey,altText},
+//   content (Tiptap JSON) OR contentHtml (pre-sanitized HTML), faqs[], author{name},
+//   category{name}, firstPublishedAt, modifiedAt (ISO strings), status.
+// Only status "published" with firstPublishedAt <= now is served, so scheduling
+// is just a future firstPublishedAt. Clients never read Firestore directly.
+function db() {
+  if (!getApps().length) initializeApp();
+  return getFirestore();
+}
+
+async function storePosts() {
+  const snap = await db().collection("blogPosts").orderBy("firstPublishedAt", "desc").limit(100).get();
+  const now = Date.now();
+  const rows = snap.docs.map((d) => d.data()).filter(
+    (p) => p && p.status === "published" && p.slug && Date.parse(p.firstPublishedAt) <= now
+  );
+  return rows.length ? { data: rows } : null;
+}
+
+async function storePost(slug) {
+  const d = await db().collection("blogPosts").doc(slug).get();
+  if (!d.exists) return null;
+  const p = d.data();
+  if (!p || p.status !== "published" || Date.parse(p.firstPublishedAt) > Date.now()) return null;
+  return p;
 }
 
 function imageUrl(file) {
@@ -251,7 +283,9 @@ function emptyBody(ui) {
 
 async function renderIndex() {
   const data = await cached("posts", CACHE_TTL_MS, () =>
-    opinlyFetch("/content/posts?limit=24&sort=newest").catch((e) => ({ __error: e.message }))
+    storePosts()
+      .then((r) => r || opinlyFetch("/content/posts?limit=24&sort=newest"))
+      .catch((e) => ({ __error: e.message }))
   );
   if (!data || data.__nokey || data.__error || !Array.isArray(data.data) || data.data.length === 0) {
     return page({
@@ -279,11 +313,13 @@ async function renderIndex() {
 
 async function renderPost(slug) {
   const post = await cached(`post:${slug}`, CACHE_TTL_MS, () =>
-    opinlyFetch(`/content/post?slug=${encodeURIComponent(slug)}`).catch((e) => ({ __error: e.message }))
+    storePost(slug)
+      .then((r) => r || opinlyFetch(`/content/post?slug=${encodeURIComponent(slug)}`))
+      .catch((e) => ({ __error: e.message }))
   );
   if (!post || post.__nokey || post.__error || !post.slug) return null;
   const hero = imageUrl(post.titleFile);
-  const contentHtml = renderContent(post.content);
+  const contentHtml = typeof post.contentHtml === "string" && post.contentHtml ? post.contentHtml : renderContent(post.content);
   const he = isHebrew(post.title, post.metaDescription || post.description);
   const ui = he ? UI.he : UI.en;
   const faq = Array.isArray(post.faqs) && post.faqs.length

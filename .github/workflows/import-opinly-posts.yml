@@ -1,0 +1,42 @@
+# Manual one-off: copy published Opinly-rendered posts into Firestore + Storage.
+# No secrets are written to the repo; the service account comes from GitHub secrets.
+name: Import blog posts to Firestore (manual)
+on:
+  workflow_dispatch:
+    inputs:
+      source:
+        description: "Blog base URL that serves /blog and /blog/<slug>"
+        required: true
+        default: "https://us-central1-automationbymeir.cloudfunctions.net/blog"
+      site:
+        description: "Public site origin for canonical URLs"
+        required: true
+        default: "https://www.automationbymeir.com"
+      dry_run:
+        description: "Parse only, write nothing"
+        type: boolean
+        default: true
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci --prefix functions
+      - name: Run import
+        env:
+          SOURCE: ${{ inputs.source }}
+          SITE: ${{ inputs.site }}
+          DRY: ${{ inputs.dry_run }}
+          SA_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_AUTOMATIONBYMEIR }}
+        run: |
+          if [ "$DRY" = "true" ]; then
+            node scripts/import-opinly-posts.mjs --source "$SOURCE" --site "$SITE" --dry-run
+          else
+            umask 077
+            printf '%s' "$SA_JSON" > "$RUNNER_TEMP/sa.json"
+            GOOGLE_APPLICATION_CREDENTIALS="$RUNNER_TEMP/sa.json" node scripts/import-opinly-posts.mjs --source "$SOURCE" --site "$SITE"
+            rm -f "$RUNNER_TEMP/sa.json"
+          fi
