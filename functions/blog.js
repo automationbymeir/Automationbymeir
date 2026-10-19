@@ -281,11 +281,11 @@ function emptyBody(ui) {
   return `<div class="blog-index"><h1>${ui.blog}</h1><p class="sub">${ui.sub}</p><div class="empty"><p>${ui.empty}</p></div></div>`;
 }
 
-async function renderIndex() {
-  const data = await cached("posts", CACHE_TTL_MS, () =>
+async function renderIndex(storeOnly = false) {
+  const data = await cached(storeOnly ? "posts:store" : "posts", CACHE_TTL_MS, () =>
     storePosts()
       .catch((e) => { console.error("firestore posts read failed, falling back", e.message); return null; })
-      .then((r) => r || opinlyFetch("/content/posts?limit=24&sort=newest"))
+      .then((r) => r || (storeOnly ? null : opinlyFetch("/content/posts?limit=24&sort=newest")))
       .catch((e) => ({ __error: e.message }))
   );
   if (!data || data.__nokey || data.__error || !Array.isArray(data.data) || data.data.length === 0) {
@@ -312,11 +312,11 @@ async function renderIndex() {
   });
 }
 
-async function renderPost(slug) {
-  const post = await cached(`post:${slug}`, CACHE_TTL_MS, () =>
+async function renderPost(slug, storeOnly = false) {
+  const post = await cached(`post${storeOnly ? ":store" : ""}:${slug}`, CACHE_TTL_MS, () =>
     storePost(slug)
       .catch((e) => { console.error("firestore post read failed, falling back", e.message); return null; })
-      .then((r) => r || opinlyFetch(`/content/post?slug=${encodeURIComponent(slug)}`))
+      .then((r) => r || (storeOnly ? null : opinlyFetch(`/content/post?slug=${encodeURIComponent(slug)}`)))
       .catch((e) => ({ __error: e.message }))
   );
   if (!post || post.__nokey || post.__error || !post.slug) return null;
@@ -349,7 +349,7 @@ async function renderPost(slug) {
   });
 }
 
-export const blog = functions
+const makeBlog = (storeOnly) => functions
   .region("us-central1")
   .runWith({ timeoutSeconds: 30, memory: "256MB" })
   .https.onRequest(async (req, res) => {
@@ -357,11 +357,11 @@ export const blog = functions
     try {
       const parts = req.path.split("/").filter(Boolean); // e.g. ["blog"] or ["blog","my-post"]
       if (parts.length === 1) {
-        res.status(200).send(await renderIndex());
+        res.status(200).send(await renderIndex(storeOnly));
         return;
       }
       if (parts.length === 2) {
-        const html = await renderPost(parts[1]);
+        const html = await renderPost(parts[1], storeOnly);
         if (html) {
           res.status(200).send(html);
         } else {
@@ -380,3 +380,7 @@ export const blog = functions
       }));
     }
   });
+
+export const blog = makeBlog(false);
+// Preview-only: reads Firestore ONLY (no Opinly fallback). Not wired into any Hosting rewrite.
+export const blogTest = makeBlog(true);
