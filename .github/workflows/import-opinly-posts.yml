@@ -4,6 +4,10 @@ name: Import blog posts to Firestore (manual)
 on:
   workflow_dispatch:
     inputs:
+      mode:
+        description: "import = copy from live /blog; write_scheduled = write approved bundle from ABM_POSTS_BUNDLE secret"
+        required: true
+        default: "import"
       source:
         description: "Blog base URL that serves /blog and /blog/<slug>"
         required: true
@@ -33,7 +37,20 @@ jobs:
         with:
           node-version: 20
       - run: npm ci --prefix functions
+      - name: Write scheduled posts from secret bundle
+        if: ${{ inputs.mode == 'write_scheduled' }}
+        env:
+          SA_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_AUTOMATIONBYMEIR }}
+          BUNDLE: ${{ secrets.ABM_POSTS_BUNDLE }}
+          COLL: ${{ inputs.collection }}
+        run: |
+          umask 077
+          printf '%s' "$SA_JSON" > "$RUNNER_TEMP/sa.json"
+          printf '%s' "$BUNDLE" > "$RUNNER_TEMP/bundle.json"
+          GOOGLE_APPLICATION_CREDENTIALS="$RUNNER_TEMP/sa.json" BUNDLE_FILE="$RUNNER_TEMP/bundle.json" node scripts/write-scheduled-posts.mjs
+          rm -f "$RUNNER_TEMP/sa.json" "$RUNNER_TEMP/bundle.json"
       - name: Run import
+        if: ${{ inputs.mode == 'import' }}
         env:
           SOURCE: ${{ inputs.source }}
           SITE: ${{ inputs.site }}
@@ -50,7 +67,7 @@ jobs:
             rm -f "$RUNNER_TEMP/sa.json"
           fi
       - name: Write functions env (deploy only)
-        if: ${{ inputs.deploy_test_function }}
+        if: ${{ inputs.deploy_test_function && inputs.mode == 'import' }}
         run: |
           echo '${{ secrets.ABM_RUNTIME_CONFIG }}' > functions/.runtimeconfig.json
           {
@@ -59,7 +76,7 @@ jobs:
           } > functions/.env
           jq -r '.scheduling | "CALENDAR_ID=\(.calendar_id)\nTIMEZONE=\(.timezone)\nMEETING_DURATION_MINUTES=\(.meeting_duration)\nNOTIFICATION_EMAIL=\(.notification_email)\nDELEGATED_USER=\(.delegated_user)\nBUSINESS_START_HOUR=\(.start_hour)\nBUSINESS_END_HOUR=\(.end_hour)"' functions/.runtimeconfig.json >> functions/.env
       - name: Deploy blogTest only
-        if: ${{ inputs.deploy_test_function }}
+        if: ${{ inputs.deploy_test_function && inputs.mode == 'import' }}
         uses: w9jds/firebase-action@master
         with:
           args: deploy --only functions:blogTest --project automationbymeir
