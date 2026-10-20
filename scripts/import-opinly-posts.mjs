@@ -8,6 +8,7 @@ import crypto from "crypto";
 const require = createRequire(import.meta.url);
 
 const args = process.argv.slice(2);
+const COLL = (() => { const i = process.argv.indexOf("--collection"); return i > -1 ? process.argv[i + 1] : "blogPosts"; })();
 const opt = (n) => { const i = args.indexOf(`--${n}`); return i >= 0 ? args[i + 1] : undefined; };
 const SOURCE = (opt("source") || "").replace(/\/$/, "");
 const SITE = (opt("site") || "").replace(/\/$/, "");
@@ -62,7 +63,7 @@ if (!DRY) {
   const pid = process.env.GCLOUD_PROJECT || JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS ? (await import("fs")).readFileSync(process.env.GOOGLE_APPLICATION_CREDENTIALS, "utf8") : "{}").project_id;
   const cands = [process.env.STORAGE_BUCKET, `${pid}.firebasestorage.app`, `${pid}.appspot.com`].filter(Boolean);
   for (const c of cands) {
-    try { const b = admin.storage().bucket(c); if ((await b.exists())[0]) { bucket = b; break; } } catch (e) { console.log(`bucket ${c}: ${e.message}`); }
+    try { const b = admin.storage().bucket(c); if ((await b.exists())[0]) { bucket = b; break; } } catch (e) { console.log(`bucket ${c}: ${e.message.slice(0, 120)}`); if (/storage\.buckets\.get/.test(e.message) && c.endsWith(".firebasestorage.app")) { bucket = admin.storage().bucket(c); break; } }
   }
   if (!bucket) throw new Error(`no storage bucket found among ${cands.join(", ")}`);
   console.log(`project=${pid} bucket=${bucket.name}`);
@@ -102,7 +103,7 @@ for (const slug of slugs) {
     contentHtml: html, faqs: p.faqs, status: "published", source: p.source,
   };
   if (!DRY && /opinly\.ai/.test(JSON.stringify(doc))) throw new Error(`opinly URL left in ${slug}`);
-  if (!DRY) await db.collection("blogPosts").doc(slug).set(doc);
+  if (!DRY) await db.collection(COLL).doc(slug).set(doc);
   n++;
   console.log(`${DRY ? "dry " : ""}ok ${slug} html=${html.length} images=${cache.size} faqs=${p.faqs.length}`);
 }

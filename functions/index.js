@@ -691,4 +691,4 @@ export const schedule = functions
   .runWith({ secrets: ["GOOGLE_SERVICE_ACCOUNT"] })
   .https.onRequest(app);
 
-export { blog } from "./blog.js";
+export { blog, blogTest } from "./blog.js";
